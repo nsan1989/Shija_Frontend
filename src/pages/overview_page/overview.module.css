@@ -1,0 +1,9 @@
+.overview-wrapper-styles {
+    padding: 56px 96px;
+}
+
+@media (max-width: 991.98px) {
+    .overview-wrapper-styles {
+        padding: 56px 1cqi;
+    }
+}

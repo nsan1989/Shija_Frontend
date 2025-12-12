@@ -1,0 +1,9 @@
+.diseasesConditionsWrapperStyle {
+    padding: 4rem 96px;
+}
+
+@media (max-width: 991.98px) {
+    .diseasesConditionsWrapperStyle {
+        padding: 4rem 16px;
+    }
+}

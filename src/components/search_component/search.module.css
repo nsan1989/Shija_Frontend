@@ -1,0 +1,22 @@
+.searchWrapper {
+    width: 100%;
+}
+
+.containerStyles {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+input:focus {
+    outline: none;
+}
+
+::placeholder {
+    color: #6b1d20;
+}
+
+.searchButton {
+    background: #fff;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100%;
+}

@@ -1,0 +1,24 @@
+.floatNavWrapperStyle {
+    position: absolute;
+    bottom: 2rem;
+    z-index: 20;
+}
+
+.floatNavStyle {
+    padding: 1rem 0rem;
+    background: #fff;
+    cursor: pointer;
+}
+
+.floatNavStyle:hover {
+    background: #6b1d20;
+}
+
+.floatNavStyle a {
+    text-decoration: none;
+    color: #6b1d20;
+}
+
+.floatNavStyle:hover a {
+    color: #fff;
+}

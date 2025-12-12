@@ -1,0 +1,13 @@
+.cardWrapperStyles a {
+    text-decoration: none;
+}
+
+.cardStyle {
+    width: 100%;
+}
+
+.cardStyle:hover {
+    border: 1px solid #6b1d20;
+    transition: 0.3s;
+}
+

@@ -1,0 +1,16 @@
+.mobile-menu-wrapper-styles {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.menu-wrapper-styles a {
+    text-decoration: none;
+    color: #6B1D20;
+}
+
+.menuTitleStyle {
+    font-size: 0.8rem;
+}

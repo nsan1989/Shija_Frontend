@@ -40,7 +40,8 @@
     z-index: 20;
 }
 
-.discover-section-styles {
+.discover-section-styles,
+.testimonial-section-styles {
     padding: 48px 0px;
 }
 

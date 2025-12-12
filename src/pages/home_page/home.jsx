@@ -12,6 +12,7 @@ import styles from './home.module.css'
 /* --api's-- */
 import useBannerData from '../../api/banner_api'
 import useDiscoverData from '../../api/discover_api'
+import useTestimonialData from '../../api/testimonial_api'
 
 export default function Home() {
 
@@ -19,8 +20,10 @@ export default function Home() {
 
     const { data: bannerData } = useBannerData()
     const banner = bannerData
-    const { data, isLoading, error } = useDiscoverData()
-    const discover = data?.discover_data || [];
+    const { data: discoverData, isLoading: isDiscoverLoading, error: discoverError } = useDiscoverData();
+    const discover = discoverData?.discover_data || [];
+    const { data: testimonialData, isLoading: isTestimonialLoading, error: testimonialError } = useTestimonialData();
+    const testimonial = testimonialData?.testimonial_data || [];
 
     return (
         <div className='home-wrapper'>
@@ -88,7 +91,7 @@ export default function Home() {
                         <p className='mb-0'>Experience world-class healthcare at Apollo's specialized hubs of medical innovation. Our state-of-the-art centres deliver unparalleled expertise in key specialties and super specialties.
                             Each centre stands as a beacon of cutting-edge care, setting new benchmarks in clinical outcomes globally.</p>
                     </div>
-                    <div className="section-navs mb-3">
+                    <div className="section-navs mb-4">
                         {discover.map((item) => (
                             <React.Fragment key={item.id}>
                                 <ul className='nav nav-pills mb-3' id='pills-tab' role='tablist'>
@@ -129,12 +132,24 @@ export default function Home() {
                             </React.Fragment>
                         ))}
                     </div>
-                    <div className="section-button">
-
+                    <div className="section-button d-flex justify-content-center">
+                        <Button className='btn-warning'>View All Specialities</Button>
                     </div>
                 </Container>
             </section>
             {/* end of discover section */}
+            {/* testimonial section */}
+            <section className={`testimonial-section ${styles['testimonial-section-styles']}`}>
+                <Container>
+                    <div className="section-title mb-3">
+                        <h3>Patients Speak</h3>
+                    </div>
+                    <div className="section-content">
+                        
+                    </div>
+                </Container>
+            </section>
+            {/* end of testimonial section */}
         </div>
     )
 }

@@ -31,7 +31,7 @@ footer {
 }
 
 svg circle[fill^="url("] {
-  display: none !important;
+    display: none !important;
 }
 
 .go3489369143 {

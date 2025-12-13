@@ -1,143 +1,200 @@
-import { useEffect, useState } from 'react'
-import HeaderWrapper from './header_wrapper';
-import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap'
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import {
+    Navbar,
+    Nav,
+    Container,
+    Image,
+    Button,
+    NavDropdown,
+} from "react-bootstrap";
+import { FaBarsStaggered } from "react-icons/fa6";
+import { FaTimes } from "react-icons/fa";
+import styles from './header.module.css';
 import { FaAngleDown, FaAngleRight } from "react-icons/fa6";
-import { Link } from 'react-router-dom'
-import styles from './header.module.css'
+
+const navLinks = [
+    {
+        name: "Discover Shija",
+        icon: <FaAngleDown />,
+        dropdown: [
+            {
+                name: "The Shija Story",
+                icon: <FaAngleRight />,
+                subDropdown: [
+                    { name: "Overview", path: "/overview" },
+                    { name: "Vice Principal", path: "/vice_principal" },
+                ],
+            },
+            { name: "Leadership", path: "/principal_message" },
+        ],
+    },
+    {
+        name: "Specialities",
+        icon: <FaAngleDown />,
+        dropdown: [
+            { name: "Downloads", path: "/download" },
+            { name: "Gallery", path: "/gallery" },
+        ],
+    },
+    { name: "SHRI", path: "/" },
+    {
+        name: "Services",
+        icon: <FaAngleDown />,
+        dropdown: [
+            { name: "Admission", path: "/admission" },
+            { name: "Course", path: "/course" },
+        ],
+    },
+    {
+        name: "Health Library",
+        icon: <FaAngleDown />,
+        dropdown: [
+            { name: "Admission", path: "/admission" },
+            { name: "Course", path: "/course" },
+        ],
+    },
+];
 
 export default function Header() {
-    const [isFixed, setIsFixed] = useState(false);
+    const [expanded, setExpanded] = useState(false);
+    const [navbarBg, setNavbarBg] = useState("transparent");
+    const [hoveredDropdown, setHoveredDropdown] = useState(null);
+    const [openSubDropdown, setOpenSubDropdown] = useState(null);
+    const [navbarLinks, setNavbarLinks] = useState("#ffffff");
+    const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 767.99);
+    const toggleNavbar = () => setExpanded((prev) => !prev);
+    const closeNavbar = () => setExpanded(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.innerWidth > 992 && window.scrollY > 100) {
-                setIsFixed(true);
+            if (window.scrollY > 50) {
+                setNavbarBg("#fff");
+                setNavbarLinks("#6b1d20");
             } else {
-                setIsFixed(false);
+                setNavbarBg("rgba(0, 0, 0, 0)");
+                setNavbarLinks("#ffffff");
             }
         };
-
         window.addEventListener("scroll", handleScroll);
-        window.addEventListener("resize", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
-        handleScroll();
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-            window.removeEventListener("resize", handleScroll);
+    useEffect(() => {
+        const handleResize = () => {
+            setIsSmallScreen(window.innerWidth < 768);
         };
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
     }, []);
 
     return (
-        <Navbar expand='lg' className={`navbar-wrapper py-3 ${styles["navbar-wrapper-styles"]} ${isFixed ? styles["fixed-styles"] : styles[""]}`}>
+        <Navbar
+            className="navbar"
+            expand="lg"
+            fixed="top"
+            expanded={expanded}
+            style={{
+                transition: "background-color 0.3s ease-in-out",
+                backgroundColor: isSmallScreen ? "#fff" : navbarBg,
+            }}
+        >
             <Container>
-                <Navbar.Brand href='/' className='d-lg-none'>Shija</Navbar.Brand>
-                <Navbar.Toggle aria-controls='navbar-collapse'></Navbar.Toggle>
-                <Navbar.Collapse id='navbar-collapse'>
-                    <Nav className='d-flex justify-content-evenly w-100'>
-                        <HeaderWrapper
-                            drop='down' 
-                            title={
-                                <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                    Discover Shija&nbsp;<FaAngleDown size={16} />
-                                </span>
-                            } 
-                            id='discover-shija'>
-                            <HeaderWrapper 
-                            drop='end' 
-                            className='100vw border'
-                            title={
-                                <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                    The Shija Story&nbsp;<FaAngleRight size={16} />
-                                </span>
-                            }  
-                            id='shija-story'>
-                                <NavDropdown.Item><Link target='' to="/company-overview">Overview</Link></NavDropdown.Item>
-                                <NavDropdown.Item href=''>Vision & Mission</NavDropdown.Item>
-                                <NavDropdown.Item href=''>Achievements & Milestones</NavDropdown.Item>
-                                <NavDropdown.Item href=''>Career</NavDropdown.Item>
-                            </HeaderWrapper>
-                            <HeaderWrapper
-                            drop='end' 
-                            title={
-                                <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                    Leadership&nbsp;<FaAngleRight size={16} />
-                                </span>
-                            }  
-                            id='leadership'>
-                                <NavDropdown.Item href=''>Leader - 1</NavDropdown.Item>
-                                <NavDropdown.Item href=''>Leader - 2</NavDropdown.Item>
-                                <NavDropdown.Item href=''>Leader - 3</NavDropdown.Item>
-                                <NavDropdown.Item href=''>Leader - 4</NavDropdown.Item>
-                            </HeaderWrapper>
-                            <HeaderWrapper 
-                            drop='end' 
-                            title={
-                                <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                    Academic & Research&nbsp;<FaAngleRight size={16} />
-                                </span>
-                            }  
-                            id='academic-research'>
-                                <NavDropdown.Item href=''>SAHS</NavDropdown.Item>
-                                <NavDropdown.Item href=''>SAN</NavDropdown.Item>
-                                <NavDropdown.Item href=''>SPRA</NavDropdown.Item>
-                                <NavDropdown.Item href=''>DMV</NavDropdown.Item>
-                            </HeaderWrapper>
-                            <HeaderWrapper 
-                            drop='end' 
-                            title={
-                                <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                    Media Centre&nbsp;<FaAngleRight size={16} />
-                                </span>
-                            }  
-                            id='media-centre'>
-                                <NavDropdown.Item href=''>Shija in the News</NavDropdown.Item>
-                                <NavDropdown.Item href=''>Press Releases</NavDropdown.Item>
-                                <NavDropdown.Item href=''>Events</NavDropdown.Item>
-                                <NavDropdown.Item href=''>Media Gallery</NavDropdown.Item>
-                                <NavDropdown.Item href=''>Media Contacts</NavDropdown.Item>
-                            </HeaderWrapper>
-                        </HeaderWrapper>
-                        <HeaderWrapper 
-                        title={
-                                <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                    Speciality&nbsp;<FaAngleDown size={16} />
-                                </span>
-                        }  
-                        id='speciality'>
-                            <NavDropdown.Item href=''>Overview</NavDropdown.Item>
-                        </HeaderWrapper>
-                        <Navbar.Brand href='/' className='d-none d-lg-flex'>Shija</Navbar.Brand>
-                        <HeaderWrapper 
-                        title={
-                                <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                    Medical Services&nbsp;<FaAngleDown size={16} />
-                                </span>
-                        }  
-                        id='medical-services'>
-                            <NavDropdown.Item href=''>Centres of Excellence & Specailities</NavDropdown.Item>
-                            <NavDropdown.Item href=''>Book and Appointment</NavDropdown.Item>
-                            <NavDropdown.Item href=''>Find a Doctor</NavDropdown.Item>
-                            <NavDropdown.Item href=''>Book Health Check</NavDropdown.Item>
-                            <NavDropdown.Item href=''>Preventive Health</NavDropdown.Item>
-                        </HeaderWrapper>
-                        <HeaderWrapper 
-                        title={
-                                <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                    Health Library&nbsp;<FaAngleDown size={16} />
-                                </span>
-                        }  
-                        id='health-library'>
-                            <NavDropdown.Item><Link target='' to="/diseases-and-conditions">Diseases and Conditions</Link></NavDropdown.Item>
-                            <NavDropdown.Item href=''>Treatments & Procedures</NavDropdown.Item>
-                            <NavDropdown.Item href=''>Symptoms Guide</NavDropdown.Item>
-                            <NavDropdown.Item href=''>Health Technology</NavDropdown.Item>
-                            <NavDropdown.Item href=''>Medicines</NavDropdown.Item>
-                            <NavDropdown.Item href=''>Diagnostics & Tests</NavDropdown.Item>
-                        </HeaderWrapper>
+                <Navbar.Brand className="d-lg-none" as={Link} to="/" onClick={closeNavbar}>
+                    SHRI
+                </Navbar.Brand>
+                <Navbar.Toggle
+                    className="ms-auto p-0 bg-transparent border-0 shadow-none focus-shadow-none"
+                    aria-controls="navbarNav"
+                    onClick={toggleNavbar}
+                    style={{ border: "none", outline: "none", boxShadow: "none" }}
+                >
+                    {expanded ? (
+                        <FaTimes size={"24px"} color="#6b1d20" />
+                    ) : (
+                        <FaBarsStaggered size={"24px"} color="#6b1d20" />
+                    )}
+                </Navbar.Toggle>
+                <Navbar.Collapse>
+                    <Nav className={`${styles["nav-styles"]}`}>
+                        {navLinks.map((link, index) =>
+                            link.dropdown ? (
+                                <NavDropdown
+                                    key={index}
+                                    title={
+                                        <span style={{ color: navbarLinks }}>{link.name}&nbsp;{link.icon}</span>
+                                    }
+                                    id={`${link.name.toLowerCase()}-dropdown`}
+                                    show={
+                                        hoveredDropdown === index ||
+                                        (isSmallScreen && hoveredDropdown === index)
+                                    }
+                                    onMouseEnter={() =>
+                                        !isSmallScreen && setHoveredDropdown(index)
+                                    }
+                                    onMouseLeave={() =>
+                                        !isSmallScreen && setHoveredDropdown(null)
+                                    }
+                                    onClick={() => {
+                                        if (isSmallScreen) {
+                                            setHoveredDropdown(
+                                                hoveredDropdown === index ? null : index
+                                            );
+                                        }
+                                    }}
+                                    style={{ fontSize: "1rem" }}
+                                >
+                                    {link.dropdown.map((item, idx) =>
+                                        item.subDropdown ? (
+                                            <NavDropdown
+                                                key={idx}
+                                                title={
+                                                    <span className="d-flex justify-content-between align-items-center">
+                                                        {item.name}
+                                                        <FaAngleRight />
+                                                    </span>
+                                                }
+                                                drop="end"
+                                                className="nested-dropdown"
+                                            >
+                                                {item.subDropdown.map((subItem, subIdx) => (
+                                                    <NavDropdown.Item
+                                                        key={subIdx}
+                                                        as={Link}
+                                                        to={subItem.path}
+                                                        onClick={closeNavbar}
+                                                    >
+                                                        {subItem.name}
+                                                    </NavDropdown.Item>
+                                                ))}
+                                            </NavDropdown>
+                                        ) : (
+                                            <NavDropdown.Item
+                                                key={idx}
+                                                as={Link}
+                                                to={item.path}
+                                                onClick={closeNavbar}
+                                            >
+                                                {item.name}&nbsp;{item.icon}
+                                            </NavDropdown.Item>
+                                        )
+                                    )}
+                                </NavDropdown>
+                            ) : (
+                                <Nav.Link
+                                    key={index}
+                                    as={Link}
+                                    to={link.path}
+                                    onClick={closeNavbar}
+                                    style={{ fontSize: "1rem", color: navbarLinks }}
+                                >
+                                    {link.name}
+                                </Nav.Link>
+                            )
+                        )}
                     </Nav>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
-    )
+    );
 }

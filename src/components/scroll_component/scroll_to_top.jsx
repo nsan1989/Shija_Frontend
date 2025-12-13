@@ -31,12 +31,12 @@ export default function ScrollToTop() {
         <>
             {isVisible && (
                 <div className={`scroll-wrapper ${styles["scroll-wrapper-styles"]}`}>
-                    <Button
+                    <div
                         onClick={scrollToTop}
                         className={`button-wrapper ${styles["scroll-button-styles"]}`}
                     >
-                        <FaAngleUp size="16px" />
-                    </Button>
+                        <FaAngleUp />
+                    </div>
                 </div>
             )}
         </>

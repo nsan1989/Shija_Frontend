@@ -1,69 +1,15 @@
-import { Container, Row, Col, Button, Form, InputGroup, Accordion } from 'react-bootstrap'
+import { Container, Button, Accordion } from 'react-bootstrap'
 import { FaFacebook, FaInstagram, FaGooglePlay, FaApple } from "react-icons/fa6"
 import styles from './footer.module.css'
-import { useState } from 'react'
+import CallbackFunction from '../callback_component/callback'
 
 export default function Footer() {
-
-    const [validated, setValidated] = useState(false);
-    const handleSubmit = (event) => {
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
-        setValidated(true);
-    };
 
     return (
         <div className={`footer-wrapper py-3 ${styles[`footer-wrapper-styles`]}`}>
             <Container>
                 <div className="footer-top-content py-5 px-0">
-                    <div className="form-wrapper border rounded-4 p-3">
-                        <Row className='mb-3'>
-                            <Col>
-                                <div className="form-title">
-                                    <p className='mb-0'>Could not find what you are looking for? </p>
-                                    <h3>Request a Callback!</h3>
-                                </div>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col xs={12} sm={12} md={12} lg={8} xl={8}>
-                                <div id="callback-form">
-                                    <Form noValidate validated={validated} onSubmit={handleSubmit}>
-                                        <Row className='mb-3'>
-                                            <Form.Group as={Col} md="4" controlId='nameControl'>
-                                                <Form.Control required type='text' placeholder='enter your name' />
-                                                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                                            </Form.Group>
-                                            <Form.Group as={Col} md="4" controlId="phoneControl">
-                                                <InputGroup hasValidation>
-                                                    <Form.Control
-                                                        type="tel"
-                                                        placeholder="Enter your phone number"
-                                                        required
-                                                    />
-                                                    <Button variant="btn btn-warning">
-                                                        Send
-                                                    </Button>
-                                                    <Form.Control.Feedback type="invalid">
-                                                        Please enter a valid phone number.
-                                                    </Form.Control.Feedback>
-                                                </InputGroup>
-                                            </Form.Group>
-                                            <Form.Group as={Col} md="4" controlId='phoneOtp'>
-                                                <Form.Control required type='text' placeholder='enter otp' />
-                                                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                                            </Form.Group>
-                                        </Row>
-                                        <Button type="submit">Submit</Button>
-                                    </Form>
-                                </div>
-                            </Col>
-                            <Col className='d-none d-lg-flex' xs={12} sm={12} md={12} lg={4} xl={4}>image</Col>
-                        </Row>
-                    </div>
+                    <CallbackFunction />
                 </div>
                 <div className="footer-middle-content d-lg-flex py-3">
                     <div className={`footer-block d-none d-lg-block ${styles[`footer-block-styles`]}`}>
@@ -355,18 +301,18 @@ export default function Footer() {
                         </p>
                         <div className="download-links d-flex flex-column gap-3">
                             <div className="play-store-link">
-                                <Button variant="light" size='md' className={`d-flex align-items-center ${styles["app-link-styles"]}`}>
+                                <div className={`d-flex align-items-center rounded ${styles["app-link-styles"]}`}>
                                     <FaGooglePlay />
-                                    &nbsp;
+                                    &nbsp;&nbsp;
                                     <p className='m-0'>Get it on Google Play</p>
-                                </Button>
+                                </div>
                             </div>
                             <div className="app-store-link">
-                                <Button variant="light" size='md' className={`d-flex align-items-center ${styles["app-link-styles"]}`}>
+                                <div className={`d-flex align-items-center rounded ${styles["app-link-styles"]}`}>
                                     <FaApple />
-                                    &nbsp;
+                                    &nbsp;&nbsp;
                                     <p className='m-0'>Get it on the App Store</p>
-                                </Button>
+                                </div>
                             </div>
                         </div>
                     </div>

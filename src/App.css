@@ -37,3 +37,31 @@ svg circle[fill^="url("] {
 .go3489369143 {
     display: none !important;
 }
+
+.dropdown-menu {
+    --bs-dropdown-min-width: 16rem !important;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar-collapse {
+        height: 100vh !important;
+    }
+
+    .dropdown-menu {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        padding: 0.5rem !important;
+        width: 100% !important;
+    }
+
+    .dropdown-item {
+        padding: 0 !important;
+    }
+
+    .nav-link span {
+        padding: 0rem !important;
+        display: flex;
+        justify-content: space-between;
+    }
+}

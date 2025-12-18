@@ -1,6 +1,20 @@
 .nav-styles {
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 4rem;
 }
 
+@media screen and (max-width: 768px) {
+    .nav-styles {
+        width: 100%;
+        display: flex;
+        justify-content: start;
+        gap: 0.5rem;
+        padding: 0.5rem 0.5rem;
+    }
+
+    .navbarStyles {
+        padding: 0.8rem 0.7rem !important;
+    }
+}

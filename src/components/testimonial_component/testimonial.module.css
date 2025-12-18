@@ -1,20 +1,38 @@
-.playerWrapperStyle {
-    position: relative;
-    width: 100%;
-    height: 12rem;
+.testimonialWrapperStyles {
+    display: flex;
+    gap: 24px;
     overflow: hidden;
+    padding: 32px 0;
+    white-space: nowrap;
+    height: 16rem;
 }
 
-.overlayWrapperStyle {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.9);
+.testimonialItemsStyles {
+    min-width: 50rem;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
+    gap: 2rem;
+    flex-shrink: 0;
+    animation: scroll 25s linear infinite;
+}
+
+/* Animation */
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.testimonialImageStyles {
+    width: 12rem;
+    height: 12rem;
+}
+
+.testimonialContentStyles {
+    width: calc(100% - 13rem);
+    background-color: #007c9d;
     color: #fff;
+    padding: 1rem;
 }

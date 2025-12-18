@@ -1,46 +1,45 @@
-import { useState } from 'react';
-import { Row, Col } from 'react-bootstrap';
-import ReactPlayer from "react-player";
-import { FaCaretRight } from "react-icons/fa6";
-import styles from './testimonial.module.css';
+import { Image } from 'react-bootstrap'
+import styles from './testimonial.module.css'
+/* --api's-- */
+import useTestimonialData from '../../api/testimonial_api'
 
 export default function TestimonialCard() {
 
-    const [isPlaying, setIsPlaying] = useState(false);
+    const dummyTestimonials = [
+        {
+            id: "dummy-1",
+            image: "/images/user-placeholder.png",
+            author_name: "John Doe",
+            short_notes: "This is a sample testimonial for preview purposes."
+        }
+    ];
+
+
+    const { data: testimonialData } = useTestimonialData();
+    const testimonial = testimonialData?.testimonial_data || [];
+
+    const newTestimonialData = testimonial && testimonial.length > 0 ? [...testimonial, ...testimonial] : dummyTestimonials;
+
 
     return (
-        <Row className='m-0'>
-            <Col md={6} lg={3}>
-                <div className={`${styles.playerWrapperStyle}`}>
-                    {/* React Player */}
-                    <ReactPlayer
-                        src="https://youtu.be/8LSt8_11wbQ"
-                        playing={isPlaying}
-                        width="100%"
-                        height="100%"
-                        controls={isPlaying}
-                        style={{ objectFit: 'cover' }}
+        <div className={`testimonial-wrapper gap-3 ${styles[`testimonialWrapperStyles`]}`}>
+            {newTestimonialData.map((item, index) => (
+                <div
+                    key={`${item.id}-${index}`}
+                    className={`testimonial-items ${styles.testimonialItemsStyles}`}
+                >
+                    <Image
+                        src={item.image}
+                        alt={item.author_name}
+                        className={`testimonial-image rounded ${styles.testimonialImageStyles}`}
                     />
-                    {/* Overlay */}
-                    {!isPlaying && (
-                        <div className={`${styles.overlayWrapperStyle}`}>
-                            <div
-                                className='p-3'
-                                onClick={() => setIsPlaying(true)}
-                                style={{
-                                    cursor: "pointer"
-                                }}
-                            >
-                                <FaCaretRight
-                                    size={'2rem'}
-                                    style={{ width: '4rem', height: '4rem', border: '1px solid #fff', borderRadius: '100%' }} />
-                            </div>
-                            <p className='m-0'>Title</p>
-                            <small>Content Text</small>
-                        </div>
-                    )}
+
+                    <div className={`testimonial-content rounded-3 ${styles.testimonialContentStyles}`}>
+                        <h3 className="mb-1">{item.author_name}</h3>
+                        <p className="mb-0">{item.short_notes}</p>
+                    </div>
                 </div>
-            </Col>
-        </Row>
+            ))}
+        </div>
     )
 }

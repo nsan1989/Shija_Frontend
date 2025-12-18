@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 export default function useTestimonialData() {
 
     const testimonialAPIUrl = import.meta.env.VITE_TESTIMONIAL_API;
-    const testimonialBaseUrl = import.meta.env.VITE_TESTIMONIAL_BASE_url;
+    const testimonialBaseUrl = import.meta.env.VITE_TESTIMONIAL_BASE_URL;
 
     const { data, isLoading, error } = useQuery({
         queryKey: ['testimonialData'],

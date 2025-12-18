@@ -38,20 +38,38 @@
 .app-link-styles {
     min-width: 14rem;
     min-height: 3rem;
+    background-color: #fff;
+    color: #6B1D20;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    tab-size: 2;
+}
+
+.app-link-styles:hover {
+    color: #fff;
+    background-color: #ff9900;
 }
 
 @media (max-width: 991.98px) {
     .footer-wrapper-styles {
         padding: 0px 16px;
     }
+
     .footer-block-styles {
         width: 100%;
     }
+
     .footer-bottom-styles {
         margin-bottom: 3rem;
     }
+
     .copyright-content-styles p {
         font-size: 0.7rem;
     }
-}
 
+    .app-link-styles {
+        min-width: 100%;
+        min-height: 3rem;
+    }
+}

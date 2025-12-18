@@ -1,86 +1,32 @@
 import React from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Pagination, Navigation } from 'swiper/modules'
-import 'swiper/css'
-import 'swiper/css/pagination'
-import 'swiper/css/navigation'
 import { Container, Image, Card, Row, Col, Button } from 'react-bootstrap'
 import Title from '../../components/title_component/title'
 import Search from '../../components/search_component/search'
 import FloatNav from '../../components/float_nav_component/float_nav'
+import BannerFunction from '../../components/banner_component/banner'
+import TestimonialCard from '../../components/testimonial_component/testimonial'
+import CoeFunction from '../../components/coe_component/coe'
+import ServiceFunction from '../../components/service_component/service'
 import styles from './home.module.css'
 /* --api's-- */
-import useBannerData from '../../api/banner_api'
 import useDiscoverData from '../../api/discover_api'
-import useTestimonialData from '../../api/testimonial_api'
 
 export default function Home() {
 
     Title('Home')
 
-    const { data: bannerData } = useBannerData()
-    const banner = bannerData
     const { data: discoverData, isLoading: isDiscoverLoading, error: discoverError } = useDiscoverData();
     const discover = discoverData?.discover_data || [];
-    const { data: testimonialData, isLoading: isTestimonialLoading, error: testimonialError } = useTestimonialData();
-    const testimonial = testimonialData?.testimonial_data || [];
-
+    
     return (
         <div className='home-wrapper'>
             {/* banner section */}
-            <section className={`banner-section ${styles[`banner-section-styles`]}`}>
+            <section className="banner-section">
                 <div className={styles.searchComponentStyle}>
                     <Search placeholder='Search for Doctors and Specialities...' />
                 </div>
                 <FloatNav />
-                {/* desktop swiper */}
-                <Container fluid className='p-0 h-100 d-none d-md-flex'>
-                    <Swiper
-                        modules={[Autoplay, Pagination, Navigation]}
-                        autoplay={{ delay: 3000, disableOnInteraction: false }}
-                        pagination={{ clickable: true }}
-                        navigation
-                        effect='slide'
-                        loop={true}
-                        speed={1200}
-                        className={styles.bannerSwipper}
-                    >
-                        {banner?.desktop_images?.map((img, index) => (
-                            <SwiperSlide key={index}>
-                                <Image
-                                    className={styles["banner-image-styles"]}
-                                    src={img}
-                                    alt={`Banner ${index + 1}`}
-                                />
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
-                </Container>
-                {/* mobile swiper */}
-                <Container fluid className='p-0 h-100 d-md-none'>
-                    <Swiper
-                        modules={[Autoplay, Pagination, Navigation]}
-                        autoplay={{ delay: 3000, disableOnInteraction: false }}
-                        pagination={{ clickable: true }}
-                        navigation
-                        effect='slide'
-                        loop={true}
-                        speed={1200}
-                        className={styles.bannerSwipper}
-                    >
-                        {banner?.mobile_images?.map((img, index) => (
-                            <SwiperSlide key={index}>
-                                <Image
-                                    className={styles["banner-image-styles"]}
-                                    src={img}
-                                    alt={`Banner ${index + 1}`}
-                                    fill
-                                    style={{ objectFit: 'cover' }}
-                                />
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
-                </Container>
+                <BannerFunction />
             </section>
             {/* end of banner section */}
             {/* discover section */}
@@ -142,14 +88,24 @@ export default function Home() {
             <section className={`testimonial-section ${styles['testimonial-section-styles']}`}>
                 <Container>
                     <div className="section-title mb-3">
-                        <h3>Patients Speak</h3>
+                        <h3 className='mb-0 fw-bold'>Patients Speak</h3>
                     </div>
                     <div className="section-content">
-                        
+                        <TestimonialCard />
                     </div>
                 </Container>
             </section>
             {/* end of testimonial section */}
+            {/* coe section */}
+            <section>
+                <CoeFunction />
+            </section>
+            {/* end of coe section */}
+            {/* services section */}
+            <section>
+                <ServiceFunction />
+            </section>
+            {/* end of Services section */}
         </div>
     )
 }

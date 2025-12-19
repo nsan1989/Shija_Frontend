@@ -102,8 +102,15 @@ export default function Home() {
             </section>
             {/* end of coe section */}
             {/* services section */}
-            <section>
-                <ServiceFunction />
+            <section className={`services-section ${styles[`service-section-styles`]}`}>
+                <Container>
+                    <div className="section-title mb-3 text-center">
+                        <h3 className='mb-0 fw-bold'>Services</h3>
+                    </div>
+                    <div className={`section-content ${styles[`sectionContentStyles`]}`}>
+                        <ServiceFunction />
+                    </div>
+                </Container>
             </section>
             {/* end of Services section */}
         </div>

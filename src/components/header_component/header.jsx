@@ -17,34 +17,34 @@ const navLinks = [
                 subDropdown: [
                     { name: "Overview", path: "/overview" },
                     { name: "Vision & Mission", path: "/vision&mission" },
+                    { name: "Leaderships", path: "/leaderships" },
                     { name: "Awards & Accolades", path: "/awards&accolades" },
+                    { name: "Achievements", path: "/achievements" },
+                    { name: "Careers", path: "/careers" },
                 ],
             },
             { 
                 name: "Leadership", 
                 icon: <FaAngleRight />, 
                 subDropdown: [
-                    { name: "Overview", path: "/overview" },
-                    { name: "Vision & Mission", path: "/vision&mission" },
-                    { name: "Awards & Accolades", path: "/awards&accolades" },
+                    { name: "Board of Direstors", path: "/directors" },
                 ], 
             },
             { 
                 name: "Academics & Research", 
                 icon: <FaAngleRight />, 
                 subDropdown: [
-                    { name: "Overview", path: "/overview" },
-                    { name: "Vision & Mission", path: "/vision&mission" },
-                    { name: "Awards & Accolades", path: "/awards&accolades" },
+                    { name: "Shija Knowledge", path: "/shija_knowledge" },
                 ], 
             },
             { 
                 name: "Media Centre", 
                 icon: <FaAngleRight />, 
                 subDropdown: [
-                    { name: "Overview", path: "/overview" },
-                    { name: "Vision & Mission", path: "/vision&mission" },
-                    { name: "Awards & Accolades", path: "/awards&accolades" },
+                    { name: "Shija in the News", path: "/shija_in_the_news" },
+                    { name: "Press Releases", path: "/press_releases" },
+                    { name: "Events", path: "/events" },
+                    { name: "Media Gallery", path: "/media_gallery" },
                 ], 
             },
         ],
@@ -89,28 +89,28 @@ const navLinks = [
             },
             { 
                 name: "Book Appointment", 
-                path: "",
+                icon: <FaAngleRight />,
                 subDropdown: [
                     { name: "Demo", path: "/demo" },
                 ],
             },
             { 
                 name: "Find Doctor", 
-                path: "",
+                icon: <FaAngleRight />,
                 subDropdown: [
                     { name: "Demo", path: "/demo" },
                 ], 
             },
             { 
                 name: "Book Health Check", 
-                path: "",
+                icon: <FaAngleRight />,
                 subDropdown: [
                     { name: "Demo", path: "/demo" },
                 ], 
             },
             { 
                 name: "Book Home Care", 
-                path: "",
+               icon: <FaAngleRight />,
                 subDropdown: [
                     { name: "Demo", path: "/demo" },
                 ], 
@@ -122,15 +122,43 @@ const navLinks = [
         icon: <FaAngleDown />,
         dropdown: [
             { 
-                name: "Admission", 
-                path: "",
+                name: "Diseases & Conditions", 
+                icon: <FaAngleRight />,
+                subDropdown: [
+                    { name: "Brain Cancer", path: "/brain_cancer" },
+                ], 
+            },
+            { 
+                name: "Treatments & Procedures", 
+                icon: <FaAngleRight />,
                 subDropdown: [
                     { name: "Demo", path: "/demo" },
                 ], 
             },
             { 
-                name: "Course", 
-                path: "",
+                name: "Symptoms Guide", 
+                icon: <FaAngleRight />,
+                subDropdown: [
+                    { name: "Demo", path: "/demo" },
+                ], 
+            },
+            { 
+                name: "Health Technology", 
+                icon: <FaAngleRight />,
+                subDropdown: [
+                    { name: "Demo", path: "/demo" },
+                ], 
+            },
+            { 
+                name: "Medicines", 
+                icon: <FaAngleRight />,
+                subDropdown: [
+                    { name: "Demo", path: "/demo" },
+                ], 
+            },
+            { 
+                name: "Diagnostics & Reports", 
+                icon: <FaAngleRight />,
                 subDropdown: [
                     { name: "Demo", path: "/demo" },
                 ], 
@@ -143,6 +171,7 @@ export default function Header() {
     const [expanded, setExpanded] = useState(false);
     const [navbarBg, setNavbarBg] = useState("transparent");
     const [hoveredDropdown, setHoveredDropdown] = useState(null);
+    const [hoveredSubMenu, setHoveredSubMenu] = useState(null);
     const [navbarLinks, setNavbarLinks] = useState("#ffffff");
     const [isSmallScreen, setIsSmallScreen] = useState(
         typeof window !== "undefined" ? window.innerWidth < 768 : false
@@ -222,8 +251,18 @@ export default function Header() {
                                 }
                                 id={`${link.name.toLowerCase()}-dropdown`}
                                 show={hoveredDropdown === index}
-                                onMouseEnter={() => !isSmallScreen && setHoveredDropdown(index)}
-                                onMouseLeave={() => !isSmallScreen && setHoveredDropdown(null)}
+                                onMouseEnter={() => {
+                                    if (!isSmallScreen) {
+                                        setHoveredDropdown(index);
+                                        setHoveredSubMenu(`${index}-0`);
+                                    }
+                                }}
+                                onMouseLeave={() => {
+                                    if (!isSmallScreen) {
+                                        setHoveredDropdown(null);
+                                        setHoveredSubMenu(null);
+                                    }
+                                }}
                                 onClick={() => {
                                     if (isSmallScreen) {
                                         setHoveredDropdown(
@@ -251,6 +290,21 @@ export default function Header() {
                                                 </span>
                                             }
                                             className="nested-dropdown"
+                                            show={
+                                                isSmallScreen
+                                                    ? hoveredSubMenu === `${index}-${idx}`
+                                                    : hoveredSubMenu === `${index}-${idx}` || hoveredSubMenu === `${index} - 0`
+                                            }
+                                            onMouseEnter={() => {
+                                                if (!isSmallScreen) {
+                                                    setHoveredSubMenu(`${index}-${idx}`)
+                                                }
+                                            }}
+                                            onMouseLeave={() => {
+                                                if (!isSmallScreen) {
+                                                    setHoveredSubMenu(`${index} - 0`)
+                                                }
+                                            }}
                                         >
                                             {item.subDropdown.map((subItem, subIdx) => (
                                                 <NavDropdown.Item

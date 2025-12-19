@@ -1,4 +1,4 @@
-import { Container, Button, Accordion } from 'react-bootstrap'
+import { Container, Col, Button, Accordion } from 'react-bootstrap'
 import { FaFacebook, FaInstagram, FaGooglePlay, FaApple } from "react-icons/fa6"
 import styles from './footer.module.css'
 import CallbackFunction from '../callback_component/callback'
@@ -12,7 +12,7 @@ export default function Footer() {
                     <CallbackFunction />
                 </div>
                 <div className="footer-middle-content d-lg-flex py-3">
-                    <div className={`footer-block d-none d-lg-block ${styles[`footer-block-styles`]}`}>
+                    <div className={`footer-block ${styles[`footer-block-styles`]}`}>
                         <h4 className='block-title mb-3'>For Patients</h4>
                         <ul className={`footer-links ${styles[`footer-links-styles`]}`}>
                             <li className='mb-2'>
@@ -44,6 +44,7 @@ export default function Footer() {
                             </li>
                         </ul>
                     </div>
+                    {/*
                     <div className='d-lg-none mb-3'>
                         <Accordion>
                             <Accordion.Item eventKey='0'>
@@ -84,7 +85,8 @@ export default function Footer() {
                             </Accordion.Item>
                         </Accordion>
                     </div>
-                    <div className={`footer-block d-none d-lg-block ${styles[`footer-block-styles`]}`}>
+                    */}
+                    <div className={`footer-block ${styles[`footer-block-styles`]}`}>
                         <h4 className='block-title mb-3'>Departments</h4>
                         <ul className={`footer-links ${styles[`footer-links-styles`]}`}>
                             <li className='mb-2'>
@@ -116,6 +118,7 @@ export default function Footer() {
                             </li>
                         </ul>
                     </div>
+                    {/*
                     <div className='d-lg-none mb-3'>
                         <Accordion>
                             <Accordion.Item eventKey='1'>
@@ -156,7 +159,8 @@ export default function Footer() {
                             </Accordion.Item>
                         </Accordion>
                     </div>
-                    <div className={`footer-block d-none d-lg-block ${styles[`footer-block-styles`]}`}>
+                    */}
+                    <div className={`footer-block ${styles[`footer-block-styles`]}`}>
                         <h4 className='block-title mb-3'>Centre of Excellence</h4>
                         <ul className={`footer-links ${styles[`footer-links-styles`]}`}>
                             <li className='mb-2'>
@@ -188,6 +192,7 @@ export default function Footer() {
                             </li>
                         </ul>
                     </div>
+                    {/*
                     <div className='d-lg-none mb-3'>
                         <Accordion>
                             <Accordion.Item eventKey='2'>
@@ -228,7 +233,8 @@ export default function Footer() {
                             </Accordion.Item>
                         </Accordion>
                     </div>
-                    <div className={`footer-block d-none d-lg-block ${styles[`footer-block-styles`]}`}>
+                    */}
+                    <div className={`footer-block ${styles[`footer-block-styles`]}`}>
                         <h4 className='block-title mb-3'>Quick Links</h4>
                         <ul className={`footer-links ${styles[`footer-links-styles`]}`}>
                             <li className='mb-2'>
@@ -257,6 +263,7 @@ export default function Footer() {
                             </li>
                         </ul>
                     </div>
+                    {/*
                     <div className='d-lg-none mb-3'>
                         <Accordion>
                             <Accordion.Item eventKey='3'>
@@ -294,6 +301,7 @@ export default function Footer() {
                             </Accordion.Item>
                         </Accordion>
                     </div>
+                    */}
                     <div className={`footer-block ${styles[`footer-block-styles`]}`}>
                         <h4 className='block-title mb-3'>Download Our App</h4>
                         <p className='mb-3'>

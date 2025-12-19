@@ -1,0 +1,37 @@
+.serviceWrapperStyles {
+    display: flex;
+    gap: 24px;
+    overflow: hidden;
+    padding: 32px 0;
+    white-space: nowrap;
+    height: 32rem;
+}
+
+.serviceItemsStyles {
+    max-width: 25rem;
+    max-height: 25rem;
+    display: block;
+    gap: 2rem;
+    flex-shrink: 0;
+    animation: scroll 25s linear infinite;
+}
+
+/* Animation */
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.serviceImageStyles {
+    width: 12rem;
+    height: 12rem;
+}
+
+.serviceContentStyles {
+    color: #fff;
+    padding: 1rem;
+}

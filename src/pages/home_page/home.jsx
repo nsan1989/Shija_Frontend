@@ -17,7 +17,7 @@ export default function Home() {
 
     const { data: discoverData, isLoading: isDiscoverLoading, error: discoverError } = useDiscoverData();
     const discover = discoverData?.discover_data || [];
-    
+
     return (
         <div className='home-wrapper'>
             {/* banner section */}
@@ -84,11 +84,23 @@ export default function Home() {
                 </Container>
             </section>
             {/* end of discover section */}
+            {/* services section */}
+            <section className={`services-section ${styles[`service-section-styles`]}`}>
+                <Container>
+                    <div className="section-title mb-3 text-center">
+                        <h3 className='mb-0 fw-bold'>Services</h3>
+                    </div>
+                    <div className="service-content">
+                        <ServiceFunction />
+                    </div>
+                </Container>
+            </section>
+            {/* end of Services section */}
             {/* testimonial section */}
             <section className={`testimonial-section ${styles['testimonial-section-styles']}`}>
                 <Container>
-                    <div className="section-title mb-3">
-                        <h3 className='mb-0 fw-bold'>Patients Speak</h3>
+                    <div className="section-title mb-3 text-center">
+                        <h3 className='mb-0 fw-bold'>Patient Stories</h3>
                     </div>
                     <div className="section-content">
                         <TestimonialCard />
@@ -101,18 +113,6 @@ export default function Home() {
                 <CoeFunction />
             </section>
             {/* end of coe section */}
-            {/* services section */}
-            <section className={`services-section ${styles[`service-section-styles`]}`}>
-                <Container>
-                    <div className="section-title mb-3 text-center">
-                        <h3 className='mb-0 fw-bold'>Services</h3>
-                    </div>
-                    <div className={`section-content ${styles[`sectionContentStyles`]}`}>
-                        <ServiceFunction />
-                    </div>
-                </Container>
-            </section>
-            {/* end of Services section */}
         </div>
     )
 }

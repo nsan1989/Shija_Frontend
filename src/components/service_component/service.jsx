@@ -1,5 +1,7 @@
-import { Image } from 'react-bootstrap'
+import { useState } from 'react';
+import { Row, Col, Image } from 'react-bootstrap';
 import styles from './service.module.css'
+import { FaAngleRight, FaAngleLeft } from 'react-icons/fa';
 /* --api's-- */
 import useServiceData from '../../api/service_api'
 
@@ -20,26 +22,44 @@ export default function ServiceFunction() {
 
     const newServiceData = service && service.length > 0 ? [...service] : dummyServices;
 
-
     return (
-        <div className={`service-wrapper gap-3 ${styles[`serviceWrapperStyles`]}`}>
-            {newServiceData.map((item, index) => (
-                <div
-                    key={`${item.id}-${index}`}
-                    className={`service-items ${styles.serviceItemsStyles}`}
-                >
-                    <Image
-                        src={item.image}
-                        alt={item.service_name}
-                        className={`service-image ${styles.serviceImageStyles}`}
-                    />
-
-                    <div className={`service-content ${styles.serviceContentStyles}`}>
-                        <h3 className="mb-1">{item.title}</h3>
-                        <p className="mb-0">{item.sub_title}</p>
-                    </div>
-                </div>
-            ))}
+        <div className="service-wrapper">
+            <Row className='p-2' id='carouselSlider'>
+                {newServiceData.map((item, index) => (
+                    <Col
+                        className={`p-0 ${styles[`cardWrapperStyles`]}`}
+                        key={`${item.id}-${index}`}
+                        xs={12} sm={12} md={6} lg={4} xl={4} xxl={4}
+                    >
+                        <div className="service-image">
+                            <Image
+                                className='img-fluid w-100'
+                                src={item.image}
+                                alt={item.service_name}
+                                style={{ maxWidth: '100%' }}
+                            />
+                        </div>
+                        <div className={`service-content ${styles[`serviceContentStyles`]}`}>
+                            <h3 className='mb-0'>{item.title}</h3>
+                            <p>{item.sub_title}</p>
+                            <div className="service-link">
+                                <a href="">Know More&nbsp;<FaAngleRight /></a>
+                            </div>
+                        </div>
+                    </Col>
+                ))}
+            </Row>
+            {/* Navigation Buttons */}
+            <div 
+                className="d-flex justify-content-between mt-3"
+            >
+                <button className="btn btn-primary rounded-5" data-bs-target="#carouselSlider" data-bs-slide="prev">
+                    <FaAngleLeft />
+                </button>
+                <button className="btn btn-primary rounded-5" data-bs-target="#carouselSlider" data-bs-slide="next">
+                    <FaAngleRight />
+                </button>
+            </div>
         </div>
     )
 }

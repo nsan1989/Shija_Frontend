@@ -9,7 +9,11 @@
 }
 
 .discover-section-styles,
-.testimonial-section-styles,
+.testimonial-section-styles {
+    padding: 48px 0px;
+}
+
 .service-section-styles {
     padding: 48px 0px;
+    background-color: aliceblue;
 }

@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram, FaGooglePlay, FaApple } from "react-icons/fa6"
 import styles from './footer.module.css'
 import CallbackFunction from '../callback_component/callback'
 
-export default function Footer() {
+export default function ShijaFooter() {
 
     return (
         <div className={`footer-wrapper py-3 ${styles[`footer-wrapper-styles`]}`}>

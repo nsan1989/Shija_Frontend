@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Nav, Container, Image, Button, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { FaTimes, FaArrowLeft } from "react-icons/fa";
 import styles from './header.module.css';
@@ -23,29 +23,29 @@ const navLinks = [
                     { name: "Careers", path: "/careers" },
                 ],
             },
-            { 
-                name: "Leadership", 
-                icon: <FaAngleRight />, 
+            {
+                name: "Leadership",
+                icon: <FaAngleRight />,
                 subDropdown: [
                     { name: "Board of Direstors", path: "/directors" },
-                ], 
+                ],
             },
-            { 
-                name: "Academics & Research", 
-                icon: <FaAngleRight />, 
+            {
+                name: "Academics & Research",
+                icon: <FaAngleRight />,
                 subDropdown: [
                     { name: "Shija Knowledge", path: "/shija_knowledge" },
-                ], 
+                ],
             },
-            { 
-                name: "Media Centre", 
-                icon: <FaAngleRight />, 
+            {
+                name: "Media Centre",
+                icon: <FaAngleRight />,
                 subDropdown: [
-                    { name: "Shija in the News", path: "/shija_in_the_news" },
+                    { name: "Shija in the News", path: "/media-page" },
                     { name: "Press Releases", path: "/press_releases" },
                     { name: "Events", path: "/events" },
                     { name: "Media Gallery", path: "/media_gallery" },
-                ], 
+                ],
             },
         ],
     },
@@ -53,18 +53,18 @@ const navLinks = [
         name: "Specialities",
         icon: <FaAngleDown />,
         dropdown: [
-            { 
-                name: "Downloads", 
-                icon: <FaAngleRight />, 
+            {
+                name: "Downloads",
+                icon: <FaAngleRight />,
                 subDropdown: [
                     { name: "Overview", path: "/overview" },
                     { name: "Vision & Mission", path: "/vision&mission" },
                     { name: "Awards & Accolades", path: "/awards&accolades" },
-                ], 
+                ],
             },
-            { 
-                name: "Gallery", 
-                icon: <FaAngleRight />, 
+            {
+                name: "Gallery",
+                icon: <FaAngleRight />,
                 subDropdown: [
                     { name: "Overview", path: "/overview" },
                     { name: "Vision & Mission", path: "/vision&mission" },
@@ -87,33 +87,33 @@ const navLinks = [
                     { name: "Awards & Accolades", path: "/awards&accolades" },
                 ],
             },
-            { 
-                name: "Book Appointment", 
+            {
+                name: "Book Appointment",
                 icon: <FaAngleRight />,
                 subDropdown: [
                     { name: "Demo", path: "/demo" },
                 ],
             },
-            { 
-                name: "Find Doctor", 
+            {
+                name: "Find Doctor",
                 icon: <FaAngleRight />,
                 subDropdown: [
                     { name: "Demo", path: "/demo" },
-                ], 
+                ],
             },
-            { 
-                name: "Book Health Check", 
+            {
+                name: "Book Health Check",
                 icon: <FaAngleRight />,
                 subDropdown: [
                     { name: "Demo", path: "/demo" },
-                ], 
+                ],
             },
-            { 
-                name: "Book Home Care", 
-               icon: <FaAngleRight />,
+            {
+                name: "Book Home Care",
+                icon: <FaAngleRight />,
                 subDropdown: [
                     { name: "Demo", path: "/demo" },
-                ], 
+                ],
             },
         ],
     },
@@ -121,47 +121,47 @@ const navLinks = [
         name: "Health Library",
         icon: <FaAngleDown />,
         dropdown: [
-            { 
-                name: "Diseases & Conditions", 
+            {
+                name: "Diseases & Conditions",
                 icon: <FaAngleRight />,
                 subDropdown: [
                     { name: "Brain Cancer", path: "/brain_cancer" },
-                ], 
+                ],
             },
-            { 
-                name: "Treatments & Procedures", 
+            {
+                name: "Treatments & Procedures",
                 icon: <FaAngleRight />,
                 subDropdown: [
                     { name: "Demo", path: "/demo" },
-                ], 
+                ],
             },
-            { 
-                name: "Symptoms Guide", 
+            {
+                name: "Symptoms Guide",
                 icon: <FaAngleRight />,
                 subDropdown: [
                     { name: "Demo", path: "/demo" },
-                ], 
+                ],
             },
-            { 
-                name: "Health Technology", 
+            {
+                name: "Health Technology",
                 icon: <FaAngleRight />,
                 subDropdown: [
                     { name: "Demo", path: "/demo" },
-                ], 
+                ],
             },
-            { 
-                name: "Medicines", 
+            {
+                name: "Medicines",
                 icon: <FaAngleRight />,
                 subDropdown: [
                     { name: "Demo", path: "/demo" },
-                ], 
+                ],
             },
-            { 
-                name: "Diagnostics & Reports", 
+            {
+                name: "Diagnostics & Reports",
                 icon: <FaAngleRight />,
                 subDropdown: [
                     { name: "Demo", path: "/demo" },
-                ], 
+                ],
             },
         ],
     },
@@ -172,12 +172,12 @@ export default function Header() {
     const [navbarBg, setNavbarBg] = useState("transparent");
     const [hoveredDropdown, setHoveredDropdown] = useState(null);
     const [hoveredSubMenu, setHoveredSubMenu] = useState(null);
-    const [navbarLinks, setNavbarLinks] = useState("#ffffff");
     const [isSmallScreen, setIsSmallScreen] = useState(
         typeof window !== "undefined" ? window.innerWidth < 768 : false
     );
     const toggleNavbar = () => setExpanded((prev) => !prev);
     const closeNavbar = () => setExpanded(false);
+    const [navbarLinks, setNavbarLinks] = useState("#ffffff");
 
     useEffect(() => {
         const handleResize = () => {
@@ -216,6 +216,18 @@ export default function Header() {
             expand="lg"
             fixed="top"
             expanded={expanded}
+            onMouseEnter={() => {
+                if (!isSmallScreen) {
+                    setNavbarBg("#fff");
+                    setNavbarLinks("#6b1d20");
+                }
+            }}
+            onMouseLeave={() => {
+                if (!isSmallScreen && window.scrollY <= 50) {
+                    setNavbarBg("rgba(0,0,0,0)");
+                    setNavbarLinks("#ffffff");
+                }
+            }}
             style={{
                 transition: "background-color 0.3s ease-in-out",
                 backgroundColor: isSmallScreen ? "#fff" : navbarBg,

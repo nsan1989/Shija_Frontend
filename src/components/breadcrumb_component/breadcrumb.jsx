@@ -8,20 +8,18 @@ const BreadcrumbComponent = ({ items }) => {
             {items.map((item, index) => {
                 const isLast = index === items.length - 1;
                 return (
-                    <Breadcrumb.Item key={index} active={isLast}>
-                        {!isLast ? (
-                            <Link to={item.href} className="flex items-center gap-1">
-                                {item.icon && item.icon}
-                                {item.label}
-                            </Link>
-                        ) : (
-                            <span className="flex items-center gap-1 text-gray-500">
-                                {item.icon && item.icon}
-                                {item.label}
-                            </span>
-                        )}
+                    <Breadcrumb.Item
+                        key={index}
+                        active={isLast}
+                        linkAs={!isLast ? Link : "span"}
+                        linkProps={!isLast ? { to: item.href } : {}}
+                    >
+                        <span className="d-flex align-items-center gap-1">
+                            {item.icon && item.icon}
+                            {item.label}
+                        </span>
                     </Breadcrumb.Item>
-                )
+                );
             })}
         </Breadcrumb>
     )

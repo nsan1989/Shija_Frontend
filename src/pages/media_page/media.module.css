@@ -1,0 +1,15 @@
+.mediaHeaderStyle {
+    position: relative;
+    height: 10rem;
+    background-image: url("../../assets/images/header_image.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.headerOverlayStyle {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(107, 29, 32, 0.6);
+}

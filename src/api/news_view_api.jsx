@@ -13,7 +13,7 @@ export default function useNewsViewData() {
                 throw new Error('failed to fetch data!')
             }
             const jsonData = await response.json()
-            console.log(jsonData)
+            console.log(jsonData);
             const news_view_data = Array.isArray(jsonData?.msg)
                 ?jsonData.msg.map((item) => ({
                     ...item,

@@ -2,8 +2,8 @@ import Title from '../../components/title_component/title'
 import BreadcrumbComponent from '../../components/breadcrumb_component/breadcrumb';
 import Search from '../../components/search_component/search';
 import { Container, Row, Col } from 'react-bootstrap';
-import { FaHome } from "react-icons/fa"
-import styles from './diseases_conditions.module.css'
+import { FaHome } from "react-icons/fa";
+import styles from './diseases_conditions.module.css';
 
 const breadcrumbItems = [
     { href: '/', icon: <FaHome /> },

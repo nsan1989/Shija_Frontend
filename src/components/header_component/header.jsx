@@ -5,6 +5,7 @@ import { FaBarsStaggered } from "react-icons/fa6";
 import { FaTimes, FaArrowLeft } from "react-icons/fa";
 import styles from './header.module.css';
 import { FaAngleDown, FaAngleRight } from "react-icons/fa6";
+import { useLocation } from "react-router-dom";
 
 const navLinks = [
     {
@@ -167,7 +168,7 @@ const navLinks = [
     },
 ];
 
-export default function Header() {
+export default function ShijaHeader() {
     const [expanded, setExpanded] = useState(false);
     const [navbarBg, setNavbarBg] = useState("transparent");
     const [hoveredDropdown, setHoveredDropdown] = useState(null);
@@ -178,6 +179,8 @@ export default function Header() {
     const toggleNavbar = () => setExpanded((prev) => !prev);
     const closeNavbar = () => setExpanded(false);
     const [navbarLinks, setNavbarLinks] = useState("#ffffff");
+    const { pathname } = useLocation();
+    const isHomePage = pathname === "/";
 
     useEffect(() => {
         const handleResize = () => {
@@ -200,15 +203,22 @@ export default function Header() {
                 setNavbarBg("#fff");
                 setNavbarLinks("#6b1d20");
             } else {
-                setNavbarBg("rgba(0, 0, 0, 0)");
-                setNavbarLinks("#ffffff");
+                if (isHomePage) {
+                    setNavbarBg("rgba(0, 0, 0, 0)");
+                    setNavbarLinks("#ffffff");
+                    return;
+                } else {
+                    setNavbarBg("#fff");
+                    setNavbarLinks("#6b1d20");
+                    return;
+                }
             }
         };
 
         window.addEventListener("scroll", handleScroll);
 
         return () => window.removeEventListener("scroll", handleScroll);
-    }, [isSmallScreen]);
+    }, [isSmallScreen, isHomePage]);
 
     return (
         <Navbar
@@ -216,18 +226,24 @@ export default function Header() {
             expand="lg"
             fixed="top"
             expanded={expanded}
-            onMouseEnter={() => {
-                if (!isSmallScreen) {
-                    setNavbarBg("#fff");
-                    setNavbarLinks("#6b1d20");
-                }
-            }}
-            onMouseLeave={() => {
-                if (!isSmallScreen && window.scrollY <= 50) {
-                    setNavbarBg("rgba(0,0,0,0)");
-                    setNavbarLinks("#ffffff");
-                }
-            }}
+            onMouseEnter={
+                isHomePage && !isSmallScreen
+                    ? () => {
+                        setNavbarBg("#fff");
+                        setNavbarLinks("#6b1d20");
+                    }
+                    : undefined
+            }
+            onMouseLeave={
+                isHomePage && !isSmallScreen
+                    ? () => {
+                        if (window.scrollY <= 50) {
+                            setNavbarBg("rgba(0,0,0,0)");
+                            setNavbarLinks("#ffffff");
+                        }
+                    }
+                    : undefined
+            }
             style={{
                 transition: "background-color 0.3s ease-in-out",
                 backgroundColor: isSmallScreen ? "#fff" : navbarBg,

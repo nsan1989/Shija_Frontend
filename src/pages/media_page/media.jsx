@@ -5,6 +5,8 @@ import styles from './media.module.css';
 import { FaHome, FaAngleRight } from "react-icons/fa"
 import { Container, Row, Col } from 'react-bootstrap';
 import NewsViewFunction from "../../components/news_view_component/news_view";
+import EventsViewFunction from "../../components/events_view_component/events_view";
+import CampsViewFunction from "../../components/camps_view_component/camps_view";
 
 const breadcrumbItems = [
     { href: '/', icon: <FaHome /> },
@@ -19,8 +21,8 @@ export default function MediaPage() {
 
     const tabs = [
         { label: "Shija News", content: <NewsViewFunction /> },
-        { label: "Events", content: <div>Events List</div> },
-        { label: "Camps", content: <div>Camps Data</div> },
+        { label: "Events", content: <EventsViewFunction /> },
+        { label: "Camps", content: <CampsViewFunction /> },
         { label: "Media Gallery", content: <div>Gallery Data</div> }
     ];
 

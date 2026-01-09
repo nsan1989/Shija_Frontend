@@ -49,17 +49,6 @@ export default function ServiceFunction() {
                     </Col>
                 ))}
             </Row>
-            {/* Navigation Buttons */}
-            <div 
-                className="d-flex justify-content-between mt-3"
-            >
-                <button className="btn btn-primary rounded-5" data-bs-target="#carouselSlider" data-bs-slide="prev">
-                    <FaAngleLeft />
-                </button>
-                <button className="btn btn-primary rounded-5" data-bs-target="#carouselSlider" data-bs-slide="next">
-                    <FaAngleRight />
-                </button>
-            </div>
         </div>
     )
 }

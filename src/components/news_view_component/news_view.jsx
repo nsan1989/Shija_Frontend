@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
 import styles from './news_view.module.css'
 /* --api's-- */
-import useNewsViewData from '../../api/news_slide_api'
+import useNewsViewData from '../../api/news_view_api'
 
 export default function NewsViewFunction() {
 
     const { data: newsViewData } = useNewsViewData()
-    const news = newsViewData?.news_data || []
+    const news = newsViewData?.news_view_data || []
     const newNewsData = news && news.length > 0 ? news : [];
 
     return (

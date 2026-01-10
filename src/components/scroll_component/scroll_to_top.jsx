@@ -30,10 +30,10 @@ export default function ScrollToTop() {
     return (
         <>
             {isVisible && (
-                <div className={`scroll-wrapper ${styles["scroll-wrapper-styles"]}`}>
+                <div className={`scroll-wrapper ${styles["scrollWrapperStyles"]}`} title='Scroll to Top'>
                     <div
                         onClick={scrollToTop}
-                        className={`button-wrapper ${styles["scroll-button-styles"]}`}
+                        className={`button-wrapper ${styles["scrollButtonStyles"]}`}
                     >
                         <FaAngleUp />
                     </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react'
 import { Container, Image, Card, Row, Col, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Title from '../../components/title_component/title'
@@ -13,12 +13,23 @@ import styles from './home.module.css'
 /* --api's-- */
 import useDiscoverData from '../../api/discover_api'
 
+const alphabets = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+
+// Example disease data (replace with API data later)
+const diseaseData = {
+    A: ["Asthma", "Arthritis", "Anemia"],
+    B: ["Bronchitis", "Brain Tumor"],
+    C: ["Cancer", "COVID-19", "Cardiac Arrest"],
+};
+
 export default function Home() {
 
     Title('Home')
 
     const { data: discoverData, isLoading: isDiscoverLoading, error: discoverError } = useDiscoverData();
     const discover = discoverData?.discover_data || [];
+
+    const [selectedLetter, setSelectedLetter] = useState("A");
 
     return (
         <div className='home-wrapper'>
@@ -48,6 +59,41 @@ export default function Home() {
                 </Container>
             </section>
             {/* end of discover section */}
+            {/* Diseases and Conditions Search */}
+            <section className={`diseases-and-conditions-section ${styles['diseases-and-conditions-styles']}`}>
+                <Container>
+                    <Row>
+                        <Col xs={12} sm={12} md={7} lg={7} xl={7}>
+                            <div className="section-title mb-3">
+                                <h3 className='mb-5 fw-bold'>Find Diseases & Conditions By Alphabet</h3>
+                                <div className={`alphabet-warpper ${styles['grid']}`}>
+                                    {alphabets.map((letter) => (
+                                        <button
+                                            key={letter}
+                                            className={styles['circle']}
+                                            onClick={() => setSelectedLetter(letter)}
+                                        >
+                                            {letter}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        </Col>
+                        <Col xs={12} sm={12} md={5} lg={5} xl={5}>
+                            {diseaseData[selectedLetter]?.length ? (
+                                <ul>
+                                    {diseaseData[selectedLetter].map((disease, index) => (
+                                        <a href={`/disease/${disease}`}><li key={index}>{disease}</li></a>
+                                    ))}
+                                </ul>
+                            ) : (
+                                <p>No diseases found for the selected letter.</p>
+                            )}
+                        </Col>
+                    </Row>
+                </Container>
+            </section>
+            {/* end ofDiseases and Conditions Search */}
             {/* services section */}
             <section className={`services-section ${styles[`service-section-styles`]}`}>
                 <Container>

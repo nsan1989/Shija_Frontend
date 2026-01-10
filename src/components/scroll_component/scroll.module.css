@@ -1,4 +1,4 @@
-.scroll-wrapper-styles {
+.scrollWrapperStyles {
     position: fixed;
     z-index: 999;
     bottom: 5rem;
@@ -13,10 +13,4 @@
     background-color: #ff9900;
     color: #fff;
     transition: opacity 0.3s ease-in-out;
-}
-
-.scroll-wrapper-styles Button {
-    font-size: 24px;
-    display: flex;
-    justify-content: center;
 }

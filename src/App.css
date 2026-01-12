@@ -41,3 +41,29 @@ footer {
 .dropdown-toggle::after {
     display: none !important;
 }
+
+@media (max-width: 768px) {
+    
+    .navbar-collapse {
+        height: 100vh !important;
+    }
+
+    .navbar-nav {
+        padding: 0 !important;
+    }
+
+    .dropdown-menu {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 100vh !important;
+        z-index: 1000 !important;
+        border: none !important;
+    }
+
+    .dropdown-menu.show {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+    }
+}

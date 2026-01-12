@@ -270,6 +270,7 @@ export default function ShijaHeader() {
                         if (isSmallScreen && link.name === "SHRI") return null;
                         return link.dropdown ? (
                             <NavDropdown
+                                className="first-dropdown"
                                 key={index}
                                 drop={isSmallScreen ? "end" : "down"}
                                 title={
@@ -301,7 +302,12 @@ export default function ShijaHeader() {
                                 style={{ fontSize: "1rem" }}
                             >
                                 {isSmallScreen && (
-                                    <div className="dropdown-back-btn" onClick={() => setHoveredDropdown(null)}>
+                                    <div
+                                        onClick={() => {
+                                            setHoveredDropdown(null);
+                                            setHoveredSubMenu(null);
+                                        }}
+                                    >
                                         <FaArrowLeft className="me-2" />
                                         Back
                                     </div>
@@ -309,6 +315,7 @@ export default function ShijaHeader() {
                                 {link.dropdown.map((item, idx) =>
                                     item.subDropdown ? (
                                         <NavDropdown
+                                            className="second-dropdown"
                                             key={idx}
                                             drop={isSmallScreen ? "down" : "end"}
                                             title={
@@ -317,12 +324,16 @@ export default function ShijaHeader() {
                                                     <FaAngleRight />
                                                 </span>
                                             }
-                                            className="nested-dropdown"
-                                            show={
-                                                isSmallScreen
-                                                    ? hoveredSubMenu === `${index}-${idx}`
-                                                    : hoveredSubMenu === `${index}-${idx}` || hoveredSubMenu === `${index} - 0`
-                                            }
+                                            show={hoveredSubMenu === `${index}-${idx}`}
+                                            onClick={(e) => {
+                                                if (isSmallScreen) {
+                                                    e.preventDefault();
+                                                    e.stopPropagation();
+                                                    setHoveredSubMenu(
+                                                        hoveredSubMenu === `${index}-${idx}` ? null : `${index}-${idx}`
+                                                    );
+                                                }
+                                            }}
                                             onMouseEnter={() => {
                                                 if (!isSmallScreen) {
                                                     setHoveredSubMenu(`${index}-${idx}`)
@@ -330,10 +341,16 @@ export default function ShijaHeader() {
                                             }}
                                             onMouseLeave={() => {
                                                 if (!isSmallScreen) {
-                                                    setHoveredSubMenu(`${index} - 0`)
+                                                    setHoveredSubMenu(null)
                                                 }
                                             }}
                                         >
+                                            {isSmallScreen && (
+                                                <div className="dropdown-back-btn" onClick={() => setHoveredSubMenu(null)} >
+                                                    <FaArrowLeft className="me-2" />
+                                                    Back
+                                                </div>
+                                            )}
                                             {item.subDropdown.map((subItem, subIdx) => (
                                                 <NavDropdown.Item
                                                     key={subIdx}

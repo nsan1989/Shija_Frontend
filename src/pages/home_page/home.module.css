@@ -9,7 +9,8 @@
 }
 
 .discover-section-styles,
-.testimonial-section-styles {
+.testimonial-section-styles,
+.diseases-and-conditions-styles {
     padding: 48px 0px;
 }
 
@@ -23,13 +24,15 @@
     grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
     gap: 15px;
     max-width: 700px;
+    background-color: rgba(109,27, 32, 0.2);
+    padding: 1rem;
 }
 
 .circle {
     width: 55px;
     height: 55px;
     border-radius: 50%;
-    border: 1.5px solid #000;
+    border: 1.5px solid #6b1d20;
     background-color: #fff;
     color: #002b45;
     font-size: 16px;
@@ -38,6 +41,23 @@
     transition: all 0.3s ease;
 }
 .circle:hover {
-    background-color: #002b45;
+    background-color: #6b1d20;
     color: #fff;
+}
+
+.diseaseListStyles {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.diseaseListStyles li {
+    margin-bottom: 10px;
+}
+
+.diseaseLinkStyles {
+    text-decoration: none;
+}
+
+.diseaseLinkStyles:hover {
+    color: #6b1d20;
 }

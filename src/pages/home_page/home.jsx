@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Container, Image, Card, Row, Col, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Title from '../../components/title_component/title'
@@ -15,12 +15,7 @@ import useDiscoverData from '../../api/discover_api'
 
 const alphabets = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
-// Example disease data (replace with API data later)
-const diseaseData = {
-    A: ["Asthma", "Arthritis", "Anemia"],
-    B: ["Bronchitis", "Brain Tumor"],
-    C: ["Cancer", "COVID-19", "Cardiac Arrest"],
-};
+const DISEASE_INDEX_URL = "../Diseases-Repository/index/diseases-index.json"
 
 export default function Home() {
 
@@ -28,8 +23,27 @@ export default function Home() {
 
     const { data: discoverData, isLoading: isDiscoverLoading, error: discoverError } = useDiscoverData();
     const discover = discoverData?.discover_data || [];
-
+    const [indexData, setIndexData] = useState({});
     const [selectedLetter, setSelectedLetter] = useState("A");
+
+    useEffect(() => {
+        const fetchIndex = async () => {
+            try {
+                const res = await fetch(DISEASE_INDEX_URL);
+                if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+
+                const text = await res.text();
+                const data = text ? JSON.parse(text) : {};
+                setIndexData(data);
+            } catch (err) {
+                console.error("Error fetching JSON:", err);
+                setIndexData({});
+            }
+        };
+        fetchIndex();
+    }, []);
+
+    const diseases = indexData[selectedLetter] || [];
 
     return (
         <div className='home-wrapper'>
@@ -63,14 +77,16 @@ export default function Home() {
             <section className={`diseases-and-conditions-section ${styles['diseases-and-conditions-styles']}`}>
                 <Container>
                     <Row>
-                        <Col xs={12} sm={12} md={7} lg={7} xl={7}>
+                        <Col
+                            xs={12} sm={12} md={7} lg={7} xl={7}
+                        >
                             <div className="section-title mb-3">
-                                <h3 className='mb-5 fw-bold'>Find Diseases & Conditions By Alphabet</h3>
-                                <div className={`alphabet-warpper ${styles['grid']}`}>
+                                <h3 className='mb-3 fw-bold'>Find Diseases & Conditions By Alphabet</h3>
+                                <div className={`alphabet-warpper rounded-4 ${styles['grid']}`}>
                                     {alphabets.map((letter) => (
                                         <button
                                             key={letter}
-                                            className={styles['circle']}
+                                            className={`circle ${styles['circle']} ${letter === selectedLetter ? "active" : ""}`}
                                             onClick={() => setSelectedLetter(letter)}
                                         >
                                             {letter}
@@ -80,14 +96,29 @@ export default function Home() {
                             </div>
                         </Col>
                         <Col xs={12} sm={12} md={5} lg={5} xl={5}>
-                            {diseaseData[selectedLetter]?.length ? (
-                                <ul>
-                                    {diseaseData[selectedLetter].map((disease, index) => (
-                                        <a href={`/disease/${disease}`}><li key={index}>{disease}</li></a>
-                                    ))}
-                                </ul>
+                            <div className="column-title mb-3">
+                                <h3>List of related diseases</h3>
+                            </div>
+                            {diseases.length > 0 ? (
+                                <>
+                                    <ul className={`disease-list ${styles['diseaseListStyles']}`}>
+                                        {diseases.slice(0, 8).map(item => (
+                                            <li key={item.slug}>
+                                                <Link
+                                                    className={`disease-link ${styles['diseaseLinkStyles']}`}
+                                                    to={`/disease-details/${item.slug}`}
+                                                >
+                                                    {item.name}
+                                                </Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <div className="all-diseases-link mt-3">
+                                        <Link to="/diseases-and-conditions">View All Diseases</Link>
+                                    </div>
+                                </>
                             ) : (
-                                <p>No diseases found for the selected letter.</p>
+                                <p>No diseases available for this letter.</p>
                             )}
                         </Col>
                     </Row>

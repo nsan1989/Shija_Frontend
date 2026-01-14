@@ -2,8 +2,9 @@ import { useRef, useState } from 'react';
 import styles from './discover.module.css';
 import { Button } from 'react-bootstrap';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { Image } from 'react-bootstrap';
 /* --api's-- */
-import useDiscoverData from '../../api/discover_api';
+import useCoeData from '../../api/coe_api';
 
 export default function DiscoverFunction() {
     const bodyRefs = useRef([]);
@@ -18,21 +19,22 @@ export default function DiscoverFunction() {
         setCurrentIndex(index);
     };
 
-    const { data: discoverData } = useDiscoverData();
-    const discovers = discoverData?.discover_data || [];
+    const { data: discoverData } = useCoeData();
+    const discovers = discoverData?.coe_data || [];
     const newDiscoverData = discovers && discovers.length > 0 ? discovers : [];
 
     return (
         <div className={`discover-wrapper ${styles.discoverWrapperStyles}`}>
             {/* 🔹 DISCOVER HEADERS (Horizontal) */}
-            <div className="d-flex gap-2 mb-3 overflow-auto">
+            <div className="d-flex gap-4 mb-3 overflow-auto">
                 {newDiscoverData.map((item, index) => (
                     <div key={`header-${item.id}`}>
                         <Button
+                            className={`rounded-4 ${styles['discoverButtonStyles']}`}
                             variant="outline-primary"
                             onClick={() => scrollToBody(index)}
                         >
-                            {item.header}
+                            {item.name}
                         </Button>
                     </div>
                 ))}
@@ -55,19 +57,21 @@ export default function DiscoverFunction() {
                 </Button>
 
                 {/* 🔹 SCROLL CONTAINER */}
-                <div className="d-flex gap-4 overflow-auto flex-nowrap w-100">
-                    {discovers.map((item, index) => (
+                <div className={`discover-body ${styles['discoverBodyStyles']}`}>
+                    {discovers.slice(0, 5).map((item, index) => (
                         <div
                             key={item.id}
                             ref={(el) => (bodyRefs.current[index] = el)}
                             className="discover-body border d-flex p-4 shadow-sm rounded"
-                            style={{ minWidth: '650px' }}
+                            style={{ minWidth: '64rem' }}
                         >
                             <div className="discover-image me-4">
-                                <img
+                                <Image
                                     src={item.image}
-                                    alt={item.header}
-                                    className={`img-fluid rounded ${styles.discoverImageStyles}`}
+                                    alt={item.name}
+                                    className={`rounded ${styles.discoverImageStyles}`}
+                                    fluid
+                                    style={{width:"16rem"}}
                                 />
                             </div>
                             <div className="discover-content">

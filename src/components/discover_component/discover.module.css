@@ -1,0 +1,11 @@
+.discoverButtonStyles {
+    width: 12rem;
+}
+
+.discoverBodyStyles {
+    display: flex;
+    gap: 4rem;
+    overflow-x: auto;
+    width: 100%;
+    scrollbar-width: none;
+}

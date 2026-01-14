@@ -25,7 +25,7 @@ export default function CentresOfExcellencePage() {
                     </div>
                     <div className='mb-3'>
                         <h1>Centres of Excellence</h1>
-                        <p>Our Centres of Excellence bring together multidisciplinary teams to deliver precise diagnosis, 
+                        <p>Our Centres of Excellence bring together multidisciplinary teams to deliver precise diagnosis,
                             advanced treatments, and superior outcomes across a wide spectrum of medical specialties.</p>
                     </div>
                     <div>
@@ -40,7 +40,9 @@ export default function CentresOfExcellencePage() {
                     <div className="coe_content_heading">
                         <h2>Explore Our Centres of Excellence</h2>
                     </div>
-                    <CoeFunction />
+                    <div className="coe_content">
+                        <CoeFunction />
+                    </div>
                 </div>
             </Container>
         </div>

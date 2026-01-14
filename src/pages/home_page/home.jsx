@@ -149,11 +149,6 @@ export default function Home() {
                 </Container>
             </section>
             {/* end of testimonial section */}
-            {/* coe section */}
-            <section>
-                <CoeFunction />
-            </section>
-            {/* end of coe section */}
         </div>
     )
 }

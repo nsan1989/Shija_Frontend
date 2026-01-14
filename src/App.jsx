@@ -11,6 +11,7 @@ import MediaPage from './pages/media_page/media'
 import DiseasesAndConditionsPage from './pages/DiseasesAndConditions_page/diseases_conditions_page'
 import DiseasesDetailsPage from './pages/diseases_details_page/diseases_details'
 import CentresOfExcellencePage from './pages/centresofexcellence_page/centres_of_excellence'
+import SpecialitiesPage from './pages/specialities_page/specialities'
 import ChatWidget from './components/chatbot/chat_widget'
 import './App.css'
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/diseases-and-conditions" element={<DiseasesAndConditionsPage />} />
           <Route path="/disease-details/:diseaseId" element={<DiseasesDetailsPage />} />
           <Route path="/centres_of_excellence" element={<CentresOfExcellencePage />} />
+          <Route path="/speciality_details" element={<SpecialitiesPage />} />
         </Routes>
       </main>
       <MobileMenu />

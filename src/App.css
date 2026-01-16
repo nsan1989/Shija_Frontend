@@ -42,6 +42,16 @@ footer {
     display: none !important;
 }
 
+.swiper-button-prev,
+.swiper-button-next {
+    background-color: #6b1d20 !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    padding: 16px;
+    border-radius: 50%;
+    color: #fff !important;
+}
+
 @media (max-width: 768px) {
     
     .navbar-collapse {

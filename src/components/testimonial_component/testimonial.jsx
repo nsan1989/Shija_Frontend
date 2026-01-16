@@ -1,4 +1,4 @@
-import { Image } from 'react-bootstrap'
+import { Row, Col, Image } from 'react-bootstrap'
 import styles from './testimonial.module.css'
 /* --api's-- */
 import useTestimonialData from '../../api/testimonial_api'

@@ -8,9 +8,6 @@ export default function ShijaFooter() {
     return (
         <div className={`footer-wrapper py-3 ${styles[`footer-wrapper-styles`]}`}>
             <Container>
-                <div className="footer-top-content py-5 px-0">
-                    <CallbackFunction />
-                </div>
                 <div className="footer-middle-content d-lg-flex py-3">
                     <div className={`footer-block ${styles[`footer-block-styles`]}`}>
                         <h4 className='block-title mb-3'>For Patients</h4>

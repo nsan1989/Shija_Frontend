@@ -1,15 +1,17 @@
-import { useState, useEffect } from 'react'
-import { Container, Image, Card, Row, Col, Button } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
-import Title from '../../components/title_component/title'
-import Search from '../../components/search_component/search'
-import FloatNav from '../../components/float_nav_component/float_nav'
-import BannerFunction from '../../components/banner_component/banner'
-import DiscoverFunction from '../../components/discover_component/discover'
-import TestimonialCard from '../../components/testimonial_component/testimonial'
-import CoeFunction from '../../components/coe_component/coe'
-import ServiceFunction from '../../components/service_component/service'
-import styles from './home.module.css'
+import { useState, useEffect } from 'react';
+import { Container, Image, Card, Row, Col, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import Title from '../../components/title_component/title';
+import Search from '../../components/search_component/search';
+import FloatNav from '../../components/float_nav_component/float_nav';
+import BannerFunction from '../../components/banner_component/banner';
+import DiscoverFunction from '../../components/discover_component/discover';
+import TestimonialCard from '../../components/testimonial_component/testimonial';
+import SideNav from '../../components/side_nav_component/side_nav';
+import ServiceFunction from '../../components/service_component/service';
+import CallbackFunction from '../../components/callback_component/callback';
+import FaqComponent from '../../components/faq_component/faq';
+import styles from './home.module.css';
 /* --api's-- */
 import useDiscoverData from '../../api/discover_api'
 
@@ -47,6 +49,7 @@ export default function Home() {
 
     return (
         <div className='home-wrapper'>
+            <SideNav />
             {/* banner section */}
             <section className="banner-section">
                 <div className={styles.searchComponentStyle}>
@@ -149,6 +152,18 @@ export default function Home() {
                 </Container>
             </section>
             {/* end of testimonial section */}
+            {/* callback section */}
+            <section className={`callback-section py-5 ${styles['callbackWrapperStyles']}`}>
+                <Container>
+                    <div className="section-content mb-5">
+                        <FaqComponent />
+                    </div>
+                    <div className="section-content">
+                        <CallbackFunction />
+                    </div>
+                </Container>
+            </section>
+            {/* end of callback section */}
         </div>
     )
 }

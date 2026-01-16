@@ -44,7 +44,7 @@ export default function DiseasesAndConditionsPage() {
 
     return (
         <div className={`diseases-conditions-wrapper ${styles.diseasesConditionsWrapperStyle}`}>
-            <Container fluid>
+            <Container>
                 <div className="diseases-condtions-header py-3">
                     <div className='mb-3'>
                         {/* breadcrumb section */}

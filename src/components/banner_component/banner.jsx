@@ -19,10 +19,11 @@ export default function BannerFunction() {
             < Container fluid className='p-0 h-100 d-none d-md-flex' >
                 <Swiper
                     modules={[Autoplay, Pagination, Navigation]}
-                    autoplay={{ delay: 3000, disableOnInteraction: false }}
-                    pagination={{ clickable: true }}
+                    autoplay={{ delay: 5000, disableOnInteraction: false }}
+                    pagination={ false }
                     navigation
-                    effect='slide'
+                    effect="fade"
+                    fadeEffect={{ crossFade: true }}
                     loop={true}
                     speed={1200}
                     className={styles.bannerSwipper}

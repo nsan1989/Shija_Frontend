@@ -18,9 +18,10 @@ const navLinks = [
                 subDropdown: [
                     { name: "Overview", path: "/overview" },
                     { name: "Vision & Mission", path: "/vision&mission" },
-                    { name: "Leaderships", path: "/leaderships" },
+                    { name: "Anthem", path: "" },
                     { name: "Awards & Accolades", path: "/awards&accolades" },
                     { name: "Achievements", path: "/achievements" },
+                    { name: "Day at Apollo", path: ""},
                     { name: "Careers", path: "/careers" },
                 ],
             },
@@ -35,7 +36,9 @@ const navLinks = [
                 name: "Academics & Research",
                 icon: <FaAngleRight />,
                 subDropdown: [
-                    { name: "Shija Knowledge", path: "/shija_knowledge" },
+                    { name: "SAHS", path: "" },
+                    { name: "SAN", path:"" },
+                    { name: "SPRA", path:"" },
                 ],
             },
             {
@@ -46,6 +49,7 @@ const navLinks = [
                     { name: "Press Releases", path: "/press_releases" },
                     { name: "Events", path: "/events" },
                     { name: "Media Gallery", path: "/media_gallery" },
+                    { name: "Media Contacts", path: "/media_contacts" },
                 ],
             },
         ],
@@ -80,41 +84,34 @@ const navLinks = [
         icon: <FaAngleDown />,
         dropdown: [
             {
-                name: "Center of Excellence & Specialists",
-                icon: <FaAngleRight />,
-                subDropdown: [
-                    { name: "Overview", path: "/overview" },
-                    { name: "Vision & Mission", path: "/vision&mission" },
-                    { name: "Awards & Accolades", path: "/awards&accolades" },
-                ],
+                name: "Second Opinion",
+                icon: "",
+                path: "",
             },
             {
                 name: "Book Appointment",
-                icon: <FaAngleRight />,
-                subDropdown: [
-                    { name: "Demo", path: "/demo" },
-                ],
+                icon: "",
+                path: "",
             },
             {
-                name: "Find Doctor",
-                icon: <FaAngleRight />,
-                subDropdown: [
-                    { name: "Demo", path: "/demo" },
-                ],
+                name: "Lab Test & Diagnostics",
+                icon: "",
+                path: "",
             },
             {
-                name: "Book Health Check",
-                icon: <FaAngleRight />,
-                subDropdown: [
-                    { name: "Demo", path: "/demo" },
-                ],
+                name: "Health Check",
+                icon: "",
+                path: "",
             },
             {
-                name: "Book Home Care",
-                icon: <FaAngleRight />,
-                subDropdown: [
-                    { name: "Demo", path: "/demo" },
-                ],
+                name: "Home Care",
+                icon: "",
+                path: "",
+            },
+            {
+                name: "Emergency",
+                icon: "",
+                path: "",
             },
         ],
     },
@@ -123,46 +120,34 @@ const navLinks = [
         icon: <FaAngleDown />,
         dropdown: [
             {
-                name: "Diseases & Conditions",
-                icon: <FaAngleRight />,
-                subDropdown: [
-                    { name: "Brain Cancer", path: "/brain_cancer" },
-                ],
+                name: "Health Library",
+                icon: "",
+                path: "",
             },
             {
-                name: "Treatments & Procedures",
-                icon: <FaAngleRight />,
-                subDropdown: [
-                    { name: "Demo", path: "/demo" },
-                ],
+                name: "Treatments",
+                icon: "",
+                path: "",
             },
             {
-                name: "Symptoms Guide",
-                icon: <FaAngleRight />,
-                subDropdown: [
-                    { name: "Demo", path: "/demo" },
-                ],
+                name: "Technologies",
+                icon: "",
+                path: "",
             },
             {
-                name: "Health Technology",
-                icon: <FaAngleRight />,
-                subDropdown: [
-                    { name: "Demo", path: "/demo" },
-                ],
+                name: "Ailments",
+                icon: "",
+                path: "",
             },
             {
-                name: "Medicines",
-                icon: <FaAngleRight />,
-                subDropdown: [
-                    { name: "Demo", path: "/demo" },
-                ],
+                name: "Knowledge Center",
+                icon: "",
+                path: "",
             },
             {
-                name: "Diagnostics & Reports",
-                icon: <FaAngleRight />,
-                subDropdown: [
-                    { name: "Demo", path: "/demo" },
-                ],
+                name: "Downloads",
+                icon: "",
+                path: ""
             },
         ],
     },

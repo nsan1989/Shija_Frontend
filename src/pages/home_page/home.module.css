@@ -61,3 +61,7 @@
 .diseaseLinkStyles:hover {
     color: #6b1d20;
 }
+
+.callbackWrapperStyles {
+    background-color: rgba(107, 29, 31, 0.1);
+}

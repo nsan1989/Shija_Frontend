@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Row, Col, Form, InputGroup, Button } from "react-bootstrap";
+import { Row, Col, Form, Image, InputGroup, Button } from "react-bootstrap";
+import image from '../../assets/images/image.png';
 
 export default function CallbackFunction() {
 
@@ -14,17 +15,13 @@ export default function CallbackFunction() {
     };
 
     return (
-        <div className="form-wrapper border rounded-4 p-3">
-            <Row className='mb-3'>
-                <Col>
-                    <div className="form-title">
+        <div className="form-wrapper border rounded-4 pt-3">
+            <Row className="d-flex align-items-center">
+                <Col xs={12} sm={12} md={12} lg={8} xl={8} className="ps-5">
+                    <div className="form-title mb-5">
                         <p className='mb-0'>Could not find what you are looking for? </p>
                         <h3>Request a Callback!</h3>
                     </div>
-                </Col>
-            </Row>
-            <Row>
-                <Col xs={12} sm={12} md={12} lg={8} xl={8}>
                     <div id="callback-form">
                         <Form noValidate validated={validated} onSubmit={handleSubmit}>
                             <Row className='mb-3'>
@@ -56,7 +53,9 @@ export default function CallbackFunction() {
                         </Form>
                     </div>
                 </Col>
-                <Col className='d-none d-lg-flex' xs={12} sm={12} md={12} lg={4} xl={4}>image</Col>
+                <Col className='d-none d-lg-flex' xs={12} sm={12} md={12} lg={4} xl={4}>
+                    <Image src={image} alt="callback image" fluid />
+                </Col>
             </Row>
         </div>
     )

@@ -1,29 +1,36 @@
 import { useEffect, useState } from "react";
-import { Row, Col } from "react-bootstrap";
-import { FaUserDoctor } from "react-icons/fa6";
-import { MdHealthAndSafety, MdAddHomeWork } from "react-icons/md";
-import { IoIosNavigate } from "react-icons/io";
+import { Row, Col, Image } from "react-bootstrap";
 import styles from "./side_nav.module.css";
+import doctor from "../../assets/icons/doctor-icon.png" ;
+import lab from "../../assets/icons/lab-icon.png" ;
+import health from "../../assets/icons/health_check-icon.png";
+import home from "../../assets/icons/home_care-icon.png";
+import navigation from "../../assets/icons/navigation-icon.png";
 
 const navLinks = [
   {
     name: "Book Appointment",
-    icon: <FaUserDoctor />,
-    path: "/appointment",
+    icon: doctor,
+    path: "http://103.72.216.194:8001/PatientPortal/TentativeAppointment/TentativeAppointment",
+  },
+  {
+    name: "Lab Report",
+    icon: lab,
+    path: "http://103.72.216.194:9000/shijareport/",
   },
   {
     name: "Book Health Check",
-    icon: <MdHealthAndSafety />,
+    icon: health,
     path: "/health-check",
   },
   {
     name: "Book Home Care",
-    icon: <MdAddHomeWork />,
+    icon: home,
     path: "/home-care",
   },
   {
     name: "Navigate",
-    icon: <IoIosNavigate />,
+    icon: navigation,
     path: "/navigate",
   },
 ];
@@ -59,20 +66,20 @@ export default function SideNav() {
   if (isVisible) return null;
 
   return (
-    <div className={`sideNav-wrapper border ${styles.sideNavWrapperStyles}`}>
+    <div className={`sideNav-wrapper ${styles.sideNavWrapperStyles}`}>
       <Row className={styles.sideNavContentStyles}>
         {navLinks.map((link, index) => (
           <Col
             key={index}
             xs={12}
-            className={styles.sideNavItem}
+            className={`p-2 ${styles['sideNavItem']}`}
           >
-            <div className={styles.sideNavLink}>
+            <a href={link.path} target="_blank" className={styles.sideNavLink}>
               <div className={`iconWrapper ${styles['iconWrapperStyles']}`}>
-                <span className={styles.sideNavIcon}>{link.icon}</span>
+                <Image src={link.icon} style={{width:"1.5rem"}} />
               </div>
               <span className={styles.sideNavText}>{link.name}</span>
-            </div>
+            </a>
           </Col>
         ))}
       </Row>

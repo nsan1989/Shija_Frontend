@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Row, Col, Form, Image, InputGroup, Button } from "react-bootstrap";
 import image from '../../assets/images/image.png';
+import styles from './callback.module.css';
 
 export default function CallbackFunction() {
 
@@ -15,12 +16,12 @@ export default function CallbackFunction() {
     };
 
     return (
-        <div className="form-wrapper border rounded-4 pt-3">
+        <div className={`form-wrapper border rounded-4 pt-3 ${styles['formWrapperStyles']}`}>
             <Row className="d-flex align-items-center">
                 <Col xs={12} sm={12} md={12} lg={8} xl={8} className="ps-5">
-                    <div className="form-title mb-5">
+                    <div className={`form-title mb-5 ${styles['formTitleStyles']}`}>
                         <p className='mb-0'>Could not find what you are looking for? </p>
-                        <h3>Request a Callback!</h3>
+                        <h3 className="fw-bold">Request a Callback!</h3>
                     </div>
                     <div id="callback-form">
                         <Form noValidate validated={validated} onSubmit={handleSubmit}>

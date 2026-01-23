@@ -21,6 +21,7 @@
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
 .circle:hover {
     background-color: #6b1d20;
     color: #fff;
@@ -43,8 +44,34 @@
     color: #6b1d20;
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 768px) {
     .diseasesConditionsWrapperStyle {
-        padding: 4rem 16px;
+        padding: 2rem 8px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+        gap: 12px;
+        background-color: rgba(109, 27, 32, 0.2);
+        padding: 1rem;
+    }
+
+    .circle {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 1.5px solid #6b1d20;
+        background-color: #fff;
+        color: #002b45;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .circle:hover {
+        background-color: #6b1d20;
+        color: #fff;
     }
 }

@@ -31,7 +31,6 @@ export default function DiscoverFunction() {
                     <div key={`header-${item.id}`}>
                         <Button
                             className={`rounded-4 ${styles['discoverButtonStyles']}`}
-                            variant="outline-primary"
                             onClick={() => scrollToBody(index)}
                         >
                             {item.name}
@@ -62,7 +61,7 @@ export default function DiscoverFunction() {
                         <div
                             key={item.id}
                             ref={(el) => (bodyRefs.current[index] = el)}
-                            className="discover-body border d-flex p-4 shadow-sm rounded"
+                            className="discover-body bg-light d-flex p-4 shadow-sm rounded-4"
                             style={{ minWidth: '64rem' }}
                         >
                             <div className="discover-image me-4">

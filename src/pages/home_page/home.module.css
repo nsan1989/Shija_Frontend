@@ -14,6 +14,14 @@
     padding: 48px 0px;
 }
 
+.discover-section-styles {
+    background: linear-gradient(to bottom, #e9afb1 0%, #f2f2f2 100%);
+}
+
+.diseases-and-conditions-styles {
+    background: #f2f2f2;
+}
+
 .service-section-styles {
     padding: 48px 0px;
     background-color: aliceblue;
@@ -24,7 +32,7 @@
     grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
     gap: 15px;
     max-width: 700px;
-    background-color: rgba(109,27, 32, 0.2);
+    background-color: rgba(109, 27, 32, 0.6);
     padding: 1rem;
 }
 
@@ -40,6 +48,7 @@
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
 .circle:hover {
     background-color: #6b1d20;
     color: #fff;
@@ -64,4 +73,33 @@
 
 .callbackWrapperStyles {
     background-color: rgba(107, 29, 31, 0.1);
+}
+
+@media (max-width: 767.99px) {
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(38px, 1fr));
+        gap: 12px;
+        max-width: 700px;
+        background-color: rgba(109, 27, 32, 0.2);
+        padding: 1rem;
+    }
+
+    .circle {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 1.5px solid #6b1d20;
+        background-color: #fff;
+        color: #002b45;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .circle:hover {
+    background-color: #6b1d20;
+    color: #fff;
+}
 }

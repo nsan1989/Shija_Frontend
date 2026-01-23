@@ -1,4 +1,4 @@
-.sideNavContentStyles {
+.desktopSideNavContentStyles {
     position: fixed;
     z-index: 999;
     display: flex;
@@ -12,23 +12,23 @@
     transition: width 0.3s ease;
 }
 
-.sideNavItem a {
+.desktopSideNavItem a {
     text-decoration: none;
-    color: #ff9900;
+    color: #e68a00;
 }
 
 @media (min-width: 768px) {
-    .sideNavContentStyles:hover {
+    .desktopSideNavContentStyles:hover {
         width: 220px;
     }
 
-    .sideNavContentStyles:hover .sideNavText {
+    .desktopSideNavContentStyles:hover .desktopSideNavText {
         opacity: 1;
         transform: translateX(0);
     }
 }
 
-.sideNavLink {
+.desktopSideNavLink {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -37,12 +37,12 @@
     white-space: nowrap;
 }
 
-.sideNavLink:hover {
-    background-color: #ff9900;
+.desktopSideNavLink:hover {
+    background-color: #e68a00;
     color: #fff;
 }
 
-.iconWrapperStyles {
+.desktopIconWrapperStyles {
     width: 2.5rem;
     height: 2.5rem;
     padding: 1.5rem;
@@ -50,13 +50,34 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background-color: rgba(255, 153, 0, 0.7);
+    background-color: #e68a00;
     z-index: 999;
 }
 
-.sideNavText {
+.desktopSideNavText {
     opacity: 0;
     transform: translateX(-8px);
     transition: opacity 0.2s ease, transform 0.2s ease;
     pointer-events: none;
+}
+
+/* mobile Styles */
+
+@media (max-width: 768px) {
+    .mobileSideNavWrapperStyles {
+        position: fixed;
+        z-index: 999;
+        bottom: 9rem;
+        right: 1rem;
+        width: 3rem;
+        height: 3rem;
+        cursor: pointer;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ff9900;
+        color: #fff;
+        transition: opacity 0.3s ease-in-out;
+    }
 }

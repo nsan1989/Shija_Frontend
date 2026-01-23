@@ -208,7 +208,7 @@ export default function ShijaHeader() {
     return (
         <Navbar
             className={`navbar ${styles['navbarStyles']}`}
-            expand="lg"
+            expand="md"
             fixed="top"
             expanded={expanded}
             onMouseEnter={
@@ -234,7 +234,7 @@ export default function ShijaHeader() {
                 backgroundColor: isSmallScreen ? "#fff" : navbarBg,
             }}
         >
-            <Navbar.Brand className="d-lg-none" as={Link} to="/" onClick={closeNavbar}>
+            <Navbar.Brand className="d-md-none" as={Link} to="/" onClick={closeNavbar}>
                 SHRI
             </Navbar.Brand>
             <Navbar.Toggle

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Button } from 'react-bootstrap'
 import { FaAngleUp } from "react-icons/fa6";
-import styles from './scroll.module.css'
+import styles from './scroll.module.css';
 
 export default function ScrollToTop() {
 

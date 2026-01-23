@@ -1,5 +1,7 @@
 .discoverButtonStyles {
     width: 12rem;
+    background-color: #e68a00 !important;
+    border: none !important;
 }
 
 .discoverBodyStyles {

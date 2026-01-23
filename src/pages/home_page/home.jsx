@@ -63,8 +63,8 @@ export default function Home() {
             <section className={`discover-section ${styles['discover-section-styles']}`}>
                 <Container>
                     <div className="section-title mb-3">
-                        <h3>Discover Our Centres of Clinical Excellence</h3>
-                        <p className='mb-0'>Experience world-class healthcare at Apollo's specialized hubs of medical innovation. Our state-of-the-art centres deliver unparalleled expertise in key specialties and super specialties.
+                        <h3 className='fw-bold' style={{color:"#6b1d20"}}>Discover Our Centres of Clinical Excellence</h3>
+                        <p className='mb-0' style={{color:"#6b1d20"}}>Experience world-class healthcare at Apollo's specialized hubs of medical innovation. Our state-of-the-art centres deliver unparalleled expertise in key specialties and super specialties.
                             Each centre stands as a beacon of cutting-edge care, setting new benchmarks in clinical outcomes globally.</p>
                     </div>
                     <div className='mb-3'>

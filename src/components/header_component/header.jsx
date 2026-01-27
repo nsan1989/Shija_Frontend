@@ -6,6 +6,8 @@ import { FaTimes, FaArrowLeft } from "react-icons/fa";
 import styles from './header.module.css';
 import { FaAngleDown, FaAngleRight } from "react-icons/fa6";
 import { useLocation } from "react-router-dom";
+/* --api's-- */
+import useCoeData from '../../api/coe_api';
 
 const navLinks = [
     {
@@ -21,7 +23,7 @@ const navLinks = [
                     { name: "Anthem", path: "" },
                     { name: "Awards & Accolades", path: "/awards&accolades" },
                     { name: "Achievements", path: "/achievements" },
-                    { name: "Day at Apollo", path: ""},
+                    { name: "Day at Apollo", path: "" },
                     { name: "Careers", path: "/careers" },
                 ],
             },
@@ -37,8 +39,8 @@ const navLinks = [
                 icon: <FaAngleRight />,
                 subDropdown: [
                     { name: "SAHS", path: "" },
-                    { name: "SAN", path:"" },
-                    { name: "SPRA", path:"" },
+                    { name: "SAN", path: "" },
+                    { name: "SPRA", path: "" },
                 ],
             },
             {
@@ -59,16 +61,21 @@ const navLinks = [
         icon: <FaAngleDown />,
         dropdown: [
             {
-                name: "Downloads",
+                name: "Centres of Excellence & Specialties",
                 icon: <FaAngleRight />,
                 subDropdown: [
-                    { name: "Overview", path: "/overview" },
-                    { name: "Vision & Mission", path: "/vision&mission" },
-                    { name: "Awards & Accolades", path: "/awards&accolades" },
+                    { name: "Anaesthesiology and Critical Care", path: "" },
+                    { name: "ENT", path: "" },
+                    { name: "General and Laparoscopic Surgery", path: "" },
+                    { name: "Kidney Sciences", path: "" },
+                    { name: "NeuroSciences", path: "" },
+                    { name: "Nursing Care", path: "" },
+                    { name: "Orthopaedics", path: "" },
+                    { name: "Plastic and Reconstructive Surgery", path: "" },
                 ],
             },
             {
-                name: "Gallery",
+                name: "Find Doctor by Speciality",
                 icon: <FaAngleRight />,
                 subDropdown: [
                     { name: "Overview", path: "/overview" },

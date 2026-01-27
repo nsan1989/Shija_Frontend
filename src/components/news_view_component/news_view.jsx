@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom'
-import styles from './news_view.module.css'
+import { Link } from 'react-router-dom';
+import styles from './news_view.module.css';
 /* --api's-- */
-import useNewsViewData from '../../api/news_view_api'
+import useNewsViewData from '../../api/news_view_api';
 
 export default function NewsViewFunction() {
 

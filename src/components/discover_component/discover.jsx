@@ -61,7 +61,7 @@ export default function DiscoverFunction() {
                         <div
                             key={item.id}
                             ref={(el) => (bodyRefs.current[index] = el)}
-                            className="discover-body bg-light d-flex p-4 shadow-sm rounded-4"
+                            className="discover-body bg-light d-flex p-4 shadow-sm"
                             style={{ minWidth: '64rem' }}
                         >
                             <div className="discover-image me-4">
@@ -83,7 +83,7 @@ export default function DiscoverFunction() {
                 {/* ▶ RIGHT NAV */}
                 <Button
                     variant="light"
-                    className="ms-2 shadow-sm"
+                    className="ms-2 shadow-sm rounded"
                     disabled={currentIndex === discovers.length - 1}
                     onClick={() => scrollToBody(currentIndex + 1)}
                     style={{

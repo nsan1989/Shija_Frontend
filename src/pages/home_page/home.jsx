@@ -12,8 +12,9 @@ import ServiceFunction from '../../components/service_component/service';
 import CallbackFunction from '../../components/callback_component/callback';
 import FaqComponent from '../../components/faq_component/faq';
 import styles from './home.module.css';
+import { FaArrowRightLong } from "react-icons/fa6";
 /* --api's-- */
-import useDiscoverData from '../../api/discover_api'
+import useEventsViewData from '../../api/events_view_api';
 
 const alphabets = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
@@ -23,8 +24,9 @@ export default function Home() {
 
     Title('Home')
 
-    const { data: discoverData, isLoading: isDiscoverLoading, error: discoverError } = useDiscoverData();
-    const discover = discoverData?.discover_data || [];
+    const { data: eventsViewData } = useEventsViewData()
+    const events = eventsViewData?.events_view_data || []
+    const newEventsData = events && events.length > 0 ? events : [];
     const [indexData, setIndexData] = useState({});
     const [selectedLetter, setSelectedLetter] = useState("A");
 
@@ -63,8 +65,8 @@ export default function Home() {
             <section className={`discover-section ${styles['discover-section-styles']}`}>
                 <Container>
                     <div className="section-title mb-3">
-                        <h3 className='fw-bold' style={{color:"#6b1d20"}}>Discover Our Centres of Clinical Excellence</h3>
-                        <p className='mb-0' style={{color:"#6b1d20"}}>Experience world-class healthcare at Apollo's specialized hubs of medical innovation. Our state-of-the-art centres deliver unparalleled expertise in key specialties and super specialties.
+                        <h3 className='fw-bold' style={{ color: "#6b1d20" }}>Discover Our Centres of Clinical Excellence</h3>
+                        <p className='mb-0' style={{ color: "#6b1d20" }}>Experience world-class healthcare at Apollo's specialized hubs of medical innovation. Our state-of-the-art centres deliver unparalleled expertise in key specialties and super specialties.
                             Each centre stands as a beacon of cutting-edge care, setting new benchmarks in clinical outcomes globally.</p>
                     </div>
                     <div className='mb-3'>
@@ -140,6 +142,36 @@ export default function Home() {
                 </Container>
             </section>
             {/* end of Services section */}
+            {/* new section */}
+            <section className={`new-section py-5`}>
+                <Container>
+                    <div className="section-title mb-3 text-center d-flex justify-content-between">
+                        <h3 className='mb-0 fw-bold'>What's New At Shija</h3>
+                        <div className="explore-btn">
+                            <a className='btn btn-warning rounded' href='/media-page'>Explore More <FaArrowRightLong /></a>
+                        </div>
+                    </div>
+                    <div className="section-content">
+                        <Row>
+                            {newEventsData.map((items, index) => (
+                                <Col xs={12} sm={12} md={3} lg={3} xl={3} key={index}>
+                                    <Card className={`event-card ${styles['eventsCardStyles']}`}>
+                                        <Image src={items.image} alt={items.event_name} />
+                                        <div className={`event-content ${styles['eventContentStyles']}`}>
+                                            <h4>{items.event_name}</h4>
+                                            <div className="bottom-content d-flex justify-content-between">
+                                                <p>{items.start_date}</p>
+                                                <a href=""><FaArrowRightLong /></a>
+                                            </div>
+                                        </div>
+                                    </Card>
+                                </Col>
+                            ))}
+                        </Row>
+                    </div>
+                </Container>
+            </section>
+            {/* end of new section */}
             {/* testimonial section */}
             <section className={`testimonial-section ${styles['testimonial-section-styles']}`}>
                 <Container>

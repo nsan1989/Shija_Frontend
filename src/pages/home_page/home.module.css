@@ -24,7 +24,7 @@
 
 .service-section-styles {
     padding: 48px 0px;
-    background-color: aliceblue;
+    background: #f2f2f2;
 }
 
 .grid {
@@ -32,7 +32,6 @@
     grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
     gap: 15px;
     max-width: 700px;
-    background-color: rgba(109, 27, 32, 0.6);
     padding: 1rem;
 }
 
@@ -69,6 +68,21 @@
 
 .diseaseLinkStyles:hover {
     color: #6b1d20;
+}
+
+.eventContentStyles {
+    position: absolute;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: rgba(242, 242, 242, 0.8);
+}
+
+.eventContentStyles:hover {
+    background-color: rgba(107, 29, 37, 0.8);
+    color: #fff;
 }
 
 .callbackWrapperStyles {

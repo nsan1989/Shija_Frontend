@@ -11,7 +11,6 @@ export default function useEventsViewData() {
                 throw new Error("failed to fetch data!");
             }
             const jsonData = await response.json();
-            console.log(jsonData);
             const events_view_data = Array.isArray(jsonData?.msg)
                 ? jsonData.msg.map((item) => ({
                     ...item,

@@ -61,4 +61,12 @@ footer {
     .navbar-nav {
         padding: 0 !important;
     }
+
+    .navbar-toggler {
+       border: none !important; 
+    }
+
+    .navbar-toggler:focus {
+        box-shadow: none !important;
+    }
 }

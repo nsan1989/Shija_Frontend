@@ -1,12 +1,14 @@
+/* ================= NAVBAR ================= */
+
 .navbarWrapperStyles {
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   height: 3rem;
-  max-height: 3rem;
+  display: flex;
+  align-items: center;
 }
 
 .navbarTransparent {
   background-color: transparent;
-  box-shadow: none;
 }
 
 .navbarScrolled {
@@ -14,13 +16,36 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.navItemsWrapperStyles {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
+/* ================= NAV LINKS ================= */
+
+@media (min-width: 768px) {
+  .navItemsWrapperStyles {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
 }
+
+.navLink {
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  color: #ffffff !important;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.navbarScrolled .navLink {
+  color: #6b1d20 !important;
+}
+
+.navLink:hover {
+  color: #e68a00 !important;
+}
+
+/* ================= MEGA MENU ================= */
 
 .megaMenuWrapper {
   position: static;
@@ -43,7 +68,7 @@
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.megaMenuWrapper:hover .megaMenuFrame {
+.megaActive {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -56,18 +81,12 @@
 }
 
 .firstSubMenuItem {
-  padding: 10px 14px;
+  padding: 12px 16px;
   cursor: pointer;
-  font-weight: 500;
 }
 
 .firstSubMenuItem:hover {
   background-color: #f5f5f5;
-}
-
-.active {
-  background-color: #eaeaea;
-  font-weight: 600;
 }
 
 .secondSubMenu {
@@ -82,35 +101,73 @@
   padding: 8px 0;
 }
 
-.navLink {
-  color: #ffffff !important;
-  font-weight: 500;
-  transition: color 0.3s ease;
+/* ================= BACK HEADER ================= */
+
+.backHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  font-weight: 600;
+  border-bottom: 1px solid #e5e5e5;
+  cursor: pointer;
 }
 
-.navbarScrolled .navLink {
-  color: #6B1D20 !important;
+.backHeader i {
+  font-size: 1.2rem;
 }
 
-.navLink:hover {
-  color: #E68A00 !important;
-}
+/* ================= MOBILE ================= */
 
-/* Mobile & small screens */
 @media (max-width: 767.98px) {
   .navbarWrapperStyles {
     background-color: #ffffff !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
 
   .navItemsWrapperStyles {
-    background-color: #fff !important;
     position: absolute;
     left: 0 !important;
-    height: 100vh !important;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    height: 100vh;
+    background: #ffffff;
+    gap: 0;
   }
 
   .navLink {
-    color: #6B1D20 !important;
+    color: #6b1d20 !important;
+    width: 100%;
+    padding: 12px 16px !important;
+  }
+
+  .megaMenuFrame {
+    position: fixed;
+    top: 3rem;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 3rem);
+    transform: none;
+    box-shadow: none;
+    padding: 0;
+    flex-direction: column;
+  }
+
+  .firstSubMenu {
+    width: 100%;
+    padding: 0;
+  }
+
+   .secondSubMenu {
+    position: absolute !important;
+    background-color: #fff;
+    top: 0 !important;
+    width: 100%;
+    padding: 0;
+  }
+
+  .secondSubMenuItem {
+    padding: 12px 16px !important;
+    border-bottom: 1px solid #eee;
   }
 }

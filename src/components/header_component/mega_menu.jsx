@@ -77,9 +77,9 @@ export const MegaMenu = [
         ],
     },
     {
-        name: "Shija Hospitals and Research Institute",
+        type: "logo",
         icon: "",
-        path: "",
+        path: "/",
     },
     {
         name: "Medical Services",

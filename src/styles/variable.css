@@ -1,0 +1,85 @@
+:root {
+    /* ============
+    colors
+    ============ */
+
+    --primary-color: #6b1d20;
+    --primary-hover: ;
+
+    --secondary-color: #004d00;
+    --secondary-hover: ;
+
+    --tertiary-color: #e68a00;
+    --tertiary-hover: ;
+
+    --success-color: ;
+    --danger-color: ;
+    --warning-color: ;
+    --info-color: ;
+
+    /* ============
+    text colors
+    ============ */
+
+    --text-dark: #6b1d20;
+    --text-muted: ;
+    --text-light: #fff;
+
+    /* ============
+    background
+    ============ */
+
+    --bg-primary: rgba(107, 29, 32, 0.4);
+    --bg-secondary: rgb(0, 77, 0);
+    --bg-tertiary: rgba(230, 184, 0);
+    --bg-light: rgb(255, 255, 255);
+    --bg-dark: rgb(0, 0, 0);
+
+    /* ============
+    border
+    ============ */
+
+    --border-color: ;
+    --border-light: ;
+
+    /* ============
+    font family
+    ============ */
+
+    --font-primary: "Figtree", sans-serif;
+    --font-secondary: ;
+
+    /* ============
+    font sizes
+    ============ */
+
+    --font-xs: 12px;
+    --font-sm: 14px;
+    --font-md: 16px;
+    --font-lg: 18px;
+    --font-xl: 22px;
+    --font-xxl: 28px;
+
+    /* ============
+    font weight
+    ============ */
+
+    --font-light: 300;
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-bold: 700;
+
+    /* ============
+    transitions
+    ============ */
+
+    --transition-fast: 0.2s ease-in-out;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+    /* ============
+    padding
+    ============ */
+
+    --padding: 6rem 12rem
+    }

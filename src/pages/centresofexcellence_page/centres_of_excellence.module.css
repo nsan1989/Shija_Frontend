@@ -1,5 +1,8 @@
+@import "../../styles/variable.css";
+
+
 .centresOfExcellenceWrapperStyle {
-    padding: 4rem 96px;
+    padding: var(--padding);
 }
 
 @media (max-width: 991.98px) {

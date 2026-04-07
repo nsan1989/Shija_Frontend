@@ -51,6 +51,7 @@ export default function Home() {
 
     return (
         <div className='home-wrapper'>
+            <updateFunction />
             <SideNav />
             {/* banner section */}
             <section className="banner-section">
@@ -80,13 +81,19 @@ export default function Home() {
             {/* end of discover section */}
             {/* Diseases and Conditions Search */}
             <section className={`diseases-and-conditions-section ${styles['diseases-and-conditions-styles']}`}>
-                <Container>
+                <Container
+                    style={{
+                        borderRadius:"0.5rem",
+                        padding: "1rem",
+                        backgroundColor: "rgba(107, 29, 32, 0.8)",
+                    }}
+                >
                     <Row>
                         <Col
                             xs={12} sm={12} md={7} lg={7} xl={7}
                         >
                             <div className="section-title mb-3">
-                                <h3 className='mb-3 fw-bold'>Find Diseases & Conditions By Alphabet</h3>
+                                <h3 className='mb-3 fw-bold text-light'>Find Diseases & Conditions By Alphabet</h3>
                                 <div className={`alphabet-warpper rounded-4 ${styles['grid']}`}>
                                     {alphabets.map((letter) => (
                                         <button
@@ -101,7 +108,7 @@ export default function Home() {
                             </div>
                         </Col>
                         <Col xs={12} sm={12} md={5} lg={5} xl={5}>
-                            <div className="column-title mb-3">
+                            <div className="column-title mb-3 text-light">
                                 <h3>List of related diseases</h3>
                             </div>
                             {diseases.length > 0 ? (
@@ -118,8 +125,16 @@ export default function Home() {
                                             </li>
                                         ))}
                                     </ul>
-                                    <div className="all-diseases-link mt-3">
-                                        <Link to="/diseases-and-conditions">View All Diseases</Link>
+                                    <div 
+                                        className="all-diseases-link mt-3"
+                                    >
+                                        <Link 
+                                            to="/diseases-and-conditions"
+                                            style={{
+                                                textDecoration: "none",
+                                                color: "#e68a00",
+                                            }}
+                                        >View All Diseases</Link>
                                     </div>
                                 </>
                             ) : (
@@ -185,7 +200,7 @@ export default function Home() {
             </section>
             {/* end of testimonial section */}
             {/* callback section */}
-            <section className={`callback-section py-5 ${styles['callbackWrapperStyles']}`}>
+            <section className={`callback-section py-5 ${styles['callback-section-styles']}`}>
                 <Container>
                     <div className="section-content mb-5">
                         <FaqComponent />

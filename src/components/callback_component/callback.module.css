@@ -1,7 +1,7 @@
 .formWrapperStyles {
-    background-color: rgba(107, 29, 32, 0.4);
+    background-color: var(--bg-primary);
 }
 
 .formTitleStyles {
-    color: #6b1d20;
+    color: var(--text-dark);
 }

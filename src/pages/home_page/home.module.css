@@ -64,10 +64,11 @@
 
 .diseaseLinkStyles {
     text-decoration: none;
+    color: #fff;
 }
 
 .diseaseLinkStyles:hover {
-    color: #6b1d20;
+    color: #e68a00;
 }
 
 .eventContentStyles {
@@ -85,7 +86,15 @@
     color: #fff;
 }
 
-.callbackWrapperStyles {
+.update-section-styles {
+    min-height: 24rem;
+    background-image: url("../../assets/images/header_image.jpg");
+    background-position: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.callback-section-styles {
     background-color: rgba(107, 29, 31, 0.1);
 }
 

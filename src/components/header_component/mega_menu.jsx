@@ -7,7 +7,7 @@ export const MegaMenu = [
                 name: "The Shija Story",
                 icon: "",
                 secondSubMenu: [
-                    { name: "Overview", path: "/overview" },
+                    { name: "Overview", path: "/company-overview" },
                     { name: "Vision & Mission", path: "/vision&mission" },
                     { name: "Anthem", path: "" },
                     { name: "Awards & Accolades", path: "/awards&accolades" },

@@ -119,6 +119,7 @@
 @media (max-width: 767.98px) {
   .navbarWrapperStyles {
     background-color: #ffffff !important;
+    height: 3rem;
   }
 
   .navItemsWrapperStyles {

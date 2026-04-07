@@ -22,6 +22,7 @@ export default function DiseasesAndConditionsPage() {
 
     const [indexData, setIndexData] = useState({});
     const [selectedLetter, setSelectedLetter] = useState("A");
+    const [searchQuery, setSearchQuery] = useState("");
 
     useEffect(() => {
         const fetchIndex = async () => {
@@ -40,7 +41,11 @@ export default function DiseasesAndConditionsPage() {
         fetchIndex();
     }, []);
 
-    const diseases = indexData[selectedLetter] || [];
+    const diseasesByLetter = indexData[selectedLetter] || [];
+
+    const diseases = diseasesByLetter.filter((disease) => 
+        disease.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
     return (
         <div className={`diseases-conditions-wrapper ${styles.diseasesConditionsWrapperStyle}`}>
@@ -57,7 +62,11 @@ export default function DiseasesAndConditionsPage() {
                     <div className={styles.searchComponentStyle}>
                         <Row className='d-flex align-items-center'>
                             <Col lg={8}>
-                                <Search placeholder="Search for Diseases and Conditions..." />
+                                <Search 
+                                    placeholder="Search for Diseases and Conditions..." 
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                />
                             </Col>
                         </Row>
                     </div>

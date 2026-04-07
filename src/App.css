@@ -33,7 +33,7 @@ svg circle[fill^="url("] {
 
 footer {
     background: #333;
-    color: white;
+    color: var(--text-light);
     text-align: center;
     padding: 10px;
 }

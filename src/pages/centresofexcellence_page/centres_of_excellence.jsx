@@ -16,9 +16,9 @@ export default function CentresOfExcellencePage() {
     Title('Centres of Excellence')
 
     return (
-        <div className={`centres-of-excellence-wrapper ${styles.centresOfExcellenceWrapperStyle}`}>
+        <div className={`centres-of-excellence-wrapper ${styles['centresOfExcellenceWrapperStyle']}`}>
             <Container>
-                <div className="centres-of-excellence-header py-3">
+                <div className="centres-of-excellence-header">
                     <div className='mb-3'>
                         {/* breadcrumb section */}
                         <BreadcrumbComponent items={breadcrumbItems} />
@@ -40,7 +40,7 @@ export default function CentresOfExcellencePage() {
                     <div className="coe_content_heading">
                         <h2>Explore Our Centres of Excellence</h2>
                     </div>
-                    <div className="coe_content">
+                    <div className="coe_content mt-4">
                         <CoeFunction />
                     </div>
                 </div>

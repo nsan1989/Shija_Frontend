@@ -1,7 +1,6 @@
-import { useState } from 'react';
-import { Row, Col, Image } from 'react-bootstrap';
+import { Button, Row, Col, Image } from 'react-bootstrap';
 import styles from './service.module.css'
-import { FaAngleRight, FaAngleLeft } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa';
 /* --api's-- */
 import useServiceData from '../../api/service_api'
 
@@ -27,24 +26,25 @@ export default function ServiceFunction() {
             <Row className='p-2' id='carouselSlider'>
                 {newServiceData.map((item, index) => (
                     <Col
-                        className={`p-0 ${styles[`cardWrapperStyles`]}`}
+                        className={`shadow-sm ${styles[`cardWrapperStyles`]}`}
                         key={`${item.id}-${index}`}
                         xs={12} sm={12} md={6} lg={4} xl={4} xxl={4}
                     >
-                        <div className="service-image">
+                        <div className="service-image mb-3">
                             <Image
-                                className='img-fluid w-100'
+                                className='img-fluid'
                                 src={item.image}
                                 alt={item.service_name}
-                                style={{ maxWidth: '100%' }}
+                                style={{
+                                    width: "100%",
+                                    height: "50%"
+                                }}
                             />
                         </div>
                         <div className={`service-content ${styles[`serviceContentStyles`]}`}>
-                            <h3 className='mb-0'>{item.title}</h3>
+                            <h3 className='mb-0'>{item.service_name}</h3>
                             <p>{item.sub_title}</p>
-                            <div className="service-link">
-                                <a href="">Know More&nbsp;<FaAngleRight /></a>
-                            </div>
+                            <Button className='btn btn-warning'>Contact&nbsp;&nbsp;<FaArrowRight /></Button>
                         </div>
                     </Col>
                 ))}

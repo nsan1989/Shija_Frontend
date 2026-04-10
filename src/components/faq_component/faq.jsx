@@ -3,7 +3,7 @@ import { Accordion } from "react-bootstrap"
 const faq_quest_list = [
     {
         quest: "How do I book an appointment at the best hospital in Manipur, Shija Hospitals?",
-        ans: "Booking an appointment at Shija Hospitals, recognized as the best hospital in India and top hospital in India, is quick and convenient. Use our official website, mobile app, or call the 24/7 helpline at 1860-500-1066 for instant slots across best super specialty hospital India departments. No prior referral needed—select your preferred date, time, and service for seamless access to best hospital near me quality care, whether for routine check-ups or urgent needs at this ranked best hospital in India.",
+        ans: "Booking an appointment at Shija Hospitals, recognized as the best hospital in Manipur and top hospital in Manipur, is quick and convenient. Use our official website, mobile app, or call the 24/7 helpline at 1860-500-1066 for instant slots across best super specialty hospital India departments. No prior referral needed—select your preferred date, time, and service for seamless access to best hospital near me quality care, whether for routine check-ups or urgent needs at this ranked best hospital in India.",
     },
     {
         quest: "Can I book a specialist appointment at Shija Hospitals , India's No 1 hospital, without a local referral?",

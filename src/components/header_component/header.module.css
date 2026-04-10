@@ -1,8 +1,12 @@
+@import "../../styles//variable.css";
+
+
 /* ================= NAVBAR ================= */
 
 .navbarWrapperStyles {
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   display: flex;
+  padding: 0 0.5rem;
 }
 
 .navbarTransparent {
@@ -30,8 +34,9 @@
   display: flex;
   align-items: center;
   color: #ffffff !important;
-  font-weight: 500;
+  font-weight: var(--font-bold);
   cursor: pointer;
+  font-size: 18px;
 }
 
 .navbarScrolled .navLink {
@@ -83,7 +88,8 @@
 }
 
 .firstSubMenuItem:hover {
-  background-color: #f5f5f5;
+  background-color: var(--primary-color);
+  color: var(--text-light);
 }
 
 .secondSubMenu {
@@ -96,6 +102,11 @@
 .secondSubMenuItem {
   width: 100%;
   padding: 8px 0;
+}
+
+.secondSubMenuItem:hover {
+  background-color: var(--primary-color);
+  color: var(--text-light);
 }
 
 /* ================= BACK HEADER ================= */

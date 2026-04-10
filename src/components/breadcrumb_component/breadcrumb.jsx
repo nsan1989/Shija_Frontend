@@ -13,8 +13,14 @@ const BreadcrumbComponent = ({ items }) => {
                         active={isLast}
                         linkAs={!isLast ? Link : "span"}
                         linkProps={!isLast ? { to: item.href } : {}}
+                        style={{
+                            display: "flex",
+                            alignItems: "center"
+                        }}
                     >
-                        <span className="d-flex align-items-center gap-1">
+                        <span 
+                            className="d-flex align-items-center gap-1"
+                        >
                             {item.icon && item.icon}
                             {item.label}
                         </span>

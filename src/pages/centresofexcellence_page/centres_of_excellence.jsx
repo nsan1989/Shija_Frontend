@@ -1,7 +1,7 @@
 import Title from '../../components/title_component/title'
 import BreadcrumbComponent from '../../components/breadcrumb_component/breadcrumb';
 import Search from '../../components/search_component/search';
-import { FaHome } from "react-icons/fa"
+import { FaHome } from "react-icons/fa";
 import { Container, Row, Col } from 'react-bootstrap';
 import styles from './centres_of_excellence.module.css';
 import CoeFunction from '../../components/coe_component/coe';

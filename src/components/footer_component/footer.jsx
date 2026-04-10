@@ -16,7 +16,7 @@ export default function ShijaFooter() {
                                 <a href='' className='footer-link'>Find a Doctor</a>
                             </li>
                             <li className='mb-2'>
-                                <a href='' className='footer-link'>Book an Appointment</a>
+                                <a href='http://103.72.216.194:8001/PatientPortal/TentativeAppointment/TentativeAppointment' className='footer-link'>Book an Appointment</a>
                             </li>
                             <li className='mb-2'>
                                 <a href='' className='footer-link'>Emergency 24x7</a>
@@ -35,9 +35,6 @@ export default function ShijaFooter() {
                             </li>
                             <li className='mb-2'>
                                 <a href='' className='footer-link'>Refund & Cancellations</a>
-                            </li>
-                            <li className='mb-2'>
-                                <a href='' className='footer-link'>More +</a>
                             </li>
                         </ul>
                     </div>

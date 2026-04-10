@@ -3,37 +3,36 @@
     colors
     ============ */
 
-    --primary-color: #6b1d20;
-    --primary-hover: ;
+    --primary-color: #7D2529;
+    --primary-hover: #7D2529;
 
     --secondary-color: #004d00;
-    --secondary-hover: ;
+    --secondary-hover: #004d00;
 
-    --tertiary-color: #e68a00;
-    --tertiary-hover: ;
+    --tertiary-color: #D4AF37;
+    --tertiary-hover: #D4AF37;
 
-    --success-color: ;
-    --danger-color: ;
-    --warning-color: ;
-    --info-color: ;
+    --success-color: #198754;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #0dcaf0;
 
     /* ============
     text colors
     ============ */
 
-    --text-dark: #6b1d20;
-    --text-muted: ;
+    --text-dark: #000000;
+    --text-muted: #adb5bd;
     --text-light: #fff;
 
     /* ============
     background
     ============ */
 
-    --bg-primary: rgba(107, 29, 32, 0.4);
+    --bg-primary: rgb(125, 37, 41);
     --bg-secondary: rgb(0, 77, 0);
-    --bg-tertiary: rgba(230, 184, 0);
-    --bg-light: rgb(255, 255, 255);
-    --bg-dark: rgb(0, 0, 0);
+    --bg-tertiary: rgb(212, 175, 55);
+    --bg-light: rgb(248, 249, 250);
 
     /* ============
     border
@@ -47,7 +46,7 @@
     ============ */
 
     --font-primary: "Figtree", sans-serif;
-    --font-secondary: ;
+    --font-secondary: "Inter", sans-serif;
 
     /* ============
     font sizes
@@ -81,5 +80,5 @@
     padding
     ============ */
 
-    --padding: 6rem 12rem
+    --padding: 7rem 12rem
     }

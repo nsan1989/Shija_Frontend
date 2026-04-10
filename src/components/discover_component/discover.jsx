@@ -49,7 +49,10 @@ export default function DiscoverFunction() {
                     disabled={currentIndex === 0}
                     onClick={() => scrollToBody(currentIndex - 1)}
                     style={{
-                        cursor: currentIndex === 0 ? 'not-allowed' : 'pointer'
+                        cursor: currentIndex === 0 ? 'not-allowed' : 'pointer',
+                        width: "3rem",
+                        height: "3rem",
+                        borderRadius: "50%"
                     }}
                 >
                     <FaChevronLeft size={24} />
@@ -61,7 +64,7 @@ export default function DiscoverFunction() {
                         <div
                             key={item.id}
                             ref={(el) => (bodyRefs.current[index] = el)}
-                            className="discover-body bg-light d-flex p-4 shadow-sm"
+                            className="discover-body bg-light rounded d-flex p-4 shadow-sm"
                             style={{ minWidth: '64rem' }}
                         >
                             <div className="discover-image me-4">
@@ -83,11 +86,14 @@ export default function DiscoverFunction() {
                 {/* ▶ RIGHT NAV */}
                 <Button
                     variant="light"
-                    className="ms-2 shadow-sm rounded"
+                    className="ms-2 shadow-sm"
                     disabled={currentIndex === discovers.length - 1}
                     onClick={() => scrollToBody(currentIndex + 1)}
                     style={{
-                        cursor: currentIndex === discovers.length - 1 ? 'not-allowed' : 'pointer'
+                        cursor: currentIndex === 0 ? 'not-allowed' : 'pointer',
+                        width: "3rem",
+                        height: "3rem",
+                        borderRadius: "50%"
                     }}
                 >
                     <FaChevronRight size={24} />

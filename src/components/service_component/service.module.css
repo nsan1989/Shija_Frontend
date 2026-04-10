@@ -1,9 +1,5 @@
 .cardWrapperStyles {
     border: 2px solid rgb(204, 202, 202);
-    border-radius: 8px 32px 8px 8px;
     overflow: hidden;
-}
-
-.serviceContentStyles {
-    padding: 32px;
+    padding: 1rem;
 }

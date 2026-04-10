@@ -1,5 +1,8 @@
+@import "../../styles/variable.css";
+
+
 .overviewWrapperStyles {
-    margin-top: 6rem;
+    padding: var(--padding);
 }
 
 @media (max-width: 768px) {

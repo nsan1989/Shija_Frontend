@@ -7,12 +7,12 @@ export const MegaMenu = [
                 name: "The Shija Story",
                 icon: "",
                 secondSubMenu: [
-                    { name: "Overview", path: "/company-overview" },
-                    { name: "Vision & Mission", path: "/vision&mission" },
-                    { name: "Anthem", path: "" },
-                    { name: "Awards & Accolades", path: "/awards&accolades" },
-                    { name: "Achievements", path: "/achievements" },
-                    { name: "Day at Apollo", path: "" },
+                    { name: "Overview", path: "/company-overview#overview" },
+                    { name: "Vision & Mission", path: "/company-overview#vision" },
+                    { name: "Anthem", path: "/company-overview#anthem" },
+                    { name: "Awards & Accolades", path: "/company-overview#awards" },
+                    { name: "Achievements", path: "/company-overview#achievements" },
+                    { name: "Day at Shija", path: "" },
                     { name: "Careers", path: "/careers" },
                 ],
             },
@@ -79,7 +79,7 @@ export const MegaMenu = [
     {
         type: "logo",
         icon: "",
-        path: "/",
+        path: "",
     },
     {
         name: "Medical Services",

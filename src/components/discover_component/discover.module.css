@@ -1,7 +1,17 @@
+@import "../../styles//variable.css";
+
+
 .discoverButtonStyles {
     width: 12rem;
-    background-color: #e68a00 !important;
+    height: 2.5rem;
+    background-color: var(--tertiary-color) !important;
+    color: var(--text-dark) !important; 
     border: none !important;
+}
+
+.discoverButtonStyles:hover {
+    background-color: var(--primary-color) !important;
+    color: var(--text-light) !important;
 }
 
 .discoverBodyStyles {

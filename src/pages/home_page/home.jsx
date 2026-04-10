@@ -70,11 +70,15 @@ export default function Home() {
                         <p className='mb-0' style={{ color: "#6b1d20" }}>Experience world-class healthcare at Apollo's specialized hubs of medical innovation. Our state-of-the-art centres deliver unparalleled expertise in key specialties and super specialties.
                             Each centre stands as a beacon of cutting-edge care, setting new benchmarks in clinical outcomes globally.</p>
                     </div>
-                    <div className='mb-3'>
+                    <div className='mb-5'>
                         <DiscoverFunction />
                     </div>
                     <div className="section-button d-flex justify-content-center">
-                        <Link className="btn btn-warning" to="/centres_of_excellence">View All Specialities</Link>
+                        <Link className="btn btn-lg btn-warning d-flex align-items-center" to="/centres_of_excellence">
+                            <small>All Specialities</small>
+                            &nbsp;&nbsp;
+                            <FaArrowRightLong />
+                        </Link>
                     </div>
                 </Container>
             </section>
@@ -85,7 +89,7 @@ export default function Home() {
                     style={{
                         borderRadius:"0.5rem",
                         padding: "1rem",
-                        backgroundColor: "rgba(107, 29, 32, 0.8)",
+                        backgroundColor: "rgba(255, 255, 255, 0.8)",
                     }}
                 >
                     <Row>
@@ -93,7 +97,14 @@ export default function Home() {
                             xs={12} sm={12} md={7} lg={7} xl={7}
                         >
                             <div className="section-title mb-3">
-                                <h3 className='mb-3 fw-bold text-light'>Find Diseases & Conditions By Alphabet</h3>
+                                <h3 
+                                    className='mb-3 fw-bold'
+                                    style={{
+                                    color: "#7D2529"
+                                }}
+                                >
+                                    Find Diseases & Conditions By Alphabet
+                                </h3>
                                 <div className={`alphabet-warpper rounded-4 ${styles['grid']}`}>
                                     {alphabets.map((letter) => (
                                         <button
@@ -108,8 +119,13 @@ export default function Home() {
                             </div>
                         </Col>
                         <Col xs={12} sm={12} md={5} lg={5} xl={5}>
-                            <div className="column-title mb-3 text-light">
-                                <h3>List of related diseases</h3>
+                            <div 
+                                className="column-title mb-3"
+                                style={{
+                                    color: "#7D2529"
+                                }}
+                            >
+                                <h3 className='fw-bold'>List of related diseases</h3>
                             </div>
                             {diseases.length > 0 ? (
                                 <>
@@ -132,9 +148,9 @@ export default function Home() {
                                             to="/diseases-and-conditions"
                                             style={{
                                                 textDecoration: "none",
-                                                color: "#e68a00",
+                                                color: "#ffc107",
                                             }}
-                                        >View All Diseases</Link>
+                                        >All Diseases</Link>
                                     </div>
                                 </>
                             ) : (
@@ -148,8 +164,16 @@ export default function Home() {
             {/* services section */}
             <section className={`services-section ${styles[`service-section-styles`]}`}>
                 <Container>
-                    <div className="section-title mb-3 text-center">
-                        <h3 className='mb-0 fw-bold'>Services</h3>
+                    <div className="section-title mb-3">
+                        <h2 
+                            className='mb-0 fw-bold'
+                            style={{
+                                color: "#7D2529",
+                                fontWeight: "bold",
+                            }}
+                        >
+                            Services
+                        </h2>
                     </div>
                     <div className="service-content">
                         <ServiceFunction />
@@ -161,7 +185,14 @@ export default function Home() {
             <section className={`new-section py-5`}>
                 <Container>
                     <div className="section-title mb-3 text-center d-flex justify-content-between">
-                        <h3 className='mb-0 fw-bold'>What's New At Shija</h3>
+                        <h2 
+                            className='mb-0 fw-bold'
+                            style={{
+                                    color: "#7D2529"
+                                }}
+                        >
+                            What's New At Shija
+                        </h2>
                         <div className="explore-btn">
                             <a className='btn btn-warning rounded' href='/media-page'>Explore More <FaArrowRightLong /></a>
                         </div>
@@ -176,7 +207,7 @@ export default function Home() {
                                             <h4>{items.event_name}</h4>
                                             <div className="bottom-content d-flex justify-content-between">
                                                 <p>{items.start_date}</p>
-                                                <a href=""><FaArrowRightLong /></a>
+                                                <a href={items.path}><FaArrowRightLong /></a>
                                             </div>
                                         </div>
                                     </Card>

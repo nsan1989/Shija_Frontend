@@ -2,11 +2,12 @@ import { useState, useEffect, useRef } from "react";
 import ChatBubble from "./chat_bubble";
 
 export default function ChatWindow({ onClose }) {
-  const [conversationId, setConversationId] = useState(null);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const chatEndRef = useRef(null);
+
+  const CHATBOT_API = "https://chatbot-worker.developer-dev.workers.dev";
 
   // Auto scroll to bottom when new message arrives
   const scrollToBottom = () => {
@@ -22,18 +23,18 @@ export default function ChatWindow({ onClose }) {
   // Load old chat if available
   useEffect(() => {
     const savedMessages = JSON.parse(localStorage.getItem("chat_messages"));
-    const savedConversation = localStorage.getItem("chat_conversation_id");
 
-    setMessages([
-      {
-        sender: "bot",
-        text:
-          "Hi, I'm SHRI Assist, your personal support for all medical needs. How can I help you?",
-        type: "welcome",
-      },
-    ]);
-
-    if (savedConversation) setConversationId(savedConversation);
+    if (savedMessages?.length) {
+      setMessages(savedMessages);
+    } else {
+      setMessages([
+        {
+          sender: "bot",
+          text: "Hi, I'm SHRI Assist, your personal support for all medical needs. How can I help you?",
+          type: "welcome",
+        },
+      ]);
+    }
   }, []);
 
   // Store messages locally
@@ -43,86 +44,81 @@ export default function ChatWindow({ onClose }) {
 
   // Store conversation ID locally
   useEffect(() => {
-    if (conversationId)
-      localStorage.setItem("chat_conversation_id", conversationId);
-  }, [conversationId]);
+    localStorage.setItem("chat_messages", JSON.stringify(messages));
+  }, [messages]);
 
   // Handle sending via input box
-  const sendMessage = async () => {
-    if (!input.trim()) return;
+  const sendToBot = async (userMessage) => {
+    if (!userMessage.trim() || isTyping) return;
 
-    const userMessage = input;
     setMessages((prev) => [...prev, { sender: "user", text: userMessage }]);
 
-    setInput("");
     setIsTyping(true);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/chat/", {
+      const res = await fetch(CHATBOT_API, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           message: userMessage,
-          conversation_id: conversationId
-        })
-      });
-
-      const data = await res.json();
-
-      setConversationId(data.conversation_id);
-
-      setMessages((prev) => [
-        ...prev,
-        { sender: "bot", text: data.reply },
-      ]);
-
-    } catch (error) {
-      console.error("Error:", error);
-    } finally {
-      setIsTyping(false);
-    }
-  };
-
-  // QUICK ACTIONS — used only for welcome message
-  const sendQuick = (text) => {
-    setMessages((prev) => [...prev, { sender: "user", text }]);
-    setIsTyping(true);
-    sendQuickToBackend(text);
-  };
-
-  const sendQuickToBackend = async (text) => {
-    try {
-      const res = await fetch("http://127.0.0.1:8000/api/chat/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          message: text,
-          conversation_id: conversationId,
         }),
       });
 
       const data = await res.json();
-      setConversationId(data.conversation_id);
 
       setMessages((prev) => [
         ...prev,
-        { sender: "bot", text: data.reply },
+        {
+          sender: "bot",
+          text:
+            data.reply || "Sorry, I couldn't process your request right now.",
+        },
       ]);
+    } catch (error) {
+      console.error("Chatbot Error:", error);
 
-    } catch (err) {
-      console.error(err);
+      setMessages((prev) => [
+        ...prev,
+        {
+          sender: "bot",
+          text: "Something went wrong. Please try again later.",
+        },
+      ]);
     } finally {
       setIsTyping(false);
     }
+  };
+
+  const sendMessage = async () => {
+    const userMessage = input;
+    setInput("");
+
+    await sendToBot(userMessage);
+  };
+
+  // QUICK ACTIONS — used only for welcome message
+
+  const sendQuick = async (text) => {
+    await sendToBot(text);
   };
 
   return (
     <div className="chat-window">
       <div className="chat-header">
         <span>SHRI Assist</span>
-        <button onClick={onClose}>✖</button>
+        <button 
+          onClick={onClose}
+          style={{
+            width: "1.5rem",
+            height: "1.5rem",
+            border: "none",
+            borderRadius: "50%",
+          }}
+        >
+          ✖
+        </button>
       </div>
 
       <div className="chat-body">
@@ -130,7 +126,6 @@ export default function ChatWindow({ onClose }) {
           <div key={index}>
             <ChatBubble sender={msg.sender} text={msg.text} />
 
-            {/* Show quick buttons only for welcome message */}
             {msg.type === "welcome" && (
               <div className="quick-buttons">
                 <button onClick={() => sendQuick("Help me find a doctor")}>
@@ -165,12 +160,15 @@ export default function ChatWindow({ onClose }) {
           type="text"
           placeholder="Type a message..."
           value={input}
+          disabled={isTyping}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && sendMessage()}
         />
-        <button onClick={sendMessage}>Send</button>
+
+        <button onClick={sendMessage} disabled={isTyping}>
+          Send
+        </button>
       </div>
     </div>
   );
-};
-
+}

@@ -3,11 +3,11 @@ import { Accordion } from "react-bootstrap"
 const faq_quest_list = [
     {
         quest: "How do I book an appointment at the best hospital in Manipur, Shija Hospitals?",
-        ans: "Booking an appointment at Shija Hospitals, recognized as the best hospital in Manipur and top hospital in Manipur, is quick and convenient. Use our official website, mobile app, or call the 24/7 helpline at 1860-500-1066 for instant slots across best super specialty hospital India departments. No prior referral needed—select your preferred date, time, and service for seamless access to best hospital near me quality care, whether for routine check-ups or urgent needs at this ranked best hospital in India.",
+        ans: "Booking an appointment at Shija Hospitals, recognized as the best hospital in Noth East, India and top hospital in Manipur, is quick and convenient. Use our official website, mobile app, or call the 24/7 helpline at 1860-500-1066 for instant slots. No prior referral needed—select your preferred date, time, and service for seamless access to best hospital near me quality care, whether for routine check-ups or urgent needs at this ranked best hospital in Manipur.",
     },
     {
-        quest: "Can I book a specialist appointment at Shija Hospitals , India's No 1 hospital, without a local referral?",
-        ans: "Yes, at Shija Hospitals—the No 1 hospital in India and best private hospital in India—direct specialist bookings are welcome without referrals. As a top ranked hospital India leader, we prioritize patient convenience, offering walk-ins, online scheduling, and teleconsultations. This flexibility makes us the go-to best hospital near me for expert care in multispecialty services, ensuring you receive best multi specialty hospital in India standards promptly.",
+        quest: "Can I book a specialist appointment at Shija Hospitals , Manipur's No 1 hospital, without a local referral?",
+        ans: "Yes, at Shija Hospitals—the No 1 hospital in Manipur and best private hospital in India—direct specialist bookings are welcome without referrals. As a top ranked hospital India leader, we prioritize patient convenience, offering walk-ins, online scheduling, and teleconsultations. This flexibility makes us the go-to best hospital near me for expert care in multispecialty services, ensuring you receive best multi specialty hospital in India standards promptly.",
     },
     {
         quest: "Does Shija Hospitals, the best emergency hospital, in India offer second opinions or online consultations?",

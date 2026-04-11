@@ -1,19 +1,24 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import ShijaHeader from './components/header_component/header'
-import ShijaFooter from './components/footer_component/footer'
-import MobileMenu from './components/mobile_menu_component/mobile_menu'
-import ScrollToTop from './components/scroll_component/scroll_to_top'
-import Home from './pages/home_page/home'
-import Overview from './pages/overview_page/overview'
-import DoctorPage from './pages/doctor_page/doctor'
-import Profile from './pages/profile_page/profile'
-import MediaPage from './pages/media_page/media'
-import DiseasesAndConditionsPage from './pages/DiseasesAndConditions_page/diseases_conditions_page'
-import DiseasesDetailsPage from './pages/diseases_details_page/diseases_details'
-import CentresOfExcellencePage from './pages/centresofexcellence_page/centres_of_excellence'
-import SpecialitiesPage from './pages/specialities_page/specialities'
-import ChatWidget from './components/chatbot/chat_widget'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import ShijaHeader from './components/header_component/header';
+import ShijaFooter from './components/footer_component/footer';
+import MobileMenu from './components/mobile_menu_component/mobile_menu';
+import ScrollToTop from './components/scroll_component/scroll_to_top';
+import ChatWidget from './components/chatbot/chat_widget';
+
+import Home from './pages/home_page/home';
+import Overview from './pages/overview_page/overview';
+import DoctorPage from './pages/doctor_page/doctor';
+import Profile from './pages/profile_page/profile';
+import MediaPage from './pages/media_page/media';
+import DiseasesAndConditionsPage from './pages/DiseasesAndConditions_page/diseases_conditions_page';
+import DiseasesDetailsPage from './pages/diseases_details_page/diseases_details';
+import CentresOfExcellencePage from './pages/centresofexcellence_page/centres_of_excellence';
+import SpecialitiesPage from './pages/specialities_page/specialities';
+import DisclaimerPage from './pages/disclaimer_page/disclaimer';
+import PrivacyAndPolicy from './pages/privacy&policy_page/privacy&policy';
+
+import './App.css';
 
 {/* bootstrap */ }
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -36,6 +41,8 @@ function App() {
           <Route path="/disease-details/:diseaseId" element={<DiseasesDetailsPage />} />
           <Route path="/centres_of_excellence" element={<CentresOfExcellencePage />} />
           <Route path="/speciality_details" element={<SpecialitiesPage />} />
+          <Route path="/disclaimer" element={<DisclaimerPage />} />
+          <Route path="/privacy&policy" element={<PrivacyAndPolicy />} />
         </Routes>
       </main>
       <MobileMenu />

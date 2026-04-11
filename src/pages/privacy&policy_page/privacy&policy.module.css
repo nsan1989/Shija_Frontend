@@ -1,0 +1,6 @@
+@import "../../styles/variable.css";
+
+
+.privacyWrapperStyle {
+    padding: var(--padding);
+}

@@ -25,13 +25,13 @@ export default function ShijaFooter() {
                                 <a href='' className='footer-link'>Patient Testinomials</a>
                             </li>
                             <li className='mb-2'>
-                                <a href='' className='footer-link'>Disclaimer</a>
+                                <a href='/disclaimer' className='footer-link'>Disclaimer</a>
                             </li>
                             <li className='mb-2'>
                                 <a href='' className='footer-link'>Terms & Conditions</a>
                             </li>
                             <li className='mb-2'>
-                                <a href='' className='footer-link'>Privacy Policy</a>
+                                <a href='/privacy&policy' className='footer-link'>Privacy Policy</a>
                             </li>
                             <li className='mb-2'>
                                 <a href='' className='footer-link'>Refund & Cancellations</a>

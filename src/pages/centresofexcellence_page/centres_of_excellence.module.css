@@ -5,6 +5,28 @@
     padding: var(--padding);
 }
 
+.headerWrapperStyle {
+    padding: 1.5rem 0rem;
+}
+
+.headerWrapperStyle h3 {
+    font-weight: bold;
+    color: var(--primary-color);
+    text-transform: uppercase;
+}
+
+.headerWrapperStyle p {
+    text-align: justify;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.contentHeadingStyle h5 {
+    font-weight: bold;
+    color: var(--primary-color);
+    text-transform: uppercase;
+}
+
 @media (max-width: 991.98px) {
     .centresOfExcellenceWrapperStyle {
         padding: 4rem 16px;

@@ -1,5 +1,18 @@
+@import "../../styles/variable.css";
+
+
 .diseasesConditionsWrapperStyle {
-    padding: 6rem 96px;
+    padding: var(--padding);
+}
+
+.headerStyle {
+    padding: 1.5rem 0rem;
+}
+
+.headerStyle h3 {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .grid {
@@ -7,13 +20,14 @@
     grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
     gap: 15px;
     padding: 1rem;
+    background-color: rgba(125, 37, 41, 0.8);
 }
 
 .circle {
     width: 55px;
     height: 55px;
     border-radius: 50%;
-    border: 1.5px solid #6b1d20;
+    border: 1.5px solid var(--primary-color);
     background-color: #fff;
     color: #002b45;
     font-size: 16px;

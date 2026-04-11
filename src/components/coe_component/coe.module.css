@@ -11,9 +11,13 @@
     padding: 0.5rem;
     gap: 1.5rem;
     color: var(--primary-color);
+    transition: all 0.3s ease;
+    transform: scale(1);
 }
 
 .swiperContent:hover {
     background-color: var(--primary-color);
     color: var(--text-light);
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
 }

@@ -9,7 +9,7 @@ import styles from './diseases_conditions.module.css';
 
 const breadcrumbItems = [
     { href: '/', icon: <FaHome /> },
-    { label: 'Diseases and Conditions', href: '/diseases_and_conditions' },
+    { label: 'Diseases', href: '/diseases_and_conditions' },
 ];
 
 const alphabets = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
@@ -55,8 +55,8 @@ export default function DiseasesAndConditionsPage() {
                         {/* breadcrumb section */}
                         <BreadcrumbComponent items={breadcrumbItems} />
                     </div>
-                    <div className='mb-3'>
-                        <h1>Disease and condition</h1>
+                    <div className={`mb-3 ${styles["headerStyle"]}`}>
+                        <h3>Disease and condition</h3>
                         <p>Detailed Insights into Causes, Risk Factors, Prevention, and Management</p>
                     </div>
                     <div className={styles.searchComponentStyle}>
@@ -72,9 +72,14 @@ export default function DiseasesAndConditionsPage() {
                     </div>
                 </div>
                 <div className="diseases-conditions-content">
-                    <div className="section-title mb-3">
-                        <h3 className='mb-3 fw-bold'>Find Diseases & Conditions By Alphabet</h3>
-                        <div className={`alphabet-warpper rounded-4 ${styles['grid']}`}>
+                    <div 
+                        className="section-title mb-3"
+                        style={{
+                            color: "#7D2529",
+                        }}
+                    >
+                        <h5 className='mb-3 fw-bold'>Find Diseases & Conditions By Alphabet</h5>
+                        <div className={`alphabet-warpper rounded-4 p-5 ${styles['grid']}`}>
                             {alphabets.map((letter) => (
                                 <button
                                     key={letter}
@@ -86,8 +91,13 @@ export default function DiseasesAndConditionsPage() {
                             ))}
                         </div>
                     </div>
-                    <div className="column-title mb-3">
-                        <h3>List of related diseases</h3>
+                    <div 
+                        className="column-title mb-3"
+                        style={{
+                            color: "#7D2529",
+                        }}
+                    >
+                        <h5 className='fw-bold'>List of related diseases</h5>
                     </div>
                     {diseases.length > 0 ? (
                         <>

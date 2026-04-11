@@ -34,7 +34,7 @@ export default function ShijaFooter() {
                                 <a href='/privacy&policy' className='footer-link'>Privacy Policy</a>
                             </li>
                             <li className='mb-2'>
-                                <a href='' className='footer-link'>Refund & Cancellations</a>
+                                <a href='/refund_and_cancellations' className='footer-link'>Refund & Cancellations</a>
                             </li>
                         </ul>
                     </div>

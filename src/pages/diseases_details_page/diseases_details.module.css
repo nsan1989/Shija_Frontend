@@ -1,0 +1,6 @@
+@import "../../styles/variable.css";
+
+
+.diseasesWrapperStyles {
+    padding: var(--padding);
+}

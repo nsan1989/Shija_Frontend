@@ -1,0 +1,14 @@
+@import "../../styles/variable.css";
+
+
+.breadcrumbItemStyle {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: var(--tertiary-color);
+}
+
+
+.breadcrumbItemStyle a {
+    text-decoration: none;
+}

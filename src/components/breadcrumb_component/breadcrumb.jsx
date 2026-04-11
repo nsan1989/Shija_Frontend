@@ -1,6 +1,8 @@
-import { Breadcrumb } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
+import { Breadcrumb } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+import styles from "./breadcrumb.module.css";
 
 const BreadcrumbComponent = ({ items }) => {
     return (
@@ -13,13 +15,10 @@ const BreadcrumbComponent = ({ items }) => {
                         active={isLast}
                         linkAs={!isLast ? Link : "span"}
                         linkProps={!isLast ? { to: item.href } : {}}
-                        style={{
-                            display: "flex",
-                            alignItems: "center"
-                        }}
+                        className={styles.breadcrumbItemStyle}
                     >
                         <span 
-                            className="d-flex align-items-center gap-1"
+                            className="d-flex align-items-center text-dark"
                         >
                             {item.icon && item.icon}
                             {item.label}

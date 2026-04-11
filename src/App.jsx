@@ -17,6 +17,7 @@ import CentresOfExcellencePage from './pages/centresofexcellence_page/centres_of
 import SpecialitiesPage from './pages/specialities_page/specialities';
 import DisclaimerPage from './pages/disclaimer_page/disclaimer';
 import PrivacyAndPolicy from './pages/privacy&policy_page/privacy&policy';
+import RefundAndCancellation from './pages/refund&cancellation_page/refund&cancellation';
 
 import './App.css';
 
@@ -43,6 +44,7 @@ function App() {
           <Route path="/speciality_details" element={<SpecialitiesPage />} />
           <Route path="/disclaimer" element={<DisclaimerPage />} />
           <Route path="/privacy&policy" element={<PrivacyAndPolicy />} />
+          <Route path="/refund_and_cancellations" element={<RefundAndCancellation />} />
         </Routes>
       </main>
       <MobileMenu />

@@ -1,0 +1,27 @@
+@import "../../styles/variable.css";
+
+
+.refundWrapperStyle {
+    padding: var(--padding);
+}
+
+
+.titleStyle h3 {
+    font-weight: bold;
+    color: var(--primary-color);
+    text-transform: uppercase;
+}
+
+
+.contentTitleStyle h5 {
+    font-weight: bold;
+    color: var(--primary-color);
+    text-transform: capitalize;
+}
+
+
+.contentTextStyle p {
+    text-align: justify;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}

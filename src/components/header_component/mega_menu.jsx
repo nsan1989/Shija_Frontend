@@ -66,7 +66,7 @@ export const MegaMenu = [
                     { name: "Nursing Care", path: "" },
                     { name: "Orthopaedics", path: "" },
                     { name: "Plastic and Reconstructive Surgery", path: "" },
-                    { name: "View All", path: "" },
+                    { name: "View All", path: "/centres_of_excellence" },
                 ],
             },
             {

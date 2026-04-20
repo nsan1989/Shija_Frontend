@@ -11,7 +11,7 @@
 .discover-section-styles,
 .testimonial-section-styles,
 .diseases-and-conditions-styles {
-    padding: 48px 0px;
+    padding: 5rem 0rem;
 }
 
 .discover-section-styles {
@@ -23,8 +23,12 @@
 }
 
 .service-section-styles {
-    padding: 48px 0px;
+    padding: 5rem 0rem;
     background: #f2f2f2;
+}
+
+.new-section-styles {
+    padding: 5rem 0rem;
 }
 
 .grid {
@@ -96,6 +100,7 @@
 
 .callback-section-styles {
     background-color: rgba(107, 29, 31, 0.1);
+    padding: 5rem 0rem;
 }
 
 @media (max-width: 767.99px) {

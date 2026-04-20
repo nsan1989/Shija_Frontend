@@ -1,5 +1,23 @@
-.cardWrapperStyles {
-    border: 2px solid rgb(204, 202, 202);
+.service-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.bento-card {
+    border-radius: 12px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
     padding: 1rem;
+}
+
+.bento-card.featured {
+    grid-column: span 2;
+    flex-direction: row;
+}
+
+.bento-card.featured .card-img {
+    width: 50%;
 }

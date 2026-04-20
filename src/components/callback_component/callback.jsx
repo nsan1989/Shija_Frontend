@@ -16,7 +16,7 @@ export default function CallbackFunction() {
     };
 
     return (
-        <div className={`form-wrapper border rounded-4 pt-3 ${styles['formWrapperStyles']}`}>
+        <div className={`form-wrapper border rounded-4 ${styles['formWrapperStyles']}`}>
             <Row className="d-flex align-items-center">
                 <Col xs={12} sm={12} md={12} lg={8} xl={8} className="ps-5">
                     <div className={`form-title mb-5 ${styles['formTitleStyles']}`}>

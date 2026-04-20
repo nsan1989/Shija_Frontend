@@ -1,5 +1,6 @@
 .formWrapperStyles {
     background-color: var(--bg-primary);
+    padding: 1.5rem;
 }
 
 .formTitleStyles {

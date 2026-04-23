@@ -132,7 +132,9 @@ export default function ShijaHeader() {
                             className={styles.firstSubMenuItem}
                             onClick={() => setActiveFirstIndex(firstIndex)}
                           >
-                            {firstItem.name}
+                            <Link to={firstItem.path}>
+                              {firstItem.name}
+                            </Link>
                           </div>
                         ))}
                       </div>
@@ -166,7 +168,7 @@ export default function ShijaHeader() {
                             href={secondItem.path}
                             className={styles.secondSubMenuItem}
                           >
-                            {secondItem.name}
+                              {secondItem.name}
                           </Nav.Link>
                         ))}
                       </div>

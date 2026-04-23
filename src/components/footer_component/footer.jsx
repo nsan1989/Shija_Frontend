@@ -182,7 +182,7 @@ export default function ShijaFooter() {
                                 <a href='' className='footer-link'>Kidney Sciences</a>
                             </li>
                             <li className='mb-2'>
-                                <a href='' className='footer-link'>More +</a>
+                                <a href='/centres_of_excellence' className='footer-link'>More +</a>
                             </li>
                         </ul>
                     </div>

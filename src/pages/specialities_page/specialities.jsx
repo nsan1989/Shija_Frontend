@@ -2,7 +2,7 @@ import Title from "../../components/title_component/title";
 import BreadcrumbComponent from "../../components/breadcrumb_component/breadcrumb";
 import { Container } from "react-bootstrap";
 import styles from "./specialities.module.css";
-import { FaCircle, FaHome, FaArrowRight } from "react-icons/fa";
+import { FaCircle, FaHome } from "react-icons/fa";
 
 const breadcrumbItems = [
   { href: "/", icon: <FaHome /> },
@@ -26,43 +26,43 @@ export default function SpecialitiesPage() {
         <div className="specialities-navigation">
           <nav id="specialities-navbar" className="py-3">
             <ul className="nav d-flex justify-content-evenly align-items-center">
-              <li className="nav-item">
+              <li className={`nav-item ${styles["navItemStyle"]}`}>
                 <a className="nav-link" href="#overview">
                   Overview
                 </a>
               </li>
-              <FaArrowRight size={"16px"} />
-              <li className="nav-item">
+              <FaCircle size={"8px"} color="#6b1d20" />
+              <li className={`nav-item ${styles["navItemStyle"]}`}>
                 <a className="nav-link" href="#message">
                   Message
                 </a>
               </li>
-              <FaArrowRight size={"16px"} />
-              <li className="nav-item">
+              <FaCircle size={"8px"} color="#6b1d20" />
+              <li className={`nav-item ${styles["navItemStyle"]}`}>
                 <a className="nav-link" href="#team">
                   Team
                 </a>
               </li>
-              <FaArrowRight size={"16px"} />
-              <li className="nav-item">
+              <FaCircle size={"8px"} color="#6b1d20" />
+              <li className={`nav-item ${styles["navItemStyle"]}`}>
                 <a className="nav-link" href="#treatment">
                   Treatment
                 </a>
               </li>
-              <FaArrowRight size={"16px"} />
-              <li className="nav-item">
+              <FaCircle size={"8px"} color="#6b1d20" />
+              <li className={`nav-item ${styles["navItemStyle"]}`}>
                 <a className="nav-link" href="#ailment">
                   Ailment
                 </a>
               </li>
-              <FaArrowRight size={"16px"} />
-              <li className="nav-item">
+              <FaCircle size={"8px"} color="#6b1d20" />
+              <li className={`nav-item ${styles["navItemStyle"]}`}>
                 <a className="nav-link" href="#technology">
                   Technology
                 </a>
               </li>
-              <FaArrowRight size={"16px"} />
-              <li className="nav-item">
+              <FaCircle size={"8px"} color="#6b1d20" />
+              <li className={`nav-item ${styles["navItemStyle"]}`}>
                 <a className="nav-link" href="#stories">
                   Stories
                 </a>
@@ -72,10 +72,9 @@ export default function SpecialitiesPage() {
           <div
             data-bs-spy="scroll"
             data-bs-target="#specialities-navbar"
-            data-bs-root-margin="0px 0px -40%"
             data-bs-smooth-scroll="true"
-            class={`specialities-scrollspy p-3 rounded-2 ${styles['specialityStyle']}`}
-            tabindex="0"
+            className={`specialities-scrollspy p-3 rounded-2 ${styles['specialityStyle']}`}
+            tabIndex="0"
           >
             <h4 id="overview">overview</h4>
             <p>

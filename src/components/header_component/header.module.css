@@ -9,6 +9,14 @@
   padding: 0 0.5rem;
 }
 
+.navbarWrapperStyles:hover {
+  background-color: #fff;
+}
+
+.navbarWrapperStyles:hover .navLink {
+  color: #6b1d20 !important;
+}
+
 .navbarTransparent {
   background-color: transparent;
 }
@@ -59,7 +67,7 @@
   left: 50%;
   transform: translateX(-50%) translateY(10px);
   width: 900px;
-  background: #ffffff;
+  background: #fff;
   display: flex;
   padding: 20px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
@@ -82,12 +90,15 @@
   border-right: 1px solid #e5e5e5;
 }
 
-.firstSubMenuItem {
+.firstSubMenuItem a {
+  display: block;
   padding: 12px 16px;
   cursor: pointer;
+  text-decoration: none;
+  color: var(--primary-color);
 }
 
-.firstSubMenuItem:hover {
+.firstSubMenuItem a:hover {
   background-color: var(--primary-color);
   color: var(--text-light);
 }
@@ -100,13 +111,15 @@
 }
 
 .secondSubMenuItem {
+  flex-direction: column;
   width: 100%;
   padding: 8px 0;
+  color: var(--primary-color) !important;
 }
 
 .secondSubMenuItem:hover {
   background-color: var(--primary-color);
-  color: var(--text-light);
+  color: var(--text-light) !important;
 }
 
 /* ================= BACK HEADER ================= */

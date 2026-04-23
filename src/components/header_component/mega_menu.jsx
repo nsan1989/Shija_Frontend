@@ -93,12 +93,12 @@ export const MegaMenu = [
             {
                 name: "Book Appointment",
                 icon: "",
-                path: "",
+                path: "http://103.72.216.194:8001/PatientPortal/TentativeAppointment/TentativeAppointment",
             },
             {
                 name: "Lab Test & Diagnostics",
                 icon: "",
-                path: "",
+                path: "http://103.72.216.194:9000/shijareport/",
             },
             {
                 name: "Health Check",

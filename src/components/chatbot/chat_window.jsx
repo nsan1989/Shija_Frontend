@@ -6,17 +6,17 @@ export default function ChatWindow({ onClose }) {
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [isListening, setIsListening] = useState(false);
+  const [sessionId, setSessionId] = useState(null);
   const chatEndRef = useRef(null);
+  const [quickSelected, setQuickSelected] = useState(false);
 
   const CHATBOT_API = "http://localhost:8000/api/chatbot/";
 
+  //check if existing session exist. if not set session
   useEffect(() => {
-    let existingSession = localStorage.getItem("chat_session_id");
-
-    if (!existingSession) {
-      existingSession = crypto.randomUUID();
-      localStorage.setItem("chat_session_id", existingSession);
-    }
+    const newSession = crypto.randomUUID();
+    setSessionId(newSession);
+    console.log("session id", newSession);
   }, []);
 
   // Auto scroll to bottom when new message arrives
@@ -32,11 +32,6 @@ export default function ChatWindow({ onClose }) {
 
   // Load old chat if available
   useEffect(() => {
-    const savedMessages = JSON.parse(localStorage.getItem("chat_messages"));
-
-    if (savedMessages?.length) {
-      setMessages(savedMessages);
-    } else {
       setMessages([
         {
           sender: "bot",
@@ -44,13 +39,7 @@ export default function ChatWindow({ onClose }) {
           type: "welcome",
         },
       ]);
-    }
   }, []);
-
-  // Store messages locally
-  useEffect(() => {
-    localStorage.setItem("chat_messages", JSON.stringify(messages));
-  }, [messages]);
 
   // Text to Speech
   const speakText = (text) => {
@@ -71,11 +60,7 @@ export default function ChatWindow({ onClose }) {
     }
 
     const recognition = new SpeechRecognition();
-
     recognition.lang = "en-US";
-    recognition.interimResults = false;
-    recognition.continuous = false;
-    recognition.maxAlternatives = 1;
 
     setIsListening(true);
 
@@ -105,12 +90,9 @@ export default function ChatWindow({ onClose }) {
 
   // Handle sending via input box
   const sendToBot = async (userMessage, shouldSpeak = false) => {
-    if (!userMessage.trim() || isTyping) return;
-
-    const sessionId = localStorage.getItem("chat_session_id");
+    if (!userMessage.trim() || isTyping || !sessionId) return;
 
     setMessages((prev) => [...prev, { sender: "user", text: userMessage }]);
-
     setIsTyping(true);
 
     try {
@@ -160,7 +142,7 @@ export default function ChatWindow({ onClose }) {
   };
 
   const sendStructuredAction = async (action, selectedId) => {
-    const sessionId = localStorage.getItem("chat_session_id");
+    if (!sessionId) return;
 
     setIsTyping(true);
 
@@ -204,9 +186,21 @@ export default function ChatWindow({ onClose }) {
   };
 
   // QUICK ACTIONS — used only for welcome message
-
   const sendQuick = async (text) => {
-    await sendToBot(text, false);
+    await sendToBot(text);
+  };
+
+  const handleClick = (type, value) => {
+
+    if (quickSelected) return;
+
+    setQuickSelected(true);
+
+    if (type === "quick") {
+      sendQuick(value);
+    } else {
+      sendStructuredAction(value);
+    }
   };
 
   return (
@@ -282,15 +276,24 @@ export default function ChatWindow({ onClose }) {
 
             {msg.type === "welcome" && (
               <div className="quick-buttons">
-                <button onClick={() => sendQuick("OPD Schedule")}>
+                <button 
+                  disabled={quickSelected}
+                  onClick={() => sendQuick("OPD Schedule")}
+                >
                   OPD Schedule
                 </button>
 
-                <button onClick={() => sendStructuredAction("start_booking")}>
+                <button 
+                  disabled={quickSelected}
+                  onClick={() => sendStructuredAction("start_booking")}
+                >
                   I want to book appointment
                 </button>
 
-                <button onClick={() => sendQuick("Home Care")}>
+                <button 
+                  disabled={quickSelected}
+                  onClick={() => sendQuick("Home Care")}
+                >
                   Is home care service available
                 </button>
               </div>

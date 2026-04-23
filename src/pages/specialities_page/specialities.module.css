@@ -6,11 +6,22 @@
 }
 
 
+.navItemStyle a {
+    text-decoration: none;
+    color: #6b1d20;
+}
+
+.navItemStyle a:hover {
+    color: #D4AF37;
+}
+
+
 .specialityStyle h4 {
     color: var(--primary-color);
     font-weight: bold;
     margin-bottom: 1rem;
     text-transform: uppercase;
+    scroll-margin-top: 100px;
 }
 
 

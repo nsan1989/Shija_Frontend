@@ -1,3 +1,4 @@
+/* serach component style */
 .searchComponentStyle {
     position: absolute;
     bottom: 8rem;
@@ -7,28 +8,35 @@
     width: 100%;
     z-index: 20;
 }
+/* end serach component style */
 
-.discover-section-styles,
-.testimonial-section-styles,
-.diseases-and-conditions-styles {
-    padding: 5rem 0rem;
+/* discover section style */
+.discoverSectionStyles {
+    padding: 3rem 0rem;
+    background: linear-gradient(to bottom, #e9afb1 0%, rgba(107, 29, 31, 0.1) 100%);
 }
 
-.discover-section-styles {
-    background: linear-gradient(to bottom, #e9afb1 0%, #f2f2f2 100%);
+.discoverTitleStyle {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+/* end discover section style */
+
+/* diseases & conditions section style */
+.diseasesConditionsStyles {
+    padding: 3rem 0rem;
+    background: rgba(107, 29, 31, 0.1);
 }
 
-.diseases-and-conditions-styles {
-    background: #f2f2f2;
+.diseaseContainer {
+    border-radius: 0.5rem;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
-.service-section-styles {
-    padding: 5rem 0rem;
-    background: #f2f2f2;
-}
-
-.new-section-styles {
-    padding: 5rem 0rem;
+.diseaseTitleStyle h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
 }
 
 .grid {
@@ -57,6 +65,11 @@
     color: #fff;
 }
 
+.columnTitle h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
 .diseaseListStyles {
     list-style-type: none;
     padding-left: 0;
@@ -74,6 +87,39 @@
 .diseaseLinkStyles:hover {
     color: #e68a00;
 }
+/* end diseases & conditions section style */
+
+/* service section styles */
+.serviceSectionStyles {
+    padding: 3rem 0rem;
+    background: rgba(107, 29, 31, 0.1);
+}
+
+.serviceTitleStyles h1 {
+    color: var(--text-primary);
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+/* end service section styles */
+
+/* new section styles */
+.newSectionStyles {
+    padding: 3rem 0rem;
+    background: #fff;
+}
+
+.newTitleStyles {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.newTitleStyles h1 {
+    color: var(--text-primary);
+    font-weight: bold;
+    margin-bottom: 0;
+}
 
 .eventContentStyles {
     position: absolute;
@@ -89,21 +135,63 @@
     background-color: rgba(107, 29, 37, 0.8);
     color: #fff;
 }
+/* end new section styles */
 
-.update-section-styles {
-    min-height: 24rem;
-    background-image: url("../../assets/images/header_image.jpg");
-    background-position: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
+/* about section styles */
+.aboutSectionStyles {
+    padding: 3rem 0rem;
+    background: rgba(107, 29, 31, 0.1);
 }
 
-.callback-section-styles {
-    background-color: rgba(107, 29, 31, 0.1);
-    padding: 5rem 0rem;
+.aboutTitleStyles h3 {
+    color: var(--text-primary);
+    font-weight: bold;
+    margin-bottom: 1rem;
 }
 
+.aboutTextStyles p {
+    color: var(--text-primary);
+    text-align: justify;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+}
+/* end about section styles */
+
+/* testimonial section styles */
+.testimonialSectionStyles {
+    padding: 3rem 0rem;
+    background: #fff;
+}
+
+.testimonialTitleStyles h1 {
+    color: var(--text-primary);
+    font-weight: bold;
+}
+/* end testimonial section styles */
+
+/* callback section styles */
+.callbackSectionStyles {
+    padding: 3rem 0rem;
+    background: rgba(107, 29, 31, 0.1);
+}
+
+.callbackTitleStyles h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.callbackTitleStyles p {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+/* end callback section styles */
+
+/* mobile view styles */
 @media (max-width: 767.99px) {
+
+    /* diseases & conditions section style */
     .grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(38px, 1fr));
@@ -127,7 +215,8 @@
     }
 
     .circle:hover {
-    background-color: #6b1d20;
-    color: #fff;
-}
+        background-color: #6b1d20;
+        color: #fff;
+    }
+    /* end diseases & conditions section style */
 }

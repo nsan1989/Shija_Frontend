@@ -3,8 +3,8 @@
     colors
     ============ */
 
-    --primary-color: #7D2529;
-    --primary-hover: #7D2529;
+    --primary-color: #6b1d20;
+    --primary-hover: #6b1d20;
 
     --secondary-color: #004d00;
     --secondary-hover: #004d00;
@@ -21,6 +21,9 @@
     text colors
     ============ */
 
+    --text-primary: #6b1d20;
+    --text-secondary: #004d00;
+    --text-tertiary: #D4AF37;
     --text-dark: #000000;
     --text-muted: #adb5bd;
     --text-light: #fff;

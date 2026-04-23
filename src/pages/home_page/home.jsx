@@ -54,23 +54,23 @@ export default function Home() {
       <SideNav />
       {/* banner section */}
       <section className="banner-section">
+        {/*
         <div className={styles.searchComponentStyle}>
           <Search placeholder="Search for Doctors and Specialities..." />
         </div>
+        */}
         <FloatNav />
         <BannerFunction />
       </section>
       {/* end of banner section */}
       {/* discover section */}
       <section
-        className={`discover-section ${styles["discover-section-styles"]}`}
+        className={`discover-section ${styles["discoverSectionStyles"]}`}
       >
         <Container>
-          <div className="section-title mb-3">
-            <h3 className="fw-bold" style={{ color: "#6b1d20" }}>
-              Discover Our Centres of Clinical Excellence
-            </h3>
-            <p className="mb-0" style={{ color: "#6b1d20" }}>
+          <div className={`section-title ${styles["discoverTitleStyle"]}`}>
+            <h1>Discover Our Centres of Clinical Excellence</h1>
+            <p>
               Experience world-class healthcare at Apollo's specialized hubs of
               medical innovation. Our state-of-the-art centres deliver
               unparalleled expertise in key specialties and super specialties.
@@ -96,26 +96,15 @@ export default function Home() {
       {/* end of discover section */}
       {/* Diseases and Conditions Search */}
       <section
-        className={`diseases-and-conditions-section ${styles["diseases-and-conditions-styles"]}`}
+        className={`diseases-and-conditions-section ${styles["diseasesConditionsStyles"]}`}
       >
-        <Container
-          style={{
-            borderRadius: "0.5rem",
-            padding: "1rem",
-            backgroundColor: "rgba(255, 255, 255, 0.8)",
-          }}
-        >
+        <Container className={styles.diseaseContainer}>
           <Row>
             <Col xs={12} sm={12} md={7} lg={7} xl={7}>
-              <div className="section-title mb-3">
-                <h3
-                  className="mb-3 fw-bold"
-                  style={{
-                    color: "#7D2529",
-                  }}
-                >
-                  Find Diseases & Conditions By Alphabet
-                </h3>
+              <div
+                className={`section-title mb-3 ${styles["diseaseTitleStyle"]}`}
+              >
+                <h3>Find Diseases & Conditions By Alphabet</h3>
                 <div className={`alphabet-warpper rounded-4 ${styles["grid"]}`}>
                   {alphabets.map((letter) => (
                     <button
@@ -130,13 +119,8 @@ export default function Home() {
               </div>
             </Col>
             <Col xs={12} sm={12} md={5} lg={5} xl={5}>
-              <div
-                className="column-title mb-3"
-                style={{
-                  color: "#7D2529",
-                }}
-              >
-                <h3 className="fw-bold">List of related diseases</h3>
+              <div className={styles.columnTitle}>
+                <h3>List of related diseases</h3>
               </div>
               {diseases.length > 0 ? (
                 <>
@@ -173,20 +157,12 @@ export default function Home() {
       </section>
       {/* end ofDiseases and Conditions Search */}
       {/* services section */}
-      <section
-        className={`services-section ${styles[`service-section-styles`]}`}
-      >
+      <section className={`services-section ${styles[`serviceSectionStyles`]}`}>
         <Container>
-          <div className="section-title mb-3">
-            <h2
-              className="mb-0 fw-bold"
-              style={{
-                color: "#7D2529",
-                fontWeight: "bold",
-              }}
-            >
-              Services
-            </h2>
+          <div
+            className={`"section-title mb-3" ${styles["serviceTitleStyles"]}`}
+          >
+            <h1>Services</h1>
           </div>
           <div className="service-content">
             <ServiceFunction />
@@ -195,17 +171,10 @@ export default function Home() {
       </section>
       {/* end of Services section */}
       {/* new section */}
-      <section className={`new-section ${styles["new-section-styles"]}`}>
+      <section className={`new-section ${styles["newSectionStyles"]}`}>
         <Container>
-          <div className="section-title mb-3 text-center d-flex justify-content-between">
-            <h2
-              className="mb-0 fw-bold"
-              style={{
-                color: "#7D2529",
-              }}
-            >
-              What's New At Shija
-            </h2>
+          <div className={`section-title ${styles["newTitleStyles"]}`}>
+            <h1>What's New At Shija</h1>
             <div className="explore-btn">
               <a className="btn btn-warning rounded" href="/media-page">
                 Explore More <FaArrowRightLong />
@@ -237,15 +206,115 @@ export default function Home() {
         </Container>
       </section>
       {/* end of new section */}
+      {/* about section */}
+      <section className={`about-section ${styles["aboutSectionStyles"]}`}>
+        <Container>
+          <div className={`about-title ${styles["aboutTitleStyles"]}`}>
+            <h3>about us</h3>
+          </div>
+          <div className={`about-text ${styles["aboutTextStyles"]}`}>
+            <p>
+              Established in 1985, **Shija Hospitals and Research Institute
+              (SHRI)** has evolved into a 350-bed multi-specialty hospital in
+              Imphal, offering advanced secondary and tertiary healthcare with
+              modern facilities and a large professional team. It also
+              established the **Shija Academy of Health Sciences (SAHS)**,
+              Northeast India’s first homegrown medical college, and achieved
+              milestones like the region’s first deceased kidney transplants.
+              With strong government empanelments, medical education programs,
+              and international initiatives, SHRI plays a key role in regional
+              healthcare and aims to become a global healthcare leader while
+              promoting Manipur as a medical tourism destination.
+            </p>
+          </div>
+          <div className="about-card p-3">
+            <div className="d-flex justify-content-center">
+              <Card
+                style={{
+                  width: "18rem",
+                  height: "9rem",
+                }}
+              >
+                <Card.Img />
+                <Card.Body>
+                  <Card.Title>Total Caregivers</Card.Title>
+                  <Card.Text></Card.Text>
+                </Card.Body>
+              </Card>
+              <Card
+                style={{
+                  width: "18rem",
+                  height: "9rem",
+                }}
+              >
+                <Card.Img />
+                <Card.Body>
+                  <Card.Title>Hospital Beds</Card.Title>
+                  <Card.Text></Card.Text>
+                </Card.Body>
+              </Card>
+              <Card
+                style={{
+                  width: "18rem",
+                  height: "9rem",
+                }}
+              >
+                <Card.Img />
+                <Card.Body>
+                  <Card.Title>Empanelled Orgs</Card.Title>
+                  <Card.Text></Card.Text>
+                </Card.Body>
+              </Card>
+            </div>
+            <div className="d-flex justify-content-center">
+              <Card
+                style={{
+                  width: "18rem",
+                  height: "9rem",
+                }}
+              >
+                <Card.Img />
+                <Card.Body>
+                  <Card.Title>Total Caregivers</Card.Title>
+                  <Card.Text></Card.Text>
+                </Card.Body>
+              </Card>
+              <Card
+                style={{
+                  width: "18rem",
+                  height: "9rem",
+                }}
+              >
+                <Card.Img />
+                <Card.Body>
+                  <Card.Title>Hospital Beds</Card.Title>
+                  <Card.Text></Card.Text>
+                </Card.Body>
+              </Card>
+              <Card
+                style={{
+                  width: "18rem",
+                  height: "9rem",
+                }}
+              >
+                <Card.Img />
+                <Card.Body>
+                  <Card.Title>Empanelled Orgs</Card.Title>
+                  <Card.Text></Card.Text>
+                </Card.Body>
+              </Card>
+            </div>
+          </div>
+        </Container>
+      </section>
+      {/* end of about section */}
       {/* testimonial section */}
       <section
-        className={`testimonial-section ${styles["testimonial-section-styles"]}`}
+        className={`testimonial-section ${styles["testimonialSectionStyles"]}`}
       >
         <Container>
-          <div className="section-title mb-3">
-            <h3 className="mb-0 fw-bold" style={{ color: "#6b1d20" }}>
-              Patient Stories
-            </h3>
+          <div className={`section-title ${styles["testimonialTitleStyles"]}`}>
+            <h1>Patient Stories</h1>
           </div>
           <div className="section-content">
             <TestimonialCard />
@@ -255,19 +324,19 @@ export default function Home() {
       {/* end of testimonial section */}
       {/* callback section */}
       <section
-        className={`callback-section ${styles["callback-section-styles"]}`}
+        className={`callback-section ${styles["callbackSectionStyles"]}`}
       >
         <Container>
-          <div className="section-content mb-5">
-            <div className="section-header mb-3">
-              <h3 style={{ color: "#6b1d20" }}>Frequently Asked Questions - Shija Hospitals</h3>
-              <p>
+          <div className={`section-title ${styles["callbackTitleStyles"]}`}>
+            <h3>Frequently Asked Questions - Shija Hospitals</h3>
+            <p>
                 Explore detailed answers to commonly asked questions about
                 healthcare services, specialist consultations, treatment
                 processes, and patient care at Apollo Hospitals, one of India’s
                 leading multispeciality hospital networks.
               </p>
-            </div>
+          </div>
+          <div className="section-content mb-5">
             <FaqComponent />
           </div>
           <div className="section-content">

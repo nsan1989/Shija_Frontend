@@ -9,7 +9,7 @@ const navItems = [
     { title: 'Book an Appointment', icons: <SlCalender />, link: 'http://103.72.216.194:8001/PatientPortal/TentativeAppointment/TentativeAppointment' },
     { title: 'Report', icons: <TbReport />, link: 'http://103.72.216.194:9000/shijareport/' },
     { title: 'Health Checkup', icons: <FaStethoscope />, link: '' },
-    { title: 'Home Care', icons: <FaHandHoldingHeart />, link: '' },
+    { title: 'Home Care', icons: <FaHandHoldingHeart />, link: 'http://localhost:8000' },
 ];
 
 export default function FloatNav() {

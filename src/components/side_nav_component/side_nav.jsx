@@ -26,7 +26,7 @@ const navLinks = [
   {
     name: "Book Home Care",
     icon: home,
-    path: "/home-care",
+    path: "http://localhost:8000",
   },
   {
     name: "Navigate",

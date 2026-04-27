@@ -11,6 +11,7 @@ import Overview from './pages/overview_page/overview';
 import DoctorPage from './pages/doctor_page/doctor';
 import Profile from './pages/profile_page/profile';
 import MediaPage from './pages/media_page/media';
+import DirectorsPage from './pages/directors_page/directors';
 import DiseasesAndConditionsPage from './pages/DiseasesAndConditions_page/diseases_conditions_page';
 import DiseasesDetailsPage from './pages/diseases_details_page/diseases_details';
 import CentresOfExcellencePage from './pages/centresofexcellence_page/centres_of_excellence';
@@ -38,6 +39,7 @@ function App() {
           <Route path="/doctors-page" element={<DoctorPage />} />
           <Route path="/media-page" element={<MediaPage />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/directors" element={<DirectorsPage />} />
           <Route path="/diseases-and-conditions" element={<DiseasesAndConditionsPage />} />
           <Route path="/disease-details/:diseaseId" element={<DiseasesDetailsPage />} />
           <Route path="/centres_of_excellence" element={<CentresOfExcellencePage />} />

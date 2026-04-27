@@ -2,20 +2,46 @@
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    position: relative;
 }
 
-.banner-section-styles::after {
-    content: "";
+.slideContainer {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Video Background */
+.videoBackground {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom,
-            rgba(107, 29, 32, 0.4) 0%,
-            rgb(255, 255, 255, 0) 60%);
-    background-color: rgba(107, 29, 32, 0.4);
-    z-index: 10;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease;
+    z-index: 1;
+}
+
+.videoActive {
+    opacity: 1;
+}
+
+.gradientOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(107, 29, 31, 0.5) 0%,
+        rgba(107, 29, 31, 0.2) 50%,
+        rgba(0, 0, 0, 0.3) 100%
+    );
+    z-index: 5;
     pointer-events: none;
 }
 
@@ -28,27 +54,89 @@
     width: 100%;
     height: 100vh;
     object-fit: cover;
-    transition: opacity 0.8s ease-in-out, transform 1.2s ease-in-out;
+    transition: transform 8s ease-out, opacity 0.8s ease-in-out;
+    position: relative;
+    z-index: 2;
 }
 
-.swiper-slide-active .banner-image-styles {
-    opacity: 1;
-    transform: scale(1);
+/* Ken Burns Effect */
+.kenBurns {
+    animation: kenBurns 8s ease-out forwards;
 }
 
-.swiper-slide .banner-image-styles {
-    opacity: 0.6;
-    transform: scale(1.05);
-}
-
-@media screen and (max-width: 767.98px) {
-    .bannerSwipper {
-        width: 100%;
-        height: 100%;
+@keyframes kenBurns {
+    0% {
+        transform: scale(1);
     }
+    100% {
+        transform: scale(1.1);
+    }
+}
 
+/* Custom Navigation */
+.customNav {
+    position: absolute;
+    bottom: 2rem;
+    right: 5%;
+    z-index: 20;
+}
+
+.navDots {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.navDot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.navDot:hover {
+    border-color: #ffc107;
+}
+
+.navDotActive {
+    background: #ffc107;
+    border-color: #ffc107;
+    transform: scale(1.2);
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 767.98px) {
+    .banner-section-styles {
+        height: 60vh;
+    }
+    
+    .slideContainer {
+        height: 60vh;
+    }
+    
     .banner-image-styles {
-        width: 100%;
-        height: 100%;
+        height: 60vh;
+    }
+    
+    .videoBackground {
+        height: 60vh;
+    }
+    
+    .gradientOverlay {
+        background: linear-gradient(
+            to bottom,
+            rgba(107, 29, 31, 0.5) 0%,
+            rgba(107, 29, 31, 0.3) 50%,
+            rgba(0, 0, 0, 0.5) 100%
+        );
+    }
+    
+    .customNav {
+        bottom: 1rem;
+        right: 50%;
+        transform: translateX(50%);
     }
 }

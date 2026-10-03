@@ -1,10 +1,9 @@
 import Title from "../../components/title_component/title";
-import BreadcrumbComponent from "../../components/breadcrumb_component/breadcrumb";
+import BreadcrumbComponent from "../../components/breadcrumb_component/BreadcrumbComponent";
 import Search from "../../components/search_component/search";
 import { FaHome } from "react-icons/fa";
 import { Container, Row, Col } from "react-bootstrap";
 import styles from "./centres_of_excellence.module.css";
-import CoeFunction from "../../components/coe_component/coe";
 
 const breadcrumbItems = [
   { href: "/", icon: <FaHome /> },
@@ -44,7 +43,6 @@ export default function CentresOfExcellencePage() {
           <h5>Explore Our Centres of Excellence</h5>
         </div>
         <div className="coe_content mt-4">
-          <CoeFunction />
         </div>
       </div>
     </Container>

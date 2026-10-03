@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import Title from "../../components/title_component/title";
-import BreadcrumbComponent from "../../components/breadcrumb_component/breadcrumb";
+import BreadcrumbComponent from "../../components/breadcrumb_component/BreadcrumbComponent";
 import { FaHome } from "react-icons/fa";
 import { Container } from "react-bootstrap";
 import styles from "./overview.module.css";

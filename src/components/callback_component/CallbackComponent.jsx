@@ -3,7 +3,7 @@ import { Row, Col, Form, Image, InputGroup, Button } from "react-bootstrap";
 import image from '../../assets/images/image.png';
 import styles from './callback.module.css';
 
-export default function CallbackFunction() {
+export default function CallbackComponent() {
 
     const [validated, setValidated] = useState(false);
     const handleSubmit = (event) => {

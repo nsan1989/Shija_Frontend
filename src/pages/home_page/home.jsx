@@ -4,17 +4,18 @@ import { Link } from "react-router-dom";
 import Title from "../../components/title_component/title";
 import Search from "../../components/search_component/search";
 import FloatNav from "../../components/float_nav_component/float_nav";
-import BannerFunction from "../../components/banner_component/banner";
-import DiscoverFunction from "../../components/discover_component/discover";
+import BannerComponent from "../../components/banner_component/BannerComponent";
+import DiscoverComponent from "../../components/discover_component/DiscoverComponent";
 import TestimonialCard from "../../components/testimonial_component/testimonial";
 import SideNav from "../../components/side_nav_component/side_nav";
-import ServiceFunction from "../../components/service_component/service";
-import CallbackFunction from "../../components/callback_component/callback";
+import CallbackFunction from "../../components/callback_component/CallbackComponent";
 import FaqComponent from "../../components/faq_component/faq";
 import styles from "./home.module.css";
 import { FaArrowRightLong } from "react-icons/fa6";
-/* --api's-- */
 import useEventsViewData from "../../api/events_view_api";
+import ButtonComponent from "../../components/button_component/ButtonComponent";
+import CardComponent from "../../components/card_component/CardComponent";
+import { getServiceData, getServiceUrl } from "../../services/apiService";
 
 const alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
@@ -22,7 +23,8 @@ const DISEASE_INDEX_URL = "../Diseases-Repository/index/diseases-index.json";
 
 export default function Home() {
   Title("Home");
-
+  const [serviceData, setServiceData] = useState([]);
+  const [error, setError] = useState(null);
   const { data: eventsViewData } = useEventsViewData();
   const events = eventsViewData?.events_view_data || [];
   const newEventsData = events && events.length > 0 ? events : [];
@@ -39,7 +41,7 @@ export default function Home() {
         const data = text ? JSON.parse(text) : {};
         setIndexData(data);
       } catch (err) {
-        console.error("Error fetching JSON:", err);
+        console.error(err.message);
         setIndexData({});
       }
     };
@@ -48,9 +50,23 @@ export default function Home() {
 
   const diseases = indexData[selectedLetter] || [];
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getServiceData();
+        if (data?.status === "success" && Array.isArray(data.msg)) {
+          setServiceData(data.msg);
+        }
+      } catch (err) {
+        setError(err.message);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className="home-wrapper">
-      <updateFunction />
       <SideNav />
       {/* banner section */}
       <section className="banner-section">
@@ -60,7 +76,7 @@ export default function Home() {
         </div>
         */}
         <FloatNav />
-        <BannerFunction />
+        <BannerComponent />
       </section>
       {/* end of banner section */}
       {/* discover section */}
@@ -79,17 +95,16 @@ export default function Home() {
             </p>
           </div>
           <div className="mb-5">
-            <DiscoverFunction />
+            <DiscoverComponent />
           </div>
           <div className="section-button d-flex justify-content-center">
-            <Link
-              className="btn btn-lg btn-warning d-flex align-items-center"
-              to="/centres_of_excellence"
-            >
-              <small>All Specialities</small>
-              &nbsp;&nbsp;
-              <FaArrowRightLong />
-            </Link>
+            <ButtonComponent
+              variant="warning"
+              size="lg"
+              link="/centres_of_excellence"
+              label="All Specialities"
+              icon={<FaArrowRightLong />}
+            />
           </div>
         </Container>
       </section>
@@ -162,10 +177,20 @@ export default function Home() {
           <div
             className={`"section-title mb-3" ${styles["serviceTitleStyles"]}`}
           >
-            <h1>Services</h1>
+            <h1>Our Services</h1>
+            <p>Explore essential healthcare services designed to support your care journey at every stage.</p>
           </div>
           <div className="service-content">
-            <ServiceFunction />
+            {serviceData.map((item) => (
+              <Row className="d-flex">
+                <Col sm={12} md={3}>
+                  <CardComponent variant="top" image={item.icon} />
+                </Col>
+                <Col sm={12} md={3}>
+                  <CardComponent title={item.title} text={item.sub_title} buttonLabel="Know More" />
+                </Col>
+              </Row>
+            ))}
           </div>
         </Container>
       </section>
@@ -330,11 +355,11 @@ export default function Home() {
           <div className={`section-title ${styles["callbackTitleStyles"]}`}>
             <h3>Frequently Asked Questions - Shija Hospitals</h3>
             <p>
-                Explore detailed answers to commonly asked questions about
-                healthcare services, specialist consultations, treatment
-                processes, and patient care at Apollo Hospitals, one of India’s
-                leading multispeciality hospital networks.
-              </p>
+              Explore detailed answers to commonly asked questions about
+              healthcare services, specialist consultations, treatment
+              processes, and patient care at Apollo Hospitals, one of India’s
+              leading multispeciality hospital networks.
+            </p>
           </div>
           <div className="section-content mb-5">
             <FaqComponent />

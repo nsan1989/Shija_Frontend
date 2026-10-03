@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { href, useParams } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import Title from "../../components/title_component/title";
-import BreadcrumbComponent from "../../components/breadcrumb_component/breadcrumb";
+import BreadcrumbComponent from "../../components/breadcrumb_component/BreadcrumbComponent";
 import styles from "./diseases_details.module.css";
 import { FaHome } from "react-icons/fa";
 import { label } from "three/tsl";

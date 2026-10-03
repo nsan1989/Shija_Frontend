@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { Container, Navbar, Nav, Image } from "react-bootstrap";
-import { MegaMenu } from "./mega_menu";
+import { MegaMenu } from "../../constants/megaMenu";
 import styles from "./header.module.css";
 import { FaArrowLeft } from "react-icons/fa";
 import logo from "../../assets/icons/logo.png";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-export default function ShijaHeader() {
+export default function HeaderComponent() {
   const [activeMegaIndex, setActiveMegaIndex] = useState(null);
   const [activeFirstIndex, setActiveFirstIndex] = useState(null);
   const [scrolled, setScrolled] = useState(false);
@@ -64,7 +64,6 @@ export default function ShijaHeader() {
                       alt="Shija Logo"
                       width={80}
                       className={styles.logoImage}
-                      priority
                     />
                   </Link>
                 ) : (

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import Title from "../../components/title_component/title";
-import BreadcrumbComponent from "../../components/breadcrumb_component/breadcrumb";
+import BreadcrumbComponent from "../../components/breadcrumb_component/BreadcrumbComponent";
 import styles from './media.module.css';
 import { FaHome, FaAngleRight } from "react-icons/fa"
 import { Container, Row, Col } from 'react-bootstrap';
 import NewsViewFunction from "../../components/news_view_component/news_view";
 import EventsViewFunction from "../../components/events_view_component/events_view";
-import CampsViewFunction from "../../components/camps_view_component/camps_view";
+import CampsViewComponent from "../../components/camps_view_component/CampsViewComponent";
 
 const breadcrumbItems = [
     { href: '/', icon: <FaHome /> },
@@ -22,7 +22,7 @@ export default function MediaPage() {
     const tabs = [
         { label: "Shija News", content: <NewsViewFunction /> },
         { label: "Events", content: <EventsViewFunction /> },
-        { label: "Camps", content: <CampsViewFunction /> },
+        { label: "Camps", content: <CampsViewComponent /> },
         { label: "Media Gallery", content: <div>Gallery Data</div> }
     ];
 

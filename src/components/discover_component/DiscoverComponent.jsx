@@ -1,12 +1,13 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import styles from "./discover.module.css";
-import { Button } from "react-bootstrap";
+import { Button, Image } from "react-bootstrap";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { Image } from "react-bootstrap";
-/* --api's-- */
-import useCoeData from "../../api/coe_api";
+import { getCoeData, getCoeUrl } from "../../services/apiService";
+import ButtonComponent from "../button_component/ButtonComponent";
 
-export default function DiscoverFunction() {
+export default function DiscoverComponent() {
+  const [coeData, setCoeData] = useState([]);
+  const [error, setError] = useState(null);
   const bodyRefs = useRef([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollToBody = (index) => {
@@ -19,22 +20,48 @@ export default function DiscoverFunction() {
     setCurrentIndex(index);
   };
 
-  const { data: discoverData } = useCoeData();
-  const discovers = discoverData?.coe_data || [];
-  const newDiscoverData = discovers && discovers.length > 0 ? discovers : [];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const discoverData = await getCoeData();
+        if (discoverData?.status === "success" && Array.isArray(discoverData.msg)) {
+          setCoeData(
+            discoverData.msg.map((item) => ({
+              ...item,
+              image: item.image || getCoeUrl(item.thumnail),
+            })),
+          );
+        } else {
+          setError("Unable to load discover content.");
+        }
+      } catch (err) {
+        setError(
+          err instanceof Error ? err.message : "Unable to load discover content.",
+        );
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (error) {
+    return <div role="alert">{error}</div>;
+  }
+
+  const discovers = coeData.slice(0, 5);
 
   return (
     <div className={`discover-wrapper ${styles.discoverWrapperStyles}`}>
       {/* 🔹 DISCOVER HEADERS (Horizontal) */}
       <div className="d-flex gap-4 mb-3 overflow-auto">
-        {newDiscoverData.map((item, index) => (
+        {discovers.map((item, index) => (
           <div key={`header-${item.id}`}>
-            <Button
-              className={`rounded-4 ${styles["discoverButtonStyles"]}`}
+            <ButtonComponent 
+              variant="warning"
+              size="lg"
+              label={item.name}
               onClick={() => scrollToBody(index)}
-            >
-              {item.name}
-            </Button>
+            />
           </div>
         ))}
       </div>
@@ -59,7 +86,7 @@ export default function DiscoverFunction() {
 
         {/* 🔹 SCROLL CONTAINER */}
         <div className={`discover-body ${styles["discoverBodyStyles"]}`}>
-          {discovers.slice(0, 5).map((item, index) => (
+          {discovers.map((item, index) => (
             <div
               key={item.id}
               ref={(el) => (bodyRefs.current[index] = el)}
@@ -90,10 +117,10 @@ export default function DiscoverFunction() {
         <Button
           variant="light"
           className="ms-2 shadow-sm"
-          disabled={currentIndex === discovers.length - 1}
+          disabled={currentIndex >= discovers.length - 1}
           onClick={() => scrollToBody(currentIndex + 1)}
           style={{
-            cursor: currentIndex === 0 ? "not-allowed" : "pointer",
+            cursor: currentIndex >= discovers.length - 1 ? "not-allowed" : "pointer",
             width: "3rem",
             height: "3rem",
             borderRadius: "50%",

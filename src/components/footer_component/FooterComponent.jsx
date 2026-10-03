@@ -1,9 +1,9 @@
 import { Container, Col, Button, Accordion } from 'react-bootstrap'
 import { FaFacebook, FaInstagram, FaGooglePlay, FaApple } from "react-icons/fa6"
 import styles from './footer.module.css'
-import CallbackFunction from '../callback_component/callback'
+import CallbackFunction from '../callback_component/CallbackComponent'
 
-export default function ShijaFooter() {
+export default function FooterComponent() {
 
     return (
         <div className={`footer-wrapper py-3 ${styles[`footer-wrapper-styles`]}`}>

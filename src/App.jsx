@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import ShijaHeader from './components/header_component/header';
-import ShijaFooter from './components/footer_component/footer';
+import HeaderComponent from './components/header_component/HeaderComponent';
+import FooterComponent from './components/footer_component/FooterComponent';
 import MobileMenu from './components/mobile_menu_component/mobile_menu';
 import ScrollToTop from './components/scroll_component/scroll_to_top';
 import ChatWidget from './components/chatbot/chat_widget';
@@ -29,7 +29,7 @@ function App() {
 
   return (
     <Router>
-      <ShijaHeader />
+      <HeaderComponent />
       <ScrollToTop />
       <ChatWidget />
       <main>
@@ -50,7 +50,7 @@ function App() {
         </Routes>
       </main>
       <MobileMenu />
-      <ShijaFooter />
+      <FooterComponent />
     </Router>
   )
 }

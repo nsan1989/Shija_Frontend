@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap";
 import Title from "../../components/title_component/title";
-import BreadcrumbComponent from "../../components/breadcrumb_component/breadcrumb";
+import BreadcrumbComponent from "../../components/breadcrumb_component/BreadcrumbComponent";
 import { FaHome } from "react-icons/fa";
 
 import styles from "./privacy&policy.module.css";

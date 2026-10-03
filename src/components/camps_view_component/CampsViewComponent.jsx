@@ -3,7 +3,7 @@ import styles from "./camps_view.module.css";
 /* --api's-- */
 import useCampsViewData from "../../api/camps_view_api.jsx";
 
-export default function CampsViewFunction() {
+export default function CampsViewComponent() {
     const { data: campsViewData } = useCampsViewData();
     const camps = campsViewData?.camps_view_data || [];
     const newCampsData = camps && camps.length > 0 ? camps : [];

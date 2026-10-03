@@ -1,5 +1,5 @@
 import Title from '../../components/title_component/title'
-import BreadcrumbComponent from '../../components/breadcrumb_component/breadcrumb';
+import BreadcrumbComponent from '../../components/breadcrumb_component/BreadcrumbComponent';
 import Search from '../../components/search_component/search';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FaHome } from "react-icons/fa"

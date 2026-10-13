@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import { Container, Image, Card, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Title from "../../components/title_component/title";
-import Search from "../../components/search_component/search";
+import SearchComponent from "../../components/search_component/SearchComponent";
 import FloatNav from "../../components/float_nav_component/float_nav";
 import BannerComponent from "../../components/banner_component/BannerComponent";
 import DiscoverComponent from "../../components/discover_component/DiscoverComponent";
 import TestimonialCard from "../../components/testimonial_component/testimonial";
-import SideNav from "../../components/side_nav_component/side_nav";
+import SideNavComponent from "../../components/side_nav_component/SideNavComponent";
 import CallbackFunction from "../../components/callback_component/CallbackComponent";
 import FaqComponent from "../../components/faq_component/faq";
 import styles from "./home.module.css";
@@ -67,12 +67,12 @@ export default function Home() {
 
   return (
     <div className="home-wrapper">
-      <SideNav />
+      <SideNavComponent />
       {/* banner section */}
       <section className="banner-section">
         {/*
         <div className={styles.searchComponentStyle}>
-          <Search placeholder="Search for Doctors and Specialities..." />
+          <SearchComponent placeholder="Search for Doctors and Specialities..." />
         </div>
         */}
         <FloatNav />

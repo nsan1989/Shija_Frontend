@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Title from '../../components/title_component/title'
 import BreadcrumbComponent from '../../components/breadcrumb_component/BreadcrumbComponent';
-import Search from '../../components/search_component/search';
+import SearchComponent from '../../components/search_component/SearchComponent';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FaHome } from "react-icons/fa";
 import styles from './diseases_conditions.module.css';
@@ -62,7 +62,7 @@ export default function DiseasesAndConditionsPage() {
                     <div className={styles.searchComponentStyle}>
                         <Row className='d-flex align-items-center'>
                             <Col lg={8}>
-                                <Search 
+                                <SearchComponent 
                                     placeholder="Search for Diseases and Conditions..." 
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}

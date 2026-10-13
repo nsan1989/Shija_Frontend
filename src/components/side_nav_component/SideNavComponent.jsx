@@ -67,7 +67,7 @@ export function useScrollVisibility() {
   return visible;
 }
 
-export default function SideNav() {
+export default function SideNavComponent() {
 
   const isVisible = useScrollVisibility();
 

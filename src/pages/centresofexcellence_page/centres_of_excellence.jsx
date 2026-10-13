@@ -1,6 +1,6 @@
 import Title from "../../components/title_component/title";
 import BreadcrumbComponent from "../../components/breadcrumb_component/BreadcrumbComponent";
-import Search from "../../components/search_component/search";
+import SearchComponent from "../../components/search_component/SearchComponent";
 import { FaHome } from "react-icons/fa";
 import { Container, Row, Col } from "react-bootstrap";
 import styles from "./centres_of_excellence.module.css";
@@ -33,7 +33,7 @@ export default function CentresOfExcellencePage() {
         <div>
           <Row className="d-flex align-items-center">
             <Col lg={8}>
-              <Search placeholder="Search for Doctors, Specialities, Or Conditions" />
+              <SearchComponent placeholder="Search for Doctors, Specialities, Or Conditions" />
             </Col>
           </Row>
         </div>

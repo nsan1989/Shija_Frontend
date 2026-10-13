@@ -1,6 +1,6 @@
 import Title from '../../components/title_component/title'
 import BreadcrumbComponent from '../../components/breadcrumb_component/BreadcrumbComponent';
-import Search from '../../components/search_component/search';
+import SearchComponent from '../../components/search_component/SearchComponent';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FaHome } from "react-icons/fa"
 import styles from './doctor.module.css';
@@ -29,7 +29,7 @@ export default function DoctorPage() {
                     <div className={styles.searchComponentStyle}>
                         <Row className='d-flex align-items-center'>
                             <Col lg={8}>
-                                <Search placeholder="Search for Doctors and Specialities..." />
+                                <SearchComponent placeholder="Search for Doctors and Specialities..." />
                             </Col>
                             <Col lg={4}>
                                 Filter Component

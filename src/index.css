@@ -1,0 +1,65 @@
+ :root {
+  /* ============
+    brand colors
+    ============ */
+  --color-primary: #762426;
+  --color-primary-dark: #54191B;
+  --color-primary-light: #F5E8E8;
+
+  --color-secondary: #08751B;
+  --color-secondary-dark: #075515;
+  --color-secondary-light: #E7F4E9;
+
+  --color-tertiary: #F4F7F4;
+
+  /* ============
+    ui colors
+    ============ */
+  --color-background: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-text: #252925;
+  --color-border: #D9E1DA;
+
+  /* ============
+    status colors
+    ============ */
+  --color-success: #08751B;
+  --color-error: #B42318;
+  --color-warning: #B7791F;
+
+  /* ============
+    font family
+    ============ */
+
+    --font-primary: "Figtree", sans-serif;
+    --font-secondary: "Inter", sans-serif;
+
+    /* ============
+    font sizes
+    ============ */
+
+    --font-xs: 12px;
+    --font-sm: 14px;
+    --font-md: 16px;
+    --font-lg: 18px;
+    --font-xl: 22px;
+    --font-xxl: 28px;
+
+    /* ============
+    font weight
+    ============ */
+
+    --font-light: 300;
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-bold: 700;
+
+    /* ============
+    transitions
+    ============ */
+
+    --transition-fast: 0.2s ease-in-out;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+}

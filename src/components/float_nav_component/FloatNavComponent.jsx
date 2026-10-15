@@ -12,7 +12,7 @@ const navItems = [
     { title: 'Home Care', icons: <FaHandHoldingHeart />, link: 'http://localhost:8000' },
 ];
 
-export default function FloatNav() {
+export default function FloatNavComponent() {
 
     const handleClick = (e, link) => {
         const isExternal = link.startsWith("http");

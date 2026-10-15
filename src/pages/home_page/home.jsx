@@ -3,13 +3,13 @@ import { Container, Image, Card, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Title from "../../components/title_component/title";
 import SearchComponent from "../../components/search_component/SearchComponent";
-import FloatNav from "../../components/float_nav_component/float_nav";
+import FloatNavComponent from "../../components/float_nav_component/FloatNavComponent";
 import BannerComponent from "../../components/banner_component/BannerComponent";
 import DiscoverComponent from "../../components/discover_component/DiscoverComponent";
 import TestimonialCard from "../../components/testimonial_component/testimonial";
 import SideNavComponent from "../../components/side_nav_component/SideNavComponent";
 import CallbackFunction from "../../components/callback_component/CallbackComponent";
-import FaqComponent from "../../components/faq_component/faq";
+import FaqComponent from "../../components/faq_component/FaqComponent";
 import styles from "./home.module.css";
 import { FaArrowRightLong } from "react-icons/fa6";
 import useEventsViewData from "../../api/events_view_api";
@@ -75,7 +75,7 @@ export default function Home() {
           <SearchComponent placeholder="Search for Doctors and Specialities..." />
         </div>
         */}
-        <FloatNav />
+        <FloatNavComponent />
         <BannerComponent />
       </section>
       {/* end of banner section */}

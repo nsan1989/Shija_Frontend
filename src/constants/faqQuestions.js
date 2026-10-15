@@ -1,6 +1,4 @@
-import { Accordion } from "react-bootstrap"
-
-const faq_quest_list = [
+export const FaqQuestion = [
     {
         quest: "How do I book an appointment at the best hospital in Manipur, Shija Hospitals?",
         ans: "Booking an appointment at Shija Hospitals, recognized as the best hospital in Noth East, India and top hospital in Manipur, is quick and convenient. Use our official website, mobile app, or call the 24/7 helpline at 1860-500-1066 for instant slots. No prior referral needed—select your preferred date, time, and service for seamless access to best hospital near me quality care, whether for routine check-ups or urgent needs at this ranked best hospital in Manipur.",
@@ -34,20 +32,3 @@ const faq_quest_list = [
         ans: "Shija Hospitals, the best hospital in India and best multispecialty hospital for international patients, offers end-to-end support including medical visas, airport transfers, accommodation, language interpreters, and dedicated coordinators. As a leading hospital chain in India, we simplify global care, making us the preferred choice among world's best hospitals India for overseas patients.",
     }
 ]
-
-export default function FaqComponent() {
-    return (
-        <div className={`faq-wrapper`}>
-            {faq_quest_list.map((link, index) => (
-                <Accordion key={index} defaultActiveKey="0">
-                    <Accordion.Item eventKey="1" className="mb-3">
-                        <Accordion.Header>{link.quest}</Accordion.Header>
-                        <Accordion.Body>
-                            {link.ans}
-                        </Accordion.Body>
-                    </Accordion.Item>
-                </Accordion>
-            ))}
-        </div>
-    )
-}

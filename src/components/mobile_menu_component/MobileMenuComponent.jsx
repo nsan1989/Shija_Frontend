@@ -11,7 +11,7 @@ const navItems = [
     { title: 'Callback', icons: <FaPhoneVolume />, link: '' },
 ];
 
-export default function MobileMenu() {
+export default function MobileMenuComponent() {
     return (
         <div className={`mobile-menu-wrapper d-lg-none ${styles[`mobile-menu-wrapper-styles`]}`}>
             <Container>

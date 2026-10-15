@@ -1,11 +1,11 @@
-@import "../../styles/variable.css";
+@import "../../index.css";
 
 
 .breadcrumbItemStyle {
     display: flex;
     align-items: center;
     padding: 0.5rem;
-    background-color: var(--tertiary-color);
+    background-color: var(--color-secondary-dark);
 }
 
 

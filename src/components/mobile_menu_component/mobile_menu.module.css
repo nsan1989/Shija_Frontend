@@ -1,15 +1,17 @@
+@import "../../index.css";
+
 .mobile-menu-wrapper-styles {
     position: fixed;
     z-index: 999;
     width: 100%;
     bottom: 0;
     left: 0;
-    background-color: rgba(242, 224, 242, 1);
+    background-color: var(--color-primary-light);
 }
 
 .menu-wrapper-styles a {
     text-decoration: none;
-    color: #6B1D20;
+    color: var(--color-primary-dark);
 }
 
 .menuTitleStyle {

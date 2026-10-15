@@ -12,6 +12,7 @@ import CallbackFunction from "../../components/callback_component/CallbackCompon
 import FaqComponent from "../../components/faq_component/FaqComponent";
 import styles from "./home.module.css";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { FaBed, FaBuildingShield, FaUserDoctor } from "react-icons/fa6";
 import useEventsViewData from "../../api/events_view_api";
 import ButtonComponent from "../../components/button_component/ButtonComponent";
 import CardComponent from "../../components/card_component/CardComponent";
@@ -20,6 +21,11 @@ import { getServiceData, getServiceUrl } from "../../services/apiService";
 const alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 const DISEASE_INDEX_URL = "../Diseases-Repository/index/diseases-index.json";
+const aboutCards = [
+  { title: "Total Caregivers", icon: <FaUserDoctor aria-hidden="true" /> },
+  { title: "Hospital Beds", icon: <FaBed aria-hidden="true" /> },
+  { title: "Empanelled Orgs", icon: <FaBuildingShield aria-hidden="true" /> },
+];
 
 export default function Home() {
   Title("Home");
@@ -114,8 +120,15 @@ export default function Home() {
         className={`diseases-and-conditions-section ${styles["diseasesConditionsStyles"]}`}
       >
         <Container className={styles.diseaseContainer}>
-          <Row>
-            <Col xs={12} sm={12} md={7} lg={7} xl={7}>
+          <Row className={styles.diseaseRow}>
+            <Col
+              xs={12}
+              sm={12}
+              md={7}
+              lg={7}
+              xl={7}
+              className={styles.diseaseAlphabetColumn}
+            >
               <div
                 className={`section-title mb-3 ${styles["diseaseTitleStyle"]}`}
               >
@@ -133,7 +146,14 @@ export default function Home() {
                 </div>
               </div>
             </Col>
-            <Col xs={12} sm={12} md={5} lg={5} xl={5}>
+            <Col
+              xs={12}
+              sm={12}
+              md={5}
+              lg={5}
+              xl={5}
+              className={styles.diseaseResultsColumn}
+            >
               <div className={styles.columnTitle}>
                 <h3>List of related diseases</h3>
               </div>
@@ -200,25 +220,35 @@ export default function Home() {
         <Container>
           <div className={`section-title ${styles["newTitleStyles"]}`}>
             <h1>What's New At Shija</h1>
-            <div className="explore-btn">
-              <a className="btn btn-warning rounded" href="/media-page">
-                Explore More <FaArrowRightLong />
-              </a>
-            </div>
+            <a className={styles.exploreMoreButton} href="/media-page">
+              Explore More <FaArrowRightLong />
+            </a>
           </div>
           <div className="section-content">
-            <Row>
+            <Row className={styles.eventsRow}>
               {newEventsData.map((items, index) => (
-                <Col xs={12} sm={12} md={3} lg={3} xl={3} key={index}>
+                <Col
+                  xs={12}
+                  sm={6}
+                  lg={4}
+                  key={items.id || items.path || `${items.event_name}-${index}`}
+                >
                   <Card className={`event-card ${styles["eventsCardStyles"]}`}>
-                    <Image src={items.image} alt={items.event_name} />
+                    <Image
+                      src={items.image}
+                      alt={items.event_name}
+                      loading="lazy"
+                    />
                     <div
                       className={`event-content ${styles["eventContentStyles"]}`}
                     >
                       <h4>{items.event_name}</h4>
                       <div className="bottom-content d-flex justify-content-between">
                         <p>{items.start_date}</p>
-                        <a href={items.path}>
+                        <a
+                          href={items.path}
+                          aria-label={`Read more about ${items.event_name}`}
+                        >
                           <FaArrowRightLong />
                         </a>
                       </div>
@@ -234,102 +264,43 @@ export default function Home() {
       {/* about section */}
       <section className={`about-section ${styles["aboutSectionStyles"]}`}>
         <Container>
-          <div className={`about-title ${styles["aboutTitleStyles"]}`}>
-            <h3>about us</h3>
-          </div>
-          <div className={`about-text ${styles["aboutTextStyles"]}`}>
-            <p>
-              Established in 1985, **Shija Hospitals and Research Institute
-              (SHRI)** has evolved into a 350-bed multi-specialty hospital in
-              Imphal, offering advanced secondary and tertiary healthcare with
-              modern facilities and a large professional team. It also
-              established the **Shija Academy of Health Sciences (SAHS)**,
-              Northeast India’s first homegrown medical college, and achieved
-              milestones like the region’s first deceased kidney transplants.
-              With strong government empanelments, medical education programs,
-              and international initiatives, SHRI plays a key role in regional
-              healthcare and aims to become a global healthcare leader while
-              promoting Manipur as a medical tourism destination.
-            </p>
-          </div>
-          <div className="about-card p-3">
-            <div className="d-flex justify-content-center">
-              <Card
-                style={{
-                  width: "18rem",
-                  height: "9rem",
-                }}
-              >
-                <Card.Img />
-                <Card.Body>
-                  <Card.Title>Total Caregivers</Card.Title>
-                  <Card.Text></Card.Text>
-                </Card.Body>
-              </Card>
-              <Card
-                style={{
-                  width: "18rem",
-                  height: "9rem",
-                }}
-              >
-                <Card.Img />
-                <Card.Body>
-                  <Card.Title>Hospital Beds</Card.Title>
-                  <Card.Text></Card.Text>
-                </Card.Body>
-              </Card>
-              <Card
-                style={{
-                  width: "18rem",
-                  height: "9rem",
-                }}
-              >
-                <Card.Img />
-                <Card.Body>
-                  <Card.Title>Empanelled Orgs</Card.Title>
-                  <Card.Text></Card.Text>
-                </Card.Body>
-              </Card>
-            </div>
-            <div className="d-flex justify-content-center">
-              <Card
-                style={{
-                  width: "18rem",
-                  height: "9rem",
-                }}
-              >
-                <Card.Img />
-                <Card.Body>
-                  <Card.Title>Total Caregivers</Card.Title>
-                  <Card.Text></Card.Text>
-                </Card.Body>
-              </Card>
-              <Card
-                style={{
-                  width: "18rem",
-                  height: "9rem",
-                }}
-              >
-                <Card.Img />
-                <Card.Body>
-                  <Card.Title>Hospital Beds</Card.Title>
-                  <Card.Text></Card.Text>
-                </Card.Body>
-              </Card>
-              <Card
-                style={{
-                  width: "18rem",
-                  height: "9rem",
-                }}
-              >
-                <Card.Img />
-                <Card.Body>
-                  <Card.Title>Empanelled Orgs</Card.Title>
-                  <Card.Text></Card.Text>
-                </Card.Body>
-              </Card>
-            </div>
-          </div>
+          <Row className={styles.aboutLayout}>
+            <Col xs={12} lg={7} className={styles.aboutCopyColumn}>
+              <div className={`about-title ${styles.aboutTitleStyles}`}>
+                <h3>about us</h3>
+              </div>
+              <div className={`about-text ${styles.aboutTextStyles}`}>
+                <p>
+                  Established in 1985,{" "}
+                  <strong>
+                    Shija Hospitals and Research Institute (SHRI)
+                  </strong>{" "}
+                  has evolved into a 350-bed multi-specialty hospital in
+                  Imphal, offering advanced secondary and tertiary healthcare
+                  with modern facilities and a large professional team. It also
+                  established the{" "}
+                  <strong>Shija Academy of Health Sciences (SAHS)</strong>,
+                  Northeast India’s first homegrown medical college, and
+                  achieved milestones like the region’s first deceased kidney
+                  transplants. With strong government empanelments, medical
+                  education programs, and international initiatives, SHRI plays
+                  a key role in regional healthcare and aims to become a global
+                  healthcare leader while promoting Manipur as a medical
+                  tourism destination.
+                </p>
+              </div>
+            </Col>
+            <Col xs={12} lg={5} className={styles.aboutCardsColumn}>
+              {aboutCards.map((item) => (
+                <CardComponent
+                  key={item.title}
+                  title={item.title}
+                  icon={item.icon}
+                  className={styles.aboutCard}
+                />
+              ))}
+            </Col>
+          </Row>
         </Container>
       </section>
       {/* end of about section */}

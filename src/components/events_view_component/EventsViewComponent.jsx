@@ -3,7 +3,7 @@ import styles from "./events_view.module.css";
 /* --api's-- */
 import useEventsViewData from "../../api/events_view_api";
 
-export default function EventsViewFunction() {
+export default function EventsViewComponent() {
     const { data: eventsViewData } = useEventsViewData();
     const events = eventsViewData?.events_view_data || [];
     const newEventsData = events && events.length > 0 ? events : [];

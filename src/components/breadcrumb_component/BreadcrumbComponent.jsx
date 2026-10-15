@@ -18,7 +18,7 @@ const BreadcrumbComponent = ({ items }) => {
                         className={styles.breadcrumbItemStyle}
                     >
                         <span 
-                            className="d-flex align-items-center text-dark"
+                            className="d-flex align-items-center text-light"
                         >
                             {item.icon && item.icon}
                             {item.label}

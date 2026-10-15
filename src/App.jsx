@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import HeaderComponent from './components/header_component/HeaderComponent';
 import FooterComponent from './components/footer_component/FooterComponent';
-import MobileMenu from './components/mobile_menu_component/mobile_menu';
+import MobileMenuComponent from './components/mobile_menu_component/MobileMenuComponent';
 import ScrollToTop from './components/scroll_component/scroll_to_top';
 import ChatWidget from './components/chatbot/chat_widget';
 
@@ -49,7 +49,7 @@ function App() {
           <Route path="/refund_and_cancellations" element={<RefundAndCancellation />} />
         </Routes>
       </main>
-      <MobileMenu />
+      <MobileMenuComponent />
       <FooterComponent />
     </Router>
   )

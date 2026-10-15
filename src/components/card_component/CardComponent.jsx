@@ -11,27 +11,34 @@ export default function CardComponent({
   icon,
   style,
   buttonLabel,
+  className,
 }) {
-  return (
-    <Link to={link}>
-      <Card style={style}>
-        <Card.Img variant={variant} src={image} alt="" />
+  const card = (
+    <Card className={className} style={style}>
+      {image && <Card.Img variant={variant} src={image} alt="" />}
+      {(title || text || icon || buttonLabel) && (
         <Card.Body>
-          <Card.Title>{title}</Card.Title>
-          <Card.Text>{text}</Card.Text>
-          <div>
-            {icon}
-            {buttonLabel && (
-              <ButtonComponent
-                variant="primary"
-                size="sm"
-                label={buttonLabel}
-                icon={icon}
-              />
-            )}
-          </div>
+          {title && <Card.Title>{title}</Card.Title>}
+          {text && <Card.Text>{text}</Card.Text>}
+          {(icon || buttonLabel) && (
+            <div>
+              {icon}
+              {buttonLabel && (
+                <ButtonComponent
+                  variant="primary"
+                  size="sm"
+                  label={buttonLabel}
+                  icon={icon}
+                />
+              )}
+            </div>
+          )}
         </Card.Body>
-      </Card>
-    </Link>
+      )}
+    </Card>
+  );
+
+  return (
+    link ? <Link to={link}>{card}</Link> : <div>{card}</div>
   );
 }

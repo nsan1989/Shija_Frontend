@@ -5,7 +5,7 @@ import styles from './media.module.css';
 import { FaHome, FaAngleRight } from "react-icons/fa"
 import { Container, Row, Col } from 'react-bootstrap';
 import NewsViewFunction from "../../components/news_view_component/news_view";
-import EventsViewFunction from "../../components/events_view_component/events_view";
+import EventsViewComponent from "../../components/events_view_component/EventsViewComponent";
 import CampsViewComponent from "../../components/camps_view_component/CampsViewComponent";
 
 const breadcrumbItems = [
@@ -21,18 +21,13 @@ export default function MediaPage() {
 
     const tabs = [
         { label: "Shija News", content: <NewsViewFunction /> },
-        { label: "Events", content: <EventsViewFunction /> },
+        { label: "Events", content: <EventsViewComponent /> },
         { label: "Camps", content: <CampsViewComponent /> },
         { label: "Media Gallery", content: <div>Gallery Data</div> }
     ];
 
     return (
         <div className={`media-wrapper ${styles.mediaWrapperStyle}`}>
-            <Container fluid className="p-0">
-                <div className={`media-header ${styles.mediaHeaderStyle}`}>
-                    <div className={`header-overlay ${styles.headerOverlayStyle}`}></div>
-                </div>
-            </Container>
             <Container>
                 <div className='breadcrumb-content py-3'>
                     <BreadcrumbComponent items={breadcrumbItems} />

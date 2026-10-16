@@ -1,0 +1,28 @@
+@import "../../index.css";
+
+
+.breadcrumb {
+    --bs-breadcrumb-divider-color: var(--color-tertiary);
+    --bs-breadcrumb-item-color: var(--color-tertiary);
+    --bs-breadcrumb-item-active-color: var(--color-tertiary);
+}
+
+.breadcrumbItemStyle {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: var(--color-primary-dark);
+}
+
+.breadcrumbItemStyle a {
+    text-decoration: none;
+    color: var(--color-tertiary);
+}
+
+:global(.breadcrumb-item + .breadcrumb-item)::before {
+    color: var(--color-tertiary) !important;
+}
+
+:global(.breadcrumb-item.active) {
+    color: var(--color-tertiary) !important;
+}

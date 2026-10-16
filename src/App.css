@@ -1,4 +1,4 @@
-@import './styles/variable.css';
+@import "./index.css";
 
 
 * {
@@ -33,23 +33,6 @@ svg circle[fill^="url("] {
 }
 
 /* end of tanstack styles */
-
-footer {
-    background: #333;
-    color: var(--text-light);
-    text-align: center;
-    padding: 10px;
-}
-
-.swiper-button-prev,
-.swiper-button-next {
-    background-color: #6b1d20 !important;
-    width: 3rem !important;
-    height: 3rem !important;
-    padding: 16px;
-    border-radius: 50%;
-    color: #fff !important;
-}
 
 .accordion {
     --bs-accordion-btn-focus-box-shadow: none !important;

@@ -1,0 +1,844 @@
+@import "../../index.css";
+
+/* serach component style */
+.searchComponentStyle {
+    position: absolute;
+    bottom: 8rem;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    z-index: 20;
+}
+/* end serach component style */
+
+/* discover section style */
+.discoverSectionStyles {
+    padding: 3rem 0rem;
+    background: linear-gradient(to bottom, #e9afb1 0%, rgba(107, 29, 31, 0.1) 100%);
+}
+
+.discoverTitleStyle {
+    margin-bottom: 1.5rem;
+    color: var(--color-primary-dark);
+}
+
+.discoverTitleStyle h1 {
+    font-size: var(--font-heading);
+    font-weight: var(--font-bold);
+    margin-bottom: 0;
+}
+
+.discoverTitleStyle p {
+    font-size: var(--font-body);
+    font-weight: var(--font-light);
+}
+/* end discover section style */
+
+/* diseases & conditions section style */
+.diseasesConditionsStyles {
+    padding: clamp(2.5rem, 6vw, 5rem) 0;
+    background:
+        radial-gradient(ellipse at 12% 15%, rgba(212, 175, 55, 0.1), transparent 32%),
+        linear-gradient(145deg, #f8f4f2 0%, #f1f3f5 100%);
+}
+
+.diseaseContainer {
+    padding: 0;
+}
+
+.diseaseRow {
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid rgba(107, 29, 32, 0.1);
+    border-radius: 1.5rem;
+    background-color: #fff;
+    box-shadow: 0 1.25rem 3rem rgba(62, 25, 26, 0.12);
+}
+
+.diseaseAlphabetColumn,
+.diseaseResultsColumn {
+    padding: clamp(1.25rem, 3vw, 2rem);
+    border: 0;
+}
+
+.diseaseAlphabetColumn {
+    background:
+        radial-gradient(circle at 100% 0%, rgba(212, 175, 55, 0.17), transparent 36%),
+        linear-gradient(145deg, #79272b 0%, #4f171a 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.diseaseResultsColumn {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(145deg, #fff 0%, #fcfaf9 100%);
+}
+
+.diseaseTitleStyle h3 {
+    position: relative;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    color: #fff;
+    font-size: var(--font-heading);
+    font-weight: var(--font-bold);
+}
+
+.diseaseTitleStyle h3::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 3rem;
+    height: 3px;
+    border-radius: 99px;
+    background: var(--tertiary-color);
+    content: "";
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: clamp(0.4rem, 1.25vw, 0.9rem);
+    width: 100%;
+    padding: clamp(0.75rem, 2vw, 1.25rem);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 1.15rem;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.circle {
+    display: grid;
+    width: min(100%, 3.4rem);
+    aspect-ratio: 1;
+    justify-self: center;
+    place-items: center;
+    padding: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    background: var(--color-tertiary);
+    color: var(--primary-color);
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.circle:hover {
+    border-color: var(--tertiary-color);
+    background: #fff7dc;
+    color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 0.45rem 0.9rem rgba(25, 7, 8, 0.25);
+}
+
+.circle:global(.active) {
+    border-color: var(--tertiary-color);
+    background: var(--tertiary-color);
+    color: #3c1718;
+    box-shadow: 0 0.35rem 0.9rem rgba(25, 7, 8, 0.3);
+}
+
+.circle:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+}
+
+.columnTitle h3 {
+    position: relative;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    color: var(--primary-color);
+    font-size: var(--font-heading);
+    font-weight: var(--font-medium);
+}
+
+.columnTitle h3::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 3rem;
+    height: 3px;
+    border-radius: 99px;
+    background: var(--tertiary-color);
+    content: "";
+}
+
+.diseaseListStyles {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.diseaseListStyles li {
+    min-width: 0;
+}
+
+.diseaseLinkStyles {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid rgba(107, 29, 32, 0.08);
+    border-radius: 0.75rem;
+    text-decoration: none;
+    color: #522125;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+    background: #fff;
+    box-shadow: 0 0.25rem 0.75rem rgba(62, 25, 26, 0.045);
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.diseaseLinkStyles::after {
+    flex: 0 0 auto;
+    color: var(--color-warning);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1;
+    content: "›";
+}
+
+.diseaseLinkStyles:hover {
+    transform: translateY(-2px);
+    border-color: rgba(107, 29, 32, 0.25);
+    color: var(--primary-color);
+    background-color: #fffaf0;
+    box-shadow: 0 0.5rem 1rem rgba(62, 25, 26, 0.08);
+}
+
+.diseaseResultsColumn > p {
+    display: grid;
+    flex: 1;
+    min-height: 8rem;
+    margin: 0;
+    padding: 1.25rem;
+    place-items: center;
+    border: 1px dashed rgba(107, 29, 32, 0.2);
+    border-radius: 1rem;
+    color: #687078;
+    text-align: center;
+    background: rgba(107, 29, 32, 0.025);
+}
+/* end diseases & conditions section style */
+
+.serviceSectionStyles {
+    padding: 2.5rem 0 4rem;
+    background: rgba(107, 29, 31, 0.02);
+}
+
+.serviceHeader {
+    display: flex;
+    align-items: flex-end;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.serviceHeader h1 {
+    margin: 0;
+    color: var(--color-primary-dark);
+    font-size: var(--font-heading);
+    font-weight: var(--font-bold);
+    line-height: 1;
+    letter-spacing: -0.06em;
+}
+
+.serviceHeader p {
+    margin: 0;
+    max-width: 32rem;
+    color: var(--color-primary);
+    font-size: var(--font-body);
+    line-height: 1.5;
+}
+
+.serviceGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.serviceCard {
+    display: flex;
+    gap: 1rem;
+    min-width: 32rem;
+    min-height: 24rem;
+    overflow: hidden;
+    border-radius: 1.5rem;
+}
+
+.serviceImageWrap {
+    position: relative;
+    flex: 0 0 46%;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    border: 1px solid red;
+}
+
+.serviceImageWrap img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.serviceBody {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+    background: rgba(145, 145, 145, 0.08);
+    border-radius: 1.5rem;
+}
+
+.serviceBody h3 {
+    margin: 0;
+    color: #2b2b2b;
+    font-size: clamp(2rem, 2vw, 2.7rem);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.05em;
+}
+
+.serviceBody p {
+    margin: 1rem 0 0;
+    color: #5e5e5e;
+    font-size: 1.1rem;
+    line-height: 1.45;
+}
+
+.serviceFooter {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.serviceAction {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-top: auto;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.serviceArrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, #ee8e5d, #d85a3e);
+}
+
+.serviceIndex {
+    color: rgba(43, 43, 43, 0.2);
+    font-size: 2.25rem;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.08em;
+}
+
+@media (max-width: 991.98px) {
+    .serviceHeader {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .serviceGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .serviceCard {
+        min-height: 22rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .serviceSectionStyles {
+        padding-bottom: 2.75rem;
+    }
+
+    .serviceHeader {
+        margin-bottom: 1.5rem;
+    }
+
+    .serviceHeader p {
+        max-width: 100%;
+    }
+
+    .serviceCard {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .serviceImageWrap {
+        flex-basis: auto;
+        min-height: 15rem;
+        border-radius: 1.5rem 1.5rem 0 0;
+    }
+}
+
+/* new section styles */
+.newSectionStyles {
+    padding: clamp(3rem, 7vw, 5.5rem) 0;
+    background:
+        radial-gradient(ellipse at 90% 0%, rgba(212, 175, 55, 0.1), transparent 32%),
+        linear-gradient(145deg, #f8f4f2 0%, #f1f3f5 100%);
+}
+
+.newTitleStyles {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1.75rem;
+}
+
+.newTitleStyles h1 {
+    position: relative;
+    margin-bottom: 0;
+    padding-bottom: 0.85rem;
+    color: var(--primary-color);
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.newTitleStyles h1::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 3.25rem;
+    height: 3px;
+    border-radius: 99px;
+    background: var(--tertiary-color);
+    content: "";
+}
+
+.exploreMoreButton {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    min-height: 2.9rem;
+    padding: 0.7rem 1.15rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 999px;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    background: var(--primary-color);
+    box-shadow: 0 0.35rem 0.9rem rgba(107, 29, 32, 0.18);
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.exploreMoreButton:hover {
+    transform: translateY(-2px);
+    color: var(--primary-color);
+    background: #fff;
+    box-shadow: 0 0.6rem 1.2rem rgba(107, 29, 32, 0.16);
+}
+
+.exploreMoreButton:focus-visible,
+.eventContentStyles a:focus-visible {
+    outline: 3px solid rgba(107, 29, 32, 0.4);
+    outline-offset: 3px;
+}
+
+.eventsRow {
+    row-gap: 1.5rem;
+}
+
+.eventsRow > div {
+    display: flex;
+}
+
+.eventsRow > div:only-child {
+    flex: 0 0 66.666667%;
+    max-width: min(66.666667%, 56rem);
+    margin-inline: auto;
+}
+
+.eventsRow > div:only-child .eventsCardStyles {
+    aspect-ratio: 16 / 9;
+}
+
+.eventsCardStyles {
+    position: relative;
+    width: 100%;
+    min-height: 19rem;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border: 0;
+    border-radius: 1.15rem;
+    background: #4f171a;
+    box-shadow: 0 0.75rem 1.75rem rgba(62, 25, 26, 0.14);
+    isolation: isolate;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.eventsCardStyles:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1.1rem 2.2rem rgba(62, 25, 26, 0.2);
+}
+
+.eventsCardStyles :global(img) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.eventsCardStyles:hover :global(img) {
+    transform: scale(1.06);
+}
+
+.eventContentStyles {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding: clamp(1rem, 2vw, 1.5rem);
+    color: #fff;
+    background: linear-gradient(
+        180deg,
+        rgba(20, 10, 10, 0) 20%,
+        rgba(20, 10, 10, 0.45) 58%,
+        rgba(20, 10, 10, 0.88) 100%
+    );
+    transition: background-color 0.25s ease;
+}
+
+.eventContentStyles h4 {
+    max-width: 24rem;
+    margin: 0;
+    font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+    font-weight: 700;
+    line-height: 1.25;
+    text-wrap: pretty;
+}
+
+.eventContentStyles :global(.bottom-content) {
+    align-items: center;
+    gap: 1rem;
+}
+
+.eventContentStyles p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+}
+
+.eventContentStyles a {
+    display: grid;
+    flex: 0 0 auto;
+    width: 2.65rem;
+    height: 2.65rem;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    color: var(--primary-color);
+    text-decoration: none;
+    background: #fff;
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.eventContentStyles a:hover {
+    transform: translateX(2px);
+    color: #fff;
+    background: var(--primary-color);
+}
+/* end new section styles */
+
+/* about section styles */
+.aboutSectionStyles {
+    padding: clamp(3rem, 7vw, 5.5rem) 0;
+    background:
+        radial-gradient(ellipse at 100% 0%, rgba(212, 175, 55, 0.12), transparent 34%),
+        linear-gradient(145deg, #f7f3f1 0%, #eef1f4 100%);
+}
+
+.aboutLayout {
+    align-items: stretch;
+    overflow: hidden;
+    border: 1px solid rgba(107, 29, 32, 0.1);
+    border-radius: 1.5rem;
+    background-color: #fff;
+    box-shadow: 0 1.25rem 3rem rgba(62, 25, 26, 0.12);
+}
+
+.aboutCopyColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(1.5rem, 4vw, 3.5rem);
+    color: #fff;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(212, 175, 55, 0.17), transparent 32%),
+        linear-gradient(145deg, #79272b 0%, #4f171a 100%);
+}
+
+.aboutTitleStyles h3 {
+    position: relative;
+    width: fit-content;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.85rem;
+    color: #fff;
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.aboutTitleStyles h3::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 3.25rem;
+    height: 3px;
+    border-radius: 99px;
+    background: var(--tertiary-color);
+    content: "";
+}
+
+.aboutTextStyles p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+    line-height: 1.85;
+}
+
+.aboutCardsColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    padding: clamp(1.25rem, 3vw, 2.5rem);
+    background: linear-gradient(145deg, #fff 0%, #fbf8f6 100%);
+}
+
+.aboutCardsColumn > div {
+    flex: 0 1 auto;
+}
+
+.aboutCard {
+    min-height: 6rem;
+    overflow: hidden;
+    border: 1px solid rgba(107, 29, 32, 0.09);
+    border-radius: 1rem;
+    background: #fff;
+    box-shadow: 0 0.35rem 1rem rgba(62, 25, 26, 0.06);
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.aboutCardsColumn > div:hover .aboutCard {
+    transform: translateY(-3px);
+    border-color: rgba(107, 29, 32, 0.22);
+    box-shadow: 0 0.75rem 1.5rem rgba(62, 25, 26, 0.1);
+}
+
+.aboutCard :global(.card-body) {
+    display: grid;
+    grid-template-columns: 3.25rem minmax(0, 1fr);
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.15rem;
+}
+
+.aboutCard :global(.card-title) {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    color: #512125;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.aboutCard :global(.card-body > div:not(.card-title)) {
+    display: grid;
+    width: 3.25rem;
+    height: 3.25rem;
+    grid-column: 1;
+    grid-row: 1;
+    place-items: center;
+    border-radius: 0.9rem;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    background: #f7eded;
+}
+/* end about section styles */
+
+/* testimonial section styles */
+.testimonialSectionStyles {
+    padding: 3rem 0rem;
+    background: #fff;
+}
+
+.testimonialTitleStyles h1 {
+    color: var(--text-primary);
+    font-weight: bold;
+}
+/* end testimonial section styles */
+
+/* callback section styles */
+.callbackSectionStyles {
+    padding: 3rem 0rem;
+    background: rgba(107, 29, 31, 0.1);
+}
+
+.callbackTitleStyles h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.callbackTitleStyles p {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+/* end callback section styles */
+
+/* mobile view styles */
+@media (max-width: 767.99px) {
+
+    /* diseases & conditions section style */
+    .diseaseRow {
+        border-radius: 1.1rem;
+    }
+
+    .diseaseAlphabetColumn,
+    .diseaseResultsColumn {
+        padding: 1.1rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 0.55rem;
+    }
+
+    .circle {
+        width: min(100%, 2.6rem);
+    }
+
+    .diseaseTitleStyle h3,
+    .columnTitle h3 {
+        margin-bottom: 1.15rem;
+        padding-bottom: 0.8rem;
+    }
+
+    .diseaseListStyles {
+        gap: 0.5rem;
+    }
+
+    .diseaseLinkStyles {
+        padding: 0.75rem 0.85rem;
+    }
+
+    .diseaseResultsColumn > p {
+        min-height: 6rem;
+    }
+    /* end diseases & conditions section style */
+
+    .aboutLayout {
+        border-radius: 1.1rem;
+    }
+
+    .aboutCopyColumn {
+        padding: 1.5rem;
+    }
+
+    .aboutTitleStyles h3 {
+        margin-bottom: 1.15rem;
+    }
+
+    .aboutTextStyles p {
+        line-height: 1.7;
+    }
+
+    .aboutCardsColumn {
+        gap: 0.75rem;
+        padding: 1rem;
+    }
+
+    .aboutCard {
+        min-height: 5.5rem;
+    }
+
+    .newTitleStyles {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1.1rem;
+        margin-bottom: 1.35rem;
+    }
+
+    .eventsRow {
+        row-gap: 1rem;
+    }
+
+    .eventsRow > div:only-child {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .eventsCardStyles {
+        min-height: 16rem;
+    }
+
+    .eventsRow > div:only-child .eventsCardStyles {
+        aspect-ratio: 4 / 3;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .exploreMoreButton,
+    .eventsCardStyles,
+    .eventsCardStyles :global(img),
+    .eventContentStyles,
+    .eventContentStyles a {
+        transition: none;
+    }
+}

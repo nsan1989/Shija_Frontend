@@ -1,0 +1,43 @@
+import { Breadcrumb } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+import styles from "./breadcrumb.module.css";
+
+const BreadcrumbComponent = ({ items }) => {
+    return (
+        <Breadcrumb className={styles.breadcrumb}>
+            {items.map((item, index) => {
+                const isLast = index === items.length - 1;
+                return (
+                    <Breadcrumb.Item
+                        key={index}
+                        active={isLast}
+                        linkAs={!isLast ? Link : "span"}
+                        linkProps={!isLast ? { to: item.href } : {}}
+                        className={styles.breadcrumbItemStyle}
+                    >
+                        <span 
+                            className="d-flex align-items-center text-light"
+                        >
+                            {item.icon && item.icon}
+                            {item.label}
+                        </span>
+                    </Breadcrumb.Item>
+                );
+            })}
+        </Breadcrumb>
+    )
+}
+
+BreadcrumbComponent.propTypes = {
+    items: PropTypes.arrayOf(
+        PropTypes.shape({
+            label: PropTypes.string.isRequired,
+            href: PropTypes.string,
+            icon: PropTypes.element,
+        })
+    ).isRequired,
+}
+
+export default BreadcrumbComponent

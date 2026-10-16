@@ -1,24 +1,24 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import HeaderComponent from './components/header_component/HeaderComponent';
-import FooterComponent from './components/footer_component/FooterComponent';
-import MobileMenuComponent from './components/mobile_menu_component/MobileMenuComponent';
-import ScrollToTop from './components/scroll_component/scroll_to_top';
+import HeaderComponent from './components/header-component/HeaderComponent';
+import FooterComponent from './components/footer-component/FooterComponent';
+import MobileMenuComponent from './components/mobile-menu-component/MobileMenuComponent';
+import ScrollToTop from './components/scroll-component/ScrollToTop';
 import ChatWidget from './components/chatbot/chat_widget';
 
-import Home from './pages/home_page/home';
-import Overview from './pages/overview_page/overview';
-import DoctorPage from './pages/doctor_page/doctor';
-import Profile from './pages/profile_page/profile';
-import MediaPage from './pages/media_page/media';
-import DirectorsPage from './pages/directors_page/directors';
-import DiseasesAndConditionsPage from './pages/DiseasesAndConditions_page/diseases_conditions_page';
-import DiseasesDetailsPage from './pages/diseases_details_page/diseases_details';
-import CentresOfExcellencePage from './pages/centresofexcellence_page/centres_of_excellence';
-import SpecialitiesPage from './pages/specialities_page/specialities';
-import DisclaimerPage from './pages/disclaimer_page/disclaimer';
-import PrivacyAndPolicy from './pages/privacy&policy_page/privacy&policy';
-import RefundAndCancellation from './pages/refund&cancellation_page/refund&cancellation';
+import Home from './pages/home-page/home';
+import Overview from './pages/overview-page/overview';
+import DoctorPage from './pages/doctor-page/doctor';
+import Profile from './pages/profile-page/profile';
+import MediaPage from './pages/media-page/media';
+import DirectorsPage from './pages/directors-page/directors';
+import DiseasesAndConditionsPage from './pages/diseasesandconditions-page/diseases_conditions_page';
+import DiseasesDetailsPage from './pages/diseases-details-page/diseases_details';
+import CentresOfExcellencePage from './pages/centresofexcellence-page/centres_of_excellence';
+import SpecialitiesPage from './pages/specialities-page/specialities';
+import DisclaimerPage from './pages/disclaimer-page/disclaimer';
+import PrivacyAndPolicy from './pages/privacy&policy-page/privacy&policy';
+import RefundAndCancellation from './pages/refund&cancellation-page/refund&cancellation';
 
 import './App.css';
 

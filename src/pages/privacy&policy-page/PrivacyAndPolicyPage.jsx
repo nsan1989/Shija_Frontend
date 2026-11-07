@@ -10,7 +10,7 @@ const breadcrumbItems = [
   { label: "Privacy&Policy" },
 ];
 
-export default function PrivacyAndPolicy() {
+export default function PrivacyAndPolicyPage() {
   TitleComponent("Privacy&Policy");
 
   return (

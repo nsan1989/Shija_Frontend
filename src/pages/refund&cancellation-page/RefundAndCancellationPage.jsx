@@ -10,7 +10,7 @@ const breadcrumbItems = [
   { label: "Refund and Cancellations" },
 ];
 
-export default function RefundAndCancellation() {
+export default function RefundAndCancellationPage() {
   return (
     <Container className={`refund-wrapper ${styles["refundWrapperStyle"]}`}>
       <div className="breadcrumb-content py-3">

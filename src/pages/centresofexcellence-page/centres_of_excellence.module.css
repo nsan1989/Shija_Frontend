@@ -9,26 +9,152 @@
     padding: 1.5rem 0rem;
 }
 
-.headerWrapperStyle h3 {
-    font-weight: bold;
-    color: var(--primary-color);
-    text-transform: uppercase;
-}
-
-.headerWrapperStyle p {
-    text-align: justify;
-    font-size: 1rem;
-    line-height: 1.5rem;
-}
-
 .contentHeadingStyle h5 {
     font-weight: bold;
     color: var(--primary-color);
     text-transform: uppercase;
 }
 
+.coeGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    grid-auto-rows: 1fr;
+    gap: 1.5rem;
+}
+
+.coeGrid > a {
+    display: block;
+    height: 100%;
+}
+
+.coeCard {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid rgba(107, 29, 32, 0.12);
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1.5rem rgba(62, 25, 26, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.coeCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0.85rem 1.75rem rgba(62, 25, 26, 0.14);
+}
+
+.coeCard :global(.card-img-top) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.coeCard :global(.card-image-frame) {
+    position: relative;
+    flex: 0 0 13rem;
+    width: 100%;
+    height: 13rem;
+    overflow: hidden;
+    background: #e8edf0;
+}
+
+.coeCard :global(.card-image-skeleton) {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background: linear-gradient(110deg, #e8edf0 8%, #f5f7f8 18%, #e8edf0 33%);
+    background-size: 200% 100%;
+    animation: coe-image-shimmer 1.5s linear infinite;
+}
+
+@keyframes coe-image-shimmer {
+    to {
+        background-position-x: -200%;
+    }
+}
+
+.coeCard :global(.card-body) {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+
+.coeCard :global(.card-title) {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.coeCard :global(.card-text) {
+    display: -webkit-box;
+    overflow: hidden;
+    color: #555;
+    line-height: 1.55;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+}
+
+.coeGrid a {
+    color: inherit;
+    text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .coeCard :global(.card-image-skeleton) {
+        animation: none;
+    }
+}
+
+.coeDetailsPage {
+    min-height: 60vh;
+    padding: var(--padding);
+}
+
+.coeBreadcrumb {
+    margin-bottom: 1.5rem;
+}
+
+.coeDetailsCard {
+    overflow: hidden;
+    border: 1px solid rgba(107, 29, 32, 0.12);
+    border-radius: 1rem;
+    background: #fff;
+    box-shadow: 0 0.75rem 2rem rgba(62, 25, 26, 0.08);
+}
+
+.coeDetailsImage {
+    display: block;
+    width: 100%;
+    max-height: 28rem;
+    object-fit: cover;
+}
+
+.coeDetailsContent {
+    padding: clamp(1.25rem, 4vw, 3rem);
+}
+
+.coeDetailsContent h1 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.coeDetailsContent p {
+    color: #4f4f4f;
+    line-height: 1.75;
+    white-space: pre-line;
+}
+
+.coeDetailsContent a {
+    display: inline-block;
+    margin-top: 0.75rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
 @media (max-width: 991.98px) {
     .centresOfExcellenceWrapperStyle {
         padding: 4rem 16px;
+    }
+
+    .coeDetailsPage {
+        padding: 4rem 0 2rem;
     }
 }

@@ -20,7 +20,7 @@ export default function MediaPage() {
     TitleComponent('Media Centre')
 
     const tabs = [
-        { label: "Shija News", content: <NewsViewFunction /> },
+        { label: "Shija News", content: <NewsViewComponent /> },
         { label: "Events", content: <EventsViewComponent /> },
         { label: "Camps", content: <CampsViewComponent /> },
         { label: "Media Gallery", content: <div>Gallery Data</div> }
@@ -51,7 +51,7 @@ export default function MediaPage() {
                         </div>
                     </Col>
                     <Col xs={12} sm={12} md={8} lg={8} xl={8}>
-                        <div class="tab-content" id="v-pills-tabContent">
+                        <div className="tab-content" id="v-pills-tabContent">
                             <div className="tab-pane fade show active">
                                 {tabs[activeTab].content}
                             </div>

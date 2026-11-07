@@ -17,6 +17,8 @@ import useEventsViewData from "../../api/events_view_api";
 import ButtonComponent from "../../components/button-component/ButtonComponent";
 import CardComponent from "../../components/card-component/CardComponent";
 import { getServiceData, getServiceUrl } from "../../services/apiService";
+import SectionHeaderComponent from "../../components/section-header-component/SectionHeaderComponent";
+import { color } from "three/tsl";
 
 const alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
@@ -27,7 +29,7 @@ const aboutCards = [
   { title: "Empanelled Orgs", icon: <FaBuildingShield aria-hidden="true" /> },
 ];
 
-export default function Home() {
+export default function HomePage() {
   TitleComponent("Home");
   const [serviceData, setServiceData] = useState([]);
   const [error, setError] = useState(null);
@@ -79,11 +81,9 @@ export default function Home() {
       <SideNavComponent />
       {/* banner section */}
       <section className="banner-section">
-        {/*
         <div className={styles.searchComponentStyle}>
           <SearchComponent placeholder="Search for Doctors and Specialities..." />
         </div>
-        */}
         <FloatNavComponent />
         <BannerComponent />
       </section>
@@ -94,14 +94,10 @@ export default function Home() {
       >
         <Container>
           <div className={`section-title ${styles["discoverTitleStyle"]}`}>
-            <h1>Discover Our Centres of Clinical Excellence</h1>
-            <p>
-              Experience world-class healthcare at Apollo's specialized hubs of
-              medical innovation. Our state-of-the-art centres deliver
-              unparalleled expertise in key specialties and super specialties.
-              Each centre stands as a beacon of cutting-edge care, setting new
-              benchmarks in clinical outcomes globally.
-            </p>
+            <SectionHeaderComponent 
+              title="Discover Our Centres of Clinical Excellence" 
+              subtitle={"Experience world-class healthcare at Apollo's specialized hubs of medical innovation. Our state-of-the-art centres deliver unparalleled expertise in key specialties and super specialties. Each centre stands as a beacon of cutting-edge care, setting new benchmarks in clinical outcomes globally."}
+            />
           </div>
           <div className="mb-5">
             <DiscoverComponent />
@@ -144,7 +140,12 @@ export default function Home() {
               <div
                 className={`section-title mb-3 ${styles["diseaseTitleStyle"]}`}
               >
-                <h3>Find Diseases & Conditions By Alphabet</h3>
+                <SectionHeaderComponent 
+                  title="Find Diseases & Conditions By Alphabet" 
+                  titleStyle={{
+                    color: "#fff"
+                  }}
+                />
                 <div className={`alphabet-warpper rounded-4 ${styles["grid"]}`}>
                   {alphabets.map((letter) => (
                     <button
@@ -207,13 +208,14 @@ export default function Home() {
       <section className={`services-section ${styles.serviceSectionStyles}`}>
         <Container>
           <div className={styles.serviceHeader}>
-            <h1>Our Services</h1>
-            <p>
-              Explore essential healthcare services designed to support your
-              care journey at every stage.
-            </p>
+            <SectionHeaderComponent 
+              title="Our Services" 
+              subtitle="Explore essential healthcare services designed to support your care journey at every stage."
+              style={{
+                display: "block",
+              }}
+            />
           </div>
-
           <div className={styles.serviceGrid}>
             {visibleServices.map((item, index) => (
               <article key={item.id || item.title || index} className={styles.serviceCard}>
@@ -253,7 +255,7 @@ export default function Home() {
       <section className={`new-section ${styles["newSectionStyles"]}`}>
         <Container>
           <div className={`section-title ${styles["newTitleStyles"]}`}>
-            <h1>What's New At Shija</h1>
+            <SectionHeaderComponent title="What's New At Shija" />
             <a className={styles.exploreMoreButton} href="/media-page">
               Explore More <FaArrowRightLong />
             </a>
@@ -301,7 +303,7 @@ export default function Home() {
           <Row className={styles.aboutLayout}>
             <Col xs={12} lg={7} className={styles.aboutCopyColumn}>
               <div className={`about-title ${styles.aboutTitleStyles}`}>
-                <h3>about us</h3>
+                <SectionHeaderComponent title="About Us" />
               </div>
               <div className={`about-text ${styles.aboutTextStyles}`}>
                 <p>
@@ -344,7 +346,7 @@ export default function Home() {
       >
         <Container>
           <div className={`section-title ${styles["testimonialTitleStyles"]}`}>
-            <h1>Patient Stories</h1>
+            <SectionHeaderComponent title="Patient Stories" />
           </div>
           <div className="section-content">
             <TestimonialComponent />
@@ -358,13 +360,13 @@ export default function Home() {
       >
         <Container>
           <div className={`section-title ${styles["callbackTitleStyles"]}`}>
-            <h3>Frequently Asked Questions - Shija Hospitals</h3>
-            <p>
-              Explore detailed answers to commonly asked questions about
+            <SectionHeaderComponent 
+              title="Frequently Asked Questions - Shija Hospitals" 
+              subtitle="Explore detailed answers to commonly asked questions about
               healthcare services, specialist consultations, treatment
               processes, and patient care at Apollo Hospitals, one of India’s
-              leading multispeciality hospital networks.
-            </p>
+              leading multispeciality hospital networks."
+            />
           </div>
           <div className="section-content mb-5">
             <FaqComponent />

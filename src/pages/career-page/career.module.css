@@ -1,0 +1,12 @@
+@import "../../styles/variable.css";
+
+.careerWrapperStyle {
+    padding: var(--padding);
+}
+
+
+@media (max-width: 768px) {
+    .careerWrapperStyle {
+        margin-top: 3.5rem;
+    }
+}

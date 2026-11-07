@@ -12,7 +12,7 @@ const breadcrumbItems = [
     { label: 'Profile' }
 ];
 
-export default function Profile() {
+export default function ProfilePage() {
 
     TitleComponent('Profile')
 

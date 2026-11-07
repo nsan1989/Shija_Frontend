@@ -13,7 +13,7 @@
 }
 
 .overviewWrapperStyles {
-    padding: 7rem 12rem;
+    padding: clamp(4.5rem, 9vw, 7rem) 0 4rem;
 }
 
 

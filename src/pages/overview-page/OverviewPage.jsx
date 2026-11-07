@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import TitleComponent from "../../components/title-component/TitleComponent";
 import BreadcrumbComponent from "../../components/breadcrumb-component/BreadcrumbComponent";
+import AwardsComponent from "../../components/awards-component/AwardsComponent";
 import { FaHome } from "react-icons/fa";
 import { Container } from "react-bootstrap";
 import styles from "./overview.module.css";
@@ -11,12 +12,10 @@ const breadcrumbItems = [
   { label: "The Shija Story", href: "/the_shija_story" },
 ];
 
-export default function Overview() {
+export default function OverviewPage() {
   TitleComponent("The Shija Story");
 
   const location = useLocation();
-  const params = new URLSearchParams(location.search);
-  const section = params.get("section");
 
   const OverviewSection = () => (
     <div id="overview">
@@ -42,7 +41,7 @@ export default function Overview() {
 
   const Anthem = () => (
     <div id="anthem">
-      <div  className={styles.titleStyle}>
+      <div className={styles.titleStyle}>
         <h3>anthem</h3>
       </div>
       <div className={styles.contentStyle}>
@@ -51,20 +50,9 @@ export default function Overview() {
     </div>
   );
 
-  const Awards = () => (
-    <div id="awards">
-      <div  className={styles.titleStyle}>
-        <h3>awards</h3>
-      </div>
-      <div className={styles.contentStyle}>
-        <p>This is the awards content.</p>
-      </div>
-    </div>
-  );
-
   const Achievements = () => (
     <div id="achievements">
-      <div  className={styles.titleStyle}>
+      <div className={styles.titleStyle}>
         <h3>achievements</h3>
       </div>
       <div className={styles.contentStyle}>
@@ -74,13 +62,13 @@ export default function Overview() {
   );
 
   useEffect(() => {
-  if (location.hash) {
-    const el = document.getElementById(location.hash.replace("#", ""));
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+    if (location.hash) {
+      const el = document.getElementById(location.hash.replace("#", ""));
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
     }
-  }
-}, [location]);
+  }, [location]);
 
   return (
     <div className={`overview-wrapper ${styles[`overviewWrapperStyles`]}`}>
@@ -95,7 +83,9 @@ export default function Overview() {
           <OverviewSection />
           <VisionMission />
           <Anthem />
-          <Awards />
+          <div id="awards">
+            <AwardsComponent preview />
+          </div>
           <Achievements />
         </div>
       </Container>

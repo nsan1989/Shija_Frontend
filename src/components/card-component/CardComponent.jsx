@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
 import ButtonComponent from "../button-component/ButtonComponent";
 import { Link } from "react-router-dom";
@@ -12,10 +13,32 @@ export default function CardComponent({
   style,
   buttonLabel,
   className,
+  showImagePlaceholder = false,
 }) {
+  const [imageFailed, setImageFailed] = useState(false);
+
+  useEffect(() => {
+    setImageFailed(false);
+  }, [image]);
+
   const card = (
     <Card className={className} style={style}>
-      {image && <Card.Img variant={variant} src={image} alt="" />}
+      {showImagePlaceholder ? (
+        <div className="card-image-frame">
+          {image && !imageFailed ? (
+            <Card.Img
+              variant={variant}
+              src={image}
+              alt=""
+              onError={() => setImageFailed(true)}
+            />
+          ) : (
+            <div className="card-image-skeleton" aria-label="Image unavailable" />
+          )}
+        </div>
+      ) : (
+        image && <Card.Img variant={variant} src={image} alt="" />
+      )}
       {(title || text || icon || buttonLabel) && (
         <Card.Body>
           {title && <Card.Title>{title}</Card.Title>}

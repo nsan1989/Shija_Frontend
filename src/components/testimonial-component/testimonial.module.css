@@ -36,3 +36,15 @@
     color: #fff;
     padding: 1rem;
 }
+
+.testimonialStatus,
+.testimonialError {
+    flex: 0 0 100%;
+    margin: 0;
+    color: #fff;
+    white-space: normal;
+}
+
+.testimonialError {
+    color: #ffe3a3;
+}

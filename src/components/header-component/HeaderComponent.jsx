@@ -3,7 +3,7 @@ import { Container, Navbar, Nav, Image } from "react-bootstrap";
 import { MegaMenu } from "../../constants/megaMenu";
 import styles from "./header.module.css";
 import { FaArrowLeft } from "react-icons/fa";
-import logo from "../../assets/icons/logo.png";
+import new_icon from "../../assets/icons/new_icon.png"
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -60,9 +60,9 @@ export default function HeaderComponent() {
                 {item.type === "logo" ? (
                   <Link to="/" className={`d-none d-md-flex ${styles["logoWrapper"]}`}>
                     <Image
-                      src={logo}
+                      src={new_icon}
                       alt="Shija Logo"
-                      width={80}
+                      width={56}
                       className={styles.logoImage}
                     />
                   </Link>
@@ -170,6 +170,33 @@ export default function HeaderComponent() {
                               {secondItem.name}
                           </Nav.Link>
                         ))}
+                      </div>
+                    )}
+                    {(!isMobile || activeFirstIndex === null) && (
+                      <div className={styles.quickLinksColumn}>
+                        <h3>Quick Links</h3>
+                        <a href="tel:18605001066">24/7 Helpline</a>
+                        <a
+                          href="https://opdschedule.shijahospitals.com/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          OPD Schedule
+                        </a>
+                        <a
+                          href="http://mobihistree.shijahospitals.com:8001/PatientPortal/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Book an Appointment
+                        </a>
+                        <a
+                          href="http://mobihistree.shijahospitals.com:9999/shijareport/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Lab Reports
+                        </a>
                       </div>
                     )}
                   </div>

@@ -187,6 +187,7 @@ export default function HomePage() {
                   <div className="all-diseases-link mt-3">
                     <Link
                       to="/diseases-and-conditions"
+                      onClick={() => window.scrollTo(0, 0)}
                       style={{
                         textDecoration: "none",
                         color: "#ffc107",

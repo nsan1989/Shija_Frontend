@@ -1,3 +1,6 @@
+const coePath = (identifier) =>
+    `/centres_of_excellence/${encodeURIComponent(identifier)}`;
+
 export const MegaMenu = [
     {
         name: "Discover Shija",
@@ -58,14 +61,23 @@ export const MegaMenu = [
                 name: "Centres of Excellence and Specialities",
                 icon: "",
                 secondSubMenu: [
-                    { name: "Anaesthesiology and Critical Care", path: "" },
-                    { name: "ENT", path: "" },
-                    { name: "General and Laparoscopic Surgery", path: "" },
-                    { name: "Kidney Sciences", path: "" },
-                    { name: "NeuroSciences", path: "" },
-                    { name: "Nursing Care", path: "" },
-                    { name: "Orthopaedics", path: "" },
-                    { name: "Plastic and Reconstructive Surgery", path: "" },
+                    {
+                        name: "Anaesthesiology and Critical Care",
+                        path: coePath("Anaesthesiology and Critical Care"),
+                    },
+                    { name: "ENT", path: coePath("ENT") },
+                    {
+                        name: "General and Laparoscopic Surgery",
+                        path: coePath("General and Laparoscopic Surgery"),
+                    },
+                    { name: "Kidney Sciences", path: coePath("Kidney Sciences") },
+                    { name: "NeuroSciences", path: coePath("NeuroSciences") },
+                    { name: "Nursing Care", path: coePath("Nursing Care") },
+                    { name: "Orthopaedics", path: coePath("Orthopaedics") },
+                    {
+                        name: "Plastic and Reconstructive Surgery",
+                        path: coePath("Plastic and Reconstructive Surgery"),
+                    },
                     { name: "View All", path: "/centres_of_excellence" },
                 ],
             },

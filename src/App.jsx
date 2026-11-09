@@ -22,6 +22,8 @@ import DisclaimerPage from './pages/disclaimer-page/DisclaimerPage';
 import PrivacyAndPolicyPage from './pages/privacy&policy-page/PrivacyAndPolicyPage';
 import RefundAndCancellationPage from './pages/refund&cancellation-page/RefundAndCancellationPage';
 import CareerPage from './pages/career-page/CareerPage';
+import CareerListPage from './pages/career-page/CareerListPage';
+import ApplicationPage from './pages/career-page/ApplicationPage';
 
 import './App.css';
 
@@ -53,6 +55,8 @@ function App() {
           <Route path="/privacy&policy" element={<PrivacyAndPolicyPage />} />
           <Route path="/refund_and_cancellations" element={<RefundAndCancellationPage />} />
           <Route path="/careers" element={<CareerPage />} />
+          <Route path="/careers/openings" element={<CareerListPage />} />
+          <Route path="/careers/openings/application" element={<ApplicationPage />} />
         </Routes>
       </main>
       <MobileMenuComponent />

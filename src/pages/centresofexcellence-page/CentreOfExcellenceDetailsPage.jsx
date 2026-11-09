@@ -7,6 +7,7 @@ import TitleComponent from "../../components/title-component/TitleComponent";
 import { getCoeData, getCoeUrl } from "../../services/apiService";
 import { htmlToText } from "../../utils/htmlToText";
 import styles from "./centres_of_excellence.module.css";
+import CentreModelViewer from "./CentreModelViewer";
 
 const breadcrumbItems = [
   { href: "/", icon: <FaHome /> },
@@ -92,18 +93,12 @@ export default function CentreOfExcellenceDetailsPage() {
           </div>
         ) : (
           <article className={styles.coeDetailsCard}>
-            {centre.image && (
-              <img
-                className={styles.coeDetailsImage}
-                src={centre.image}
-                alt={title}
-              />
-            )}
             <div className={styles.coeDetailsContent}>
               <h1>{title}</h1>
               {description && <p>{htmlToText(String(description))}</p>}
               <Link to="/centres_of_excellence">Back to all Centres</Link>
             </div>
+            <CentreModelViewer title={title} image={centre.image} />
           </article>
         )}
       </Container>

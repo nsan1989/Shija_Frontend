@@ -190,6 +190,26 @@ export default function ChatWindow({ onClose }) {
     await sendToBot(text);
   };
 
+  const sendLinkResponse = (request, response, link) => {
+    setMessages((prev) => [
+      ...prev,
+      { sender: "user", text: request },
+      {
+        sender: "bot",
+        text: response,
+        link,
+      },
+    ]);
+  };
+
+  const sendOpdSchedule = () => {
+    sendLinkResponse(
+      "OPD Schedule",
+      "You can view the OPD schedule here:",
+      "https://opdschedule.shijahospitals.com/"
+    );
+  };
+
   const handleClick = (type, value) => {
 
     if (quickSelected) return;
@@ -223,7 +243,12 @@ export default function ChatWindow({ onClose }) {
       <div className="chat-body">
         {messages.map((msg, index) => (
           <div key={index}>
-            <ChatBubble sender={msg.sender} text={msg.text} image={msg.image} />
+            <ChatBubble
+              sender={msg.sender}
+              text={msg.text}
+              image={msg.image}
+              link={msg.link}
+            />
 
             {msg.type === "department_selection" && (
               <div className="structured-options">
@@ -278,16 +303,35 @@ export default function ChatWindow({ onClose }) {
               <div className="quick-buttons">
                 <button 
                   disabled={quickSelected}
-                  onClick={() => sendQuick("OPD Schedule")}
+                  onClick={sendOpdSchedule}
                 >
                   OPD Schedule
                 </button>
 
                 <button 
                   disabled={quickSelected}
-                  onClick={() => sendStructuredAction("start_booking")}
+                  onClick={() =>
+                    sendLinkResponse(
+                      "I want to book appointment",
+                      "You can book an appointment here:",
+                      "http://mobihistree.shijahospitals.com:8001/PatientPortal/"
+                    )
+                  }
                 >
                   I want to book appointment
+                </button>
+
+                <button
+                  disabled={quickSelected}
+                  onClick={() =>
+                    sendLinkResponse(
+                      "Lab Report",
+                      "You can view your lab report here:",
+                      "http://mobihistree.shijahospitals.com:9999/shijareport/"
+                    )
+                  }
+                >
+                  Lab Report
                 </button>
 
                 <button 

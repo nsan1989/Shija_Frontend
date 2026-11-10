@@ -1,7 +1,7 @@
 @import "../../styles/variable.css";
 
 
-.diseasesConditionsWrapperStyle {
+.pageWrapperStyle {
     padding: var(--padding);
 }
 
@@ -59,7 +59,7 @@
 }
 
 @media (max-width: 768px) {
-    .diseasesConditionsWrapperStyle {
+    .pageWrapperStyle {
         padding: 2rem 8px;
     }
 

@@ -80,7 +80,7 @@ export default function CentreOfExcellenceDetailsPage() {
 
   return (
     <div className={styles.coeDetailsPage}>
-      <Container>
+      <Container className={styles.pageWrapperStyle}>
         <div className={styles.coeBreadcrumb}>
           <BreadcrumbComponent items={breadcrumbItems} />
         </div>

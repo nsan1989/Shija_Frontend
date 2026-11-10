@@ -58,7 +58,7 @@ export default function CentresOfExcellencePage() {
 
   return (
     <Container
-      className={`centres-of-excellence-wrapper ${styles["centresOfExcellenceWrapperStyle"]}`}
+      className={styles.pageWrapperStyle}
     >
       <div className="centres-of-excellence-header">
         <div className="mb-3">

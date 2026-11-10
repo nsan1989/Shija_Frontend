@@ -1,5 +1,9 @@
 @import "../../index.css";
 
+.pageWrapperStyle {
+    padding: clamp(4.5rem, 9vw, 7rem) 0 4rem;
+}
+
 .titleStyle h3 {
     color: var(--color-primary-dark);
     font-size: var(--font-heading);
@@ -12,13 +16,9 @@
     font-weight: var(--font-light);
 }
 
-.overviewWrapperStyles {
-    padding: clamp(4.5rem, 9vw, 7rem) 0 4rem;
-}
-
 
 @media (max-width: 768px) {
-    .overviewWrapperStyles {
+    .pageWrapperStyle {
         margin-top: 3.5rem;
     }
 }

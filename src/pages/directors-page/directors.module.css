@@ -1,13 +1,13 @@
 @import "../../styles/variable.css";
 
 
-.directorWrapperStyles {
+.pageWrapperStyle {
     padding: var(--padding);
 }
 
 
 @media (max-width: 768px) {
-    .directorWrapperStyles {
+    .pageWrapperStyle {
         margin-top: 3.5rem;
     }
 }

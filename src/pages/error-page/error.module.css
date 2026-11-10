@@ -1,0 +1,18 @@
+@import "../../index.css";
+
+.pageWrapperStyle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pageWrapperStyle h1 {
+    color: var(--color-primary-dark);
+    font-weight: var(--font-bold);
+    margin-bottom: 0;
+}
+
+.pageWrapperStyle p {
+    color: var(--color-primary);
+}

@@ -71,24 +71,22 @@ export default function OverviewPage() {
   }, [location]);
 
   return (
-    <div className={`overview-wrapper ${styles[`overviewWrapperStyles`]}`}>
-      <Container>
-        <div className="overview-header">
-          <div className="mb-3">
-            {/* breadcrumb section */}
-            <BreadcrumbComponent items={breadcrumbItems} />
-          </div>
+    <Container className={styles.pageWrapperStyle}>
+      <div className="overview-header">
+        <div className="mb-3">
+          {/* breadcrumb section */}
+          <BreadcrumbComponent items={breadcrumbItems} />
         </div>
-        <div className="overview-content">
-          <OverviewSection />
-          <VisionMission />
-          <Anthem />
-          <div id="awards">
-            <AwardsComponent preview />
-          </div>
-          <Achievements />
+      </div>
+      <div className="overview-content">
+        <OverviewSection />
+        <VisionMission />
+        <Anthem />
+        <div id="awards">
+          <AwardsComponent preview />
         </div>
-      </Container>
-    </div>
+        <Achievements />
+      </div>
+    </Container>
   );
 }

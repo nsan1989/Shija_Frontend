@@ -15,13 +15,11 @@ export default function AwardsPage() {
   TitleComponent("Awards & Accolades");
 
   return (
-    <div className={styles.awardsPage}>
-      <Container>
-        <div className={styles.breadcrumb}>
-          <BreadcrumbComponent items={breadcrumbItems} />
-        </div>
-        <AwardsComponent />
-      </Container>
-    </div>
+    <Container className={styles.pageWrapperStyle}>
+      <div className={styles.breadcrumb}>
+        <BreadcrumbComponent items={breadcrumbItems} />
+      </div>
+      <AwardsComponent />
+    </Container>
   );
 }

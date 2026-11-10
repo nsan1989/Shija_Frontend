@@ -1,6 +1,6 @@
 @import "../../styles/variable.css";
 
 
-.privacyWrapperStyle {
+.pageWrapperStyle {
     padding: var(--padding);
 }

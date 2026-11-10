@@ -1,9 +1,7 @@
-.awardsPage {
-    min-height: 60vh;
-    padding: 7rem 0 4rem;
-    background:
-        radial-gradient(ellipse at 90% 0%, rgba(212, 175, 55, 0.1), transparent 32%),
-        linear-gradient(145deg, #f8f4f2 0%, #f1f3f5 100%);
+@import "../../index.css";
+
+.pageWrapperStyle {
+    padding: var(--padding);
 }
 
 .breadcrumb {

@@ -1,0 +1,38 @@
+.error-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.error-container h1 {
+  font-size: 28px;
+  color: #333;
+}
+
+.error-container p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.error-container button {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+.error-container button:hover {
+  background: #1d4ed8;
+}
+
+.error-container pre {
+  color: #dc2626;
+  margin-top: 20px;
+}

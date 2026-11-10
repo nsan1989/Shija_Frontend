@@ -136,12 +136,12 @@ export const MegaMenu = [
             {
                 name: "Treatments",
                 icon: "",
-                path: "",
+                path: "/treatment",
             },
             {
                 name: "Technologies",
                 icon: "",
-                path: "",
+                path: "/technology",
             },
             {
                 name: "Ailments",

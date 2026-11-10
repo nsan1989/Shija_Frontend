@@ -1,7 +1,7 @@
 @import "../../styles/variable.css";
 
 
-.centresOfExcellenceWrapperStyle {
+.pageWrapperStyle {
     padding: var(--padding);
 }
 
@@ -103,11 +103,6 @@
     }
 }
 
-.coeDetailsPage {
-    min-height: 60vh;
-    padding: var(--padding);
-}
-
 .coeBreadcrumb {
     margin-bottom: 1.5rem;
 }
@@ -192,12 +187,8 @@
 }
 
 @media (max-width: 991.98px) {
-    .centresOfExcellenceWrapperStyle {
+    .pageWrapperStyle {
         padding: 4rem 16px;
-    }
-
-    .coeDetailsPage {
-        padding: 4rem 0 2rem;
     }
 
     .coeDetailsCard {

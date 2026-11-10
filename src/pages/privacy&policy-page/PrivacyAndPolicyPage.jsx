@@ -14,7 +14,7 @@ export default function PrivacyAndPolicyPage() {
   TitleComponent("Privacy&Policy");
 
   return (
-    <Container className={`privacy-wrapper ${styles["privacyWrapperStyle"]}`}>
+    <Container className={styles.pageWrapperStyle}>
       <div className="breadcrumb-content py-3">
         <BreadcrumbComponent items={breadcrumbItems} />
       </div>

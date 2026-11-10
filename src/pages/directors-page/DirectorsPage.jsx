@@ -15,15 +15,13 @@ export default function DirectorsPage() {
   TitleComponent("Directors");
 
   return (
-    <div className={`director-wrapper ${styles["directorWrapperStyles"]}`}>
-      <Container>
-        <div className="director-header">
-          <div className="mb-3">
-            {/* breadcrumb section */}
-            <BreadcrumbComponent items={breadcrumbItems} />
-          </div>
+    <Container className={styles.pageWrapperStyle}>
+      <div className="director-header">
+        <div className="mb-3">
+          {/* breadcrumb section */}
+          <BreadcrumbComponent items={breadcrumbItems} />
         </div>
-      </Container>
-    </div>
+      </div>
+    </Container>
   );
 }

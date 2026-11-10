@@ -12,7 +12,7 @@ const breadcrumbItems = [
 
 export default function RefundAndCancellationPage() {
   return (
-    <Container className={`refund-wrapper ${styles["refundWrapperStyle"]}`}>
+    <Container className={styles.pageWrapperStyle}>
       <div className="breadcrumb-content py-3">
         <BreadcrumbComponent items={breadcrumbItems} />
       </div>

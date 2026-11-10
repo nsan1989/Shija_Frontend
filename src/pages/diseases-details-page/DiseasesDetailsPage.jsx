@@ -45,7 +45,7 @@ export default function DiseasesDetailsPage() {
 
   return (
     <Container
-      className={`diseases-details-wrapper h-100 ${styles.diseasesWrapperStyles}`}
+      className={styles.pageWrapperStyle}
     >
       <div className="breadcrumb-content py-3">
         <BreadcrumbComponent items={breadcrumbItems} />

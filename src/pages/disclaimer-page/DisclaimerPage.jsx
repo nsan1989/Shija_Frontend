@@ -15,7 +15,7 @@ export default function DisclaimerPage() {
 
   return (
     <Container
-      className={`disclaimer-wrapper ${styles["disclaimerWrapperStyle"]}`}
+      className={styles.pageWrapperStyle}
     >
       <div className="breadcrumb-content py-3">
         <BreadcrumbComponent items={breadcrumbItems} />
